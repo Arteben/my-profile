@@ -1,11 +1,10 @@
 <template>
-  <v-app>
+  <v-app dark>
     <v-toolbar app>
       Это мой профайл!
     </v-toolbar>
-
     <v-content>
-      <router-view/>
+      <router-view />
     </v-content>
   </v-app>
 </template>
