@@ -10,10 +10,11 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'no-debugger': 'off',
-
     'no-trailing-spaces': 'error',
-    'quotes': ['error', 'single'],
-
+    quotes: [
+      'error',
+      'single'
+    ],
     'vue/array-bracket-spacing': 'error',
     'vue/arrow-spacing': 'error',
     'vue/block-spacing': 'error',
@@ -21,7 +22,6 @@ module.exports = {
     'vue/comma-dangle': 'error',
     'vue/key-spacing': 'error',
     'vue/match-component-file-name': 'error',
-    'vue/object-curly-spacing': 'error',
     'vue/script-indent': 'error'
   },
   parserOptions: {

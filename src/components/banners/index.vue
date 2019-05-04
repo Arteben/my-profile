@@ -4,18 +4,16 @@
     hide-delimiters
     hide-controls
   >
-    <v-carousel-item>
-      <want-be-game-dev />
-    </v-carousel-item>
+    <canvas-item />
   </v-carousel>
 </template>
 
 <script>
-import wantBeGameDev from './wantBeGameDev'
+import CanvasItem from './canvas-item'
 export default {
   name: 'Banners',
   components: {
-    wantBeGameDev
+    CanvasItem
   }
 }
 </script>

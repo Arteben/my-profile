@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-  lintOnSave: undefined,
+  lintOnSave: false,
 
   configureWebpack: {
     resolve: {

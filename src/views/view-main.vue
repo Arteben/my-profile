@@ -1,17 +1,11 @@
 <template>
   <v-container
     ref="container"
-    :class="[$style.container]"
+    :class="[$style.container, 'mainBackground']"
     fluid
   >
     <v-layout justify-center>
-      <v-flex xs12>
-        <banners />
-      </v-flex>
-      <!-- <v-card -->
-      <!-- <v-card>
-        asdfasdf
-      </v-card> -->
+      <banners />
     </v-layout>
   </v-container>
 </template>
