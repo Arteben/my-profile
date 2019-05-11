@@ -1,6 +1,7 @@
 <template>
   <v-container
     ref="container"
+    id="mainContainer"
     :class="[$style.mainContainer, 'mainBackground']"
     fluid
   >

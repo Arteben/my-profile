@@ -1,6 +1,6 @@
 //
-import mainView from '@/views/view-main'
-export const main = mainView
+import resumeView from './view-resume'
+export const resume = resumeView
 //
-// import {  } from "module";
-
+import worksView from './view-works'
+export const works = worksView
