@@ -1,0 +1,81 @@
+[
+  {
+   "title": "Мой опыт работы",
+   "icon": "gavel",
+   "items": [
+    {
+     "isBig": true,
+     "title": "Сколько времени я работаю",
+     "name": "Примерно два года",
+     "icon": "clock"
+    },
+    {
+     "title": "Основное направление",
+     "name": "Front-end",
+     "icon": "wrench"
+    },
+    {
+     "title": "Какого я уровня?..",
+     "name": "Middle",
+     "icon": "summit"
+    }
+   ]
+  },
+  {
+   "title": "Основные виды разработки",
+   "icon": "settings",
+   "items": [
+    {
+     "isBig": true,
+     "title": "Web-приложения",
+     "icon": "firefox"
+    },
+    {
+     "title": "Проектирование сайтов",
+     "icon": "wordpress"
+    },
+    {
+     "title": "Скрипты под unix",
+     "icon": "linux"
+    }
+   ]
+  },
+  {
+   "title": "Языки программирования",
+   "icon": "video-input-component",
+   "items": [
+    {
+     "isBig": true,
+     "title": "JavaScript",
+     "icon": "language-javascript"
+    },
+    {
+     "title": "php",
+     "icon": "language-php"
+    },
+    {
+     "title": "Совсем чуть-чуть",
+     "icon": "language-csharp"
+    }
+   ]
+  },
+  {
+   "title": "Javascript-фреймворки",
+   "icon": "toolbox",
+   "items": [
+    {
+     "isBig": true,
+     "title": "vue.js",
+     "icon": "vuejs"
+    },
+    {
+     "title": "webpack",
+     "icon": "webpack"
+    },
+    {
+     "title": "node.js",
+     "icon": "nodejs"
+    }
+   ]
+  }
+]

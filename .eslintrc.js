@@ -22,7 +22,10 @@ module.exports = {
     'vue/comma-dangle': 'error',
     'vue/key-spacing': 'error',
     'vue/match-component-file-name': 'error',
-    'vue/script-indent': 'error'
+    'vue/script-indent': 'error',
+    'vue/attribute-hyphenation': 'off',
+    'vue/prop-name-casing': 'off',
+    'vue/multiline-html-element-content-newline': 'off'
   },
   parserOptions: {
     parser: 'babel-eslint'

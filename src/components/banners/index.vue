@@ -3,6 +3,7 @@
     class="elevation-0"
     hide-delimiters
     hide-controls
+    height="auto"
   >
     <canvas-item />
   </v-carousel>
