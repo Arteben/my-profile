@@ -66,6 +66,13 @@ export default {
       }
     }
   },
+  mounted() {
+    var route = this.$route
+    if (!route.hash) {
+      route.meta.isScroll = false
+      this.$router.push('/#' + this.partsKeys[0])
+    }
+  },
   computed: {
     minPartsAppHeight () {
       var height = this.viewport.height || '0'

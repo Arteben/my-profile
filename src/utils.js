@@ -35,6 +35,6 @@ export const getCurrentPartAppAnchor = (function () {
     }
     timeout = window.setTimeout(() => {
       setHash.call(this)
-    }, 1000)
+    }, 500)
   }
 }())

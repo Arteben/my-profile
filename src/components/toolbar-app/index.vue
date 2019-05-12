@@ -58,11 +58,18 @@ export default {
       shakeFactor: 0
     }
   },
+  watch: {
+    isExtraSmall: {
+      handler (_isBreakpoint) {
+        if (_isBreakpoint) {
+          this.setShakeFactor()
+        }
+      },
+      immediate: true
+    }
+  },
   components: {
     partLink
-  },
-  mounted () {
-    this.setShakeFactor()
   },
   computed: {
     isMobile () {
@@ -76,16 +83,14 @@ export default {
       }
       return height
     },
-    isMainPlace () {
-      return true
-    },
-    isMyWorksPlace () {
-      return false
+    isExtraSmall () {
+      return this.$vuetify.breakpoint.xs
     },
     shakeLinksStyle () {
       var shakeStyle = null
-      if (this.$vuetify.breakpoint.xs) {
-        shakeStyle = {'transform': `rotate(${(this.shakeFactor)}deg)`}
+      var factor = this.shakeFactor
+      if (this.isExtraSmall) {
+        shakeStyle = {'transform': `rotate(${factor}deg)`}
       }
       return shakeStyle
     }
@@ -102,7 +107,7 @@ export default {
     setShakeFactor: (() => {
       var timeout
       var oldNum
-      var num = 0.7
+      var num = 0.5
       var setNewTimeout = function () {
         if (timeout) {
           window.clearTimeout(timeout)
@@ -114,13 +119,13 @@ export default {
             oldNum = num
           }
           this.shakeFactor = oldNum
-          setNewTimeout.call(this)
-        }, 500)
+          if (this.isExtraSmall) {
+            setNewTimeout.call(this)
+          }
+        }, 1000)
       }
       return function () {
-        if (this.$vuetify.breakpoint.xs) {
-          setNewTimeout.call(this)
-        }
+        setNewTimeout.call(this)
       }
     })()
   }
