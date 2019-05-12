@@ -11,6 +11,7 @@
       <v-layout
         raw
         fill-height
+        align-center
       >
         <v-layout
           :class="$style.wholeName"
@@ -18,7 +19,7 @@
           column
           align-end
         >
-          <v-flex :class="$style.firstName">
+          <v-flex :class="$style[getFontSizeFor('firstName')]">
             Артема
           </v-flex>
           <v-flex :class="$style.lastName">
@@ -26,7 +27,8 @@
           </v-flex>
         </v-layout>
         <v-layout
-          :class="[$style.lobsterFont, $style[siteNameFontSize]]"
+          :style="shakeLinksStyle"
+          :class="[$style.lobsterFont, $style[getFontSizeFor('siteNameFont')]]"
           row
           px-4
           justify-start
@@ -34,11 +36,11 @@
           wrap
         >
           <v-flex>
-            <span :class="{ [$style.siteNameUnderline]: isMainPlace }">резюме</span>
+            <partLink :p_item="{name: 'резюме', to: '#resume'}" />
             <span>&nbsp;и&nbsp;</span>
           </v-flex>
           <v-flex>
-            <span :class="{ [$style.siteNameUnderline]: isMyWorksPlace }">проектики</span>
+            <partLink :p_item="{name: 'проектики', to: '#works'}" />
           </v-flex>
         </v-layout>
         <v-spacer />
@@ -48,12 +50,19 @@
 </template>
 
 <script>
+import partLink from './part-app-link'
 export default {
   name: 'ToolbarApp',
   data () {
     return {
-      // titlePlaceFontSize: titlePlaceNotXsFont
+      shakeFactor: 0
     }
+  },
+  components: {
+    partLink
+  },
+  mounted () {
+    this.setShakeFactor()
   },
   computed: {
     isMobile () {
@@ -63,25 +72,57 @@ export default {
     toolbarHeight () {
       var height = 80
       if (this.isMobile) {
-        height = 100
+        height = 120
       }
       return height
-    },
-    siteNameFontSize () {
-      var nameSize = 'siteNameFont'
-      if (this.isMobile) {
-        nameSize += 'Mobile'
-      } else {
-        nameSize += 'Desktop'
-      }
-      return nameSize
     },
     isMainPlace () {
       return true
     },
     isMyWorksPlace () {
       return false
+    },
+    shakeLinksStyle () {
+      var shakeStyle = null
+      if (this.$vuetify.breakpoint.xs) {
+        shakeStyle = {'transform': `rotate(${(this.shakeFactor)}deg)`}
+      }
+      return shakeStyle
     }
+  },
+  methods: {
+    getFontSizeFor (_nameClass) {
+      if (this.isMobile) {
+        _nameClass += 'Mobile'
+      } else {
+        _nameClass += 'Desktop'
+      }
+      return _nameClass
+    },
+    setShakeFactor: (() => {
+      var timeout
+      var oldNum
+      var num = 0.7
+      var setNewTimeout = function () {
+        if (timeout) {
+          window.clearTimeout(timeout)
+        }
+        timeout = window.setTimeout(() => {
+          if (!oldNum || oldNum > 0) {
+            oldNum = -(num)
+          } else {
+            oldNum = num
+          }
+          this.shakeFactor = oldNum
+          setNewTimeout.call(this)
+        }, 500)
+      }
+      return function () {
+        if (this.$vuetify.breakpoint.xs) {
+          setNewTimeout.call(this)
+        }
+      }
+    })()
   }
 }
 </script>
@@ -92,11 +133,14 @@ export default {
   }
   /* name person */
   .wholeName {
-    min-width: 180px;
     font-family: "press-start", sans-serif;
+    flex-shrink: 0;
   }
-  .firstName {
+  .firstNameDesktop {
     font-size: 30px;
+  }
+  .fistNameMobile {
+    font-size: 20px;
   }
   .lastName {
     font-size: 14px;
@@ -110,9 +154,6 @@ export default {
   }
   .siteNameFontMobile {
     min-width: 160px;
-    font-size: 25px;
-  }
-  .siteNameUnderline {
-    text-decoration-line: underline;
+    font-size: 30px;
   }
 </style>

@@ -1,6 +1,7 @@
 //
-import resumeView from './view-resume'
-export const resume = resumeView
+import appView from './view-app'
+export const app = appView
+
+import printView from './view-print'
+export const print = printView
 //
-import worksView from './view-works'
-export const works = worksView

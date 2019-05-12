@@ -1,9 +1,7 @@
 <template>
-  <v-container
-    ref="container"
-    id="mainContainer"
-    :class="[$style.mainContainer, 'mainBackground']"
-    fluid
+  <v-layout
+    id="resume"
+    :class="['mainBackground']"
   >
     <v-layout justify-center>
       <banners />
@@ -36,7 +34,7 @@
         :p_items="block.items"
       />
     </v-layout>
-  </v-container>
+  </v-layout>
 </template>
 
 <script>
@@ -44,8 +42,10 @@ import myPhotoSrc from '@/assets/my-photo.jpg'
 import { banners, contacts, infoBlock } from '@/components'
 import infoBlocks from '@/assets/infoBlocks.json'
 
+console.log('banners', banners)
+
 export default {
-  name: 'ViewMain',
+  name: 'Resume',
   components: {
     banners,
     contacts,
@@ -66,9 +66,6 @@ export default {
 </script>
 
 <style module>
-  .mainContainer {
-    min-height: 100%;
-  }
   .myPhoto {
     border: 3px ridge floralwhite;
     border-radius: 5px;
