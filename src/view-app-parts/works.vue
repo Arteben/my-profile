@@ -9,8 +9,20 @@
 </template>
 
 <script>
+import getJson from '@/mixins/getJson'
 export default {
-  name: 'Resume'
+  name: 'Resume',
+  created () {
+    this.getJsonData('projects.json')
+  },
+  watch: {
+    jsonData (_data) {
+      console.log('json', _data)
+    }
+  },
+  mixins: [
+    getJson
+  ]
 }
 </script>
 

@@ -1,15 +1,7 @@
 
-import bannersComponent from './banners'
-export const banners = bannersComponent
 
-import contactsComponent from './contacts'
-export const contacts = contactsComponent
-
-import blockInfoComponent from './block-info'
-export const infoBlock = blockInfoComponent
-
-import navDrawerAppContentComponent from './nav-drawer-app-content'
-export const navDrawerAppContent = navDrawerAppContentComponent
-
-import toolbarAppComponent from './toolbar-app'
-export const toolbarApp = toolbarAppComponent
+export { default as banners } from './banners'
+export { default as contacts } from './contacts'
+export { default as infoBlock } from './block-info'
+export { default as navDrawerAppContent } from './nav-drawer-app-content'
+export { default as toolbarApp } from './toolbar-app'

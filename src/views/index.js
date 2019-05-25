@@ -1,7 +1,4 @@
 //
-import appView from './view-app'
-export const app = appView
-
-import printView from './view-print'
-export const print = printView
+export { default as app } from './view-app'
+export { default as printView } from './view-print'
 //
