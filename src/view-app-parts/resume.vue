@@ -67,9 +67,6 @@ export default {
 </script>
 
 <style module>
-  .mainContainer {
-    /* min-height: 100%; */
-  }
   .myPhoto {
     border: 3px ridge floralwhite;
     border-radius: 5px;

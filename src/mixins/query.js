@@ -1,21 +1,16 @@
 export default {
-  data () {
-    return {
-      jsonData: null
-    }
-  },
   methods: {
-    getJsonData (_path) {
+    initQuery (_key, _path) {
       var xmlhttp = new XMLHttpRequest()
-      var vueContx = this
+      var vueCtx = this
 
       xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-          vueContx.jsonData = JSON.parse(this.responseText)
+          vueCtx[_key] = JSON.parse(this.responseText)
         }
       }
 
-      xmlhttp.open('GET', _path, false);
+      xmlhttp.open('GET', _path);
       xmlhttp.send();
     }
   }

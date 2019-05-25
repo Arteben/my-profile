@@ -75,7 +75,7 @@ export default {
   },
   computed: {
     minPartsAppHeight () {
-      var height = this.viewport.height || '0'
+      var height = (this.viewport.height - this.viewport.top) || '0'
       return `min-height: ${height}px`
     }
   },

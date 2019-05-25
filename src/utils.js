@@ -6,7 +6,7 @@ export const getCurrentPartAppAnchor = (function () {
     var isSet = false
     var element = this.$refs[_elementName][0].$el
     var bottomOffset = element.getBoundingClientRect().bottom
-    if (bottomOffset - this.viewport.top >= 0) {
+    if (bottomOffset - this.viewport.top >= 200) {
       isSet = true
     }
     return isSet

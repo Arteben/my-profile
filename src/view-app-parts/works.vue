@@ -1,35 +1,55 @@
 <template>
   <v-container
     id="works"
-    :class="[$style.mainContainer, 'mainBackground-light-4']"
+    class="worksBackground"
+    v-bind="{ [`grid-list-${size}`]: true }"
     fluid
   >
-    works
+    <v-layout
+      wrap
+      justify-center
+    >
+      <my-work
+        v-for="workItem in myWorks"
+        :key="workItem.name"
+        :p_workData="workItem"
+      />
+    </v-layout>
   </v-container>
 </template>
 
 <script>
-import getJson from '@/mixins/getJson'
+import query from '@/mixins/query'
+import { myWork } from '@/components'
+
 export default {
-  name: 'Resume',
+  name: 'Works',
+  data () {
+    return {
+      myWorks: null
+    }
+  },
+  components: {
+    myWork
+  },
   created () {
-    this.getJsonData('projects.json')
+    this.initQuery('myWorks', 'projects.json')
   },
   watch: {
-    jsonData (_data) {
+    'myWorks' (_data) {
       console.log('json', _data)
     }
   },
+  computed: {
+    size () {
+      return this.$vuetify.breakpoint.name
+    }
+  },
   mixins: [
-    getJson
+    query
   ]
 }
 </script>
 
 <style module>
-  .mainContainer {
-    min-height: 2000px;
-    background: white !important;
-    /* min-height: 100%; */
-  }
 </style>
