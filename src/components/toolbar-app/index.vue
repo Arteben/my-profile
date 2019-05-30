@@ -107,7 +107,7 @@ export default {
     setShakeFactor: (() => {
       var timeout
       var oldNum
-      var num = 0.5
+      var num = 1
       var setNewTimeout = function () {
         if (timeout) {
           window.clearTimeout(timeout)
@@ -122,7 +122,7 @@ export default {
           if (this.isExtraSmall) {
             setNewTimeout.call(this)
           }
-        }, 1000)
+        }, 2000)
       }
       return function () {
         setNewTimeout.call(this)
