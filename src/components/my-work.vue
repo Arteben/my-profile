@@ -44,10 +44,12 @@
             <v-btn
               v-if="icon.isShow"
               :key="icon.id"
+              :title="icon.title"
               @click="onClickIcon(icon.id)"
-              fab
               light
-              mx-2
+              ma-2
+              icon
+              flat
             >
               <v-icon large>
                 mdi-{{ icon.name }}
@@ -64,9 +66,21 @@
 
 var workeIcons = [
   {
-    name: 'eye-outline',
+    types: {
+      outline: 'eye-outline',
+      full: 'eye'
+    },
     id: 'expand',
-    isShow: true
+    isShow: true,
+    title: 'раскрыть/свернуть'
+  },
+  {
+    id: 'openGame',
+    isShow: true,
+    title: 'играть',
+    types: {
+      full: 'arrow-right'
+    }
   }
 ]
 
@@ -90,11 +104,11 @@ export default {
       return this.$vuetify.breakpoint.mdAndUp
     },
     workeIcons () {
-      var icons = workeIcons
+      var icons = [...workeIcons]
       icons.forEach(icon => {
-        if (icon.id === 'expand') {
-          let isEyeFull = (this.isExpanded && icon.name !== 'eye')
-          icon.name = isEyeFull && 'eye' || 'eye-outline'
+        icon.name = icon.types.full
+        if (icon.id === 'expand' && !this.isExpanded) {
+          icon.name = icon.types.outline
         }
       })
       return icons
@@ -110,13 +124,17 @@ export default {
   },
   methods: {
     getImageSrc (_dir) {
-      return `http://coderjs.zz.vc/projects/${_dir}/info/img_big.jpg`
+      var path = `http://coderjs.zz.vc/projects/${_dir}/info/`
+      var img = this.isExpanded && 'img_big.PNG' || 'img.PNG'
+      return path + img
     },
     onClickIcon(_iconId) {
       switch (_iconId) {
       case 'expand':
         this.isExpanded = !this.isExpanded
         break
+      case 'openGame':
+        window.open(this.p_workData.link)
       }
     }
   }

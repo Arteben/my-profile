@@ -6,24 +6,20 @@
     <div
       :class="[$style.contacts, contactsFontClass]"
     >
-      <p>
-        <v-icon
-          title="телефон"
-        >mdi-phone-classic</v-icon>
+      <p
+        title="телефон"
+      >
+        <v-icon>mdi-phone-classic</v-icon>
         &nbsp;
         <span>+7(920)-927-75-72</span>
       </p>
-      <p>
-        <v-icon
-          title="электронная почта"
-        >mdi-email</v-icon>
+      <p title="электронная почта">
+        <v-icon>mdi-email</v-icon>
         &nbsp;
         <span>artjombebenin@gmail.com</span>
       </p>
-      <p>
-        <v-icon
-          title="skype"
-        >mdi-skype</v-icon>
+      <p title="skype">
+        <v-icon>mdi-skype</v-icon>
         &nbsp;
         <span>artem__r</span>
       </p>

@@ -4,7 +4,7 @@
     :height="toolbarHeight"
   >
     <v-toolbar-side-icon
-      v-if="isMobile"
+      v-if="false"
       @click="$emit('clickSideIcon')"
     />
     <v-toolbar-title :class="$style.title">

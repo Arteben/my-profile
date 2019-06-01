@@ -39,7 +39,6 @@ export default {
     myWork
   },
   created () {
-    this.initQuery('myWorksData', 'projects.json')
   },
   mounted () {
     console.log(this.$refs)
@@ -78,7 +77,7 @@ export default {
         this.scrollTimeout = window.setTimeout(() => {
           this.smoothScroll(_nameWork)
           window.clearTimeout(this.scrollTimeout)
-        } , 500)
+        } , 400)
       }
     },
     smoothScroll (_nameWork) {
