@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import { app, print } from '@/views'
+import { app, printView } from '@/views'
 
 Vue.use(Router)
 
@@ -11,6 +11,8 @@ var scrollToSmoth = function (_anchor) {
     window.scrollTo({ top: offsetTop, behavior: 'smooth' })
   }
 }
+
+console.log('print', print)
 
 export default new Router({
   // sinchronical
@@ -41,7 +43,7 @@ export default new Router({
     {
       path: '/print',
       name: 'print',
-      component: print
+      component: printView
     }
   ]
 })

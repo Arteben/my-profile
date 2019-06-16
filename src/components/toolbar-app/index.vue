@@ -4,7 +4,7 @@
     :height="toolbarHeight"
   >
     <v-toolbar-side-icon
-      v-if="false"
+      v-if="isExtraSmall"
       @click="$emit('clickSideIcon')"
     />
     <v-toolbar-title :class="$style.title">
@@ -28,7 +28,7 @@
         </v-layout>
         <v-layout
           :style="shakeLinksStyle"
-          :class="[$style.lobsterFont, $style[getFontSizeFor('siteNameFont')]]"
+          :class="[$style.lobsterFont, $style.siteName, $style[getFontSizeFor('siteNameFont')]]"
           row
           px-4
           justify-start
@@ -44,6 +44,24 @@
           </v-flex>
         </v-layout>
         <v-spacer />
+        <!-- added icons for app panel -->
+        <v-flex
+          v-if="!isExtraSmall"
+          nowrap
+        >
+          <v-btn
+            v-for="icon of addedIcons"
+            :key="icon.id"
+            :title="icon.title"
+            @click="onClickIcon(icon.id)"
+            icon
+            flat
+          >
+            <v-icon
+              large
+            >mdi-{{ icon.name }}</v-icon>
+          </v-btn>
+        </v-flex>
       </v-layout>
     </v-toolbar-title>
   </v-toolbar>
@@ -51,11 +69,21 @@
 
 <script>
 import partLink from './part-app-link'
+
+var addedIcons = [
+  {
+    id: 'print',
+    name: 'printer',
+    title: 'Печатать'
+  }
+]
+
 export default {
   name: 'ToolbarApp',
   data () {
     return {
-      shakeFactor: 0
+      shakeFactor: 0,
+      addedIcons
     }
   },
   watch: {
@@ -127,7 +155,13 @@ export default {
       return function () {
         setNewTimeout.call(this)
       }
-    })()
+    })(),
+    onClickIcon (_iconId) {
+      switch(_iconId) {
+      case 'print':
+        this.$router.push({name: 'print'})
+      }
+    }
   }
 }
 </script>
@@ -135,6 +169,7 @@ export default {
 <style module>
  .title {
     overflow: auto;
+    min-width: 100%;
   }
   /* name person */
   .wholeName {
@@ -153,6 +188,9 @@ export default {
   /* name site */
   .lobsterFont {
     font-family: "lobster", sans-serif;
+  }
+  .siteName {
+    flex-grow: 0
   }
   .siteNameFontDesktop {
     font-size: 40px;
