@@ -2,8 +2,7 @@
   <v-toolbar
     app
     height="100"
-  >
-    <v-toolbar-side-icon
+  > <v-toolbar-side-icon
       v-if="isExtraSmall"
       @click="$emit('clickSideIcon')"
     />
@@ -12,20 +11,16 @@
         raw
         fill-height
         align-center
-      >
-        <v-layout
+      > <v-layout
           :class="$style.wholeName"
           column
           align-end
-        >
-          <v-flex
+        > <v-flex
             :class="[$style.firstName, isMobile && $style.firstName_mobile]"
-          >
-            Артёма
-          </v-flex>
-          <v-flex :class="[$style.lastName, isMobile && $style.lastName_mobile]">
-            Бебенина
-          </v-flex>
+          > Артёма </v-flex>
+          <v-flex
+            :class="[$style.lastName, isMobile && $style.lastName_mobile]"
+          > Бебенина </v-flex>
         </v-layout>
         <v-layout
           :class="[$style.lobsterFont, $style.siteName, $style[getClassFontSizeFor('siteNameFont')]]"
@@ -34,8 +29,7 @@
           justify-start
           align-content-center
           wrap
-        >
-          <v-flex>
+        > <v-flex>
             <partLink :p_item="{name: 'резюме', to: '#resume'}" />
             <span>&nbsp;и&nbsp;</span>
           </v-flex>
@@ -88,7 +82,7 @@ export default {
 <style module lang="less">
  .title {
     overflow: auto;
-    min-width: 100%;
+    flex-grow: 1;
   }
   /* name person */
   .wholeName {
