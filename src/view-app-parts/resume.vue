@@ -1,7 +1,7 @@
 <template>
   <v-container
     id="resume"
-    :class="[$style.mainContainer, 'mainBackground']"
+    :class="['mainBackground']"
     fluid
   >
     <v-layout justify-center>
@@ -14,50 +14,29 @@
       justify-center
     >
       <contacts />
-      <v-img
-        title="Это я!"
-        class="my-2"
-        :class="$style.myPhoto"
-        :src="myPhotoSrc"
-        max-width="150"
-        width="100"
-      />
+      <my-photo />
     </v-layout>
     <v-layout
       wrap
       :justify-space-around="!isMobileScreen"
     >
-      <info-block
-        v-for="block of infoBlocks"
-        :key="block.title"
-        :p_title="block.title"
-        :p_icon="block.icon"
-        :p_items="block.items"
-      />
+      <info-blocks />
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import myPhotoSrc from '@/assets/my-photo.jpg'
-import { banners, contacts, infoBlock } from '@/components'
-import infoBlocks from '@/assets/infoBlocks.json'
-
-console.log('banners', banners)
+import { banners, contacts, infoBlocks, myPhoto } from '@/components'
 
 export default {
   name: 'Resume',
   components: {
     banners,
     contacts,
-    infoBlock
+    infoBlocks,
+    myPhoto
   },
-  data () {
-    return {
-      myPhotoSrc,
-      infoBlocks
-    }
-  },
+
   computed: {
     isMobileScreen () {
       return this.$vuetify.breakpoint.smAndDown
@@ -65,11 +44,3 @@ export default {
   }
 }
 </script>
-
-<style module>
-  .myPhoto {
-    border: 3px ridge floralwhite;
-    border-radius: 5px;
-    transform: rotate(3deg);
-  }
-</style>

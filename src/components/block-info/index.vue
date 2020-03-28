@@ -1,40 +1,56 @@
 <template>
-  <v-flex
-    ma-3
-    :class="$style.rootContainer"
+  <v-layout
+    wrap
+    :justify-space-around="!isMobileScreen"
   >
-    <p
-      :title="p_title"
+    <v-flex
+      ma-3
+      :class="$style.rootContainer"
+      v-for="block of infoBlocks"
+      :key="block.title"
     >
-      <v-icon
-        x-large
-      >mdi-{{ p_icon }}</v-icon>
-      &nbsp;
-      <span
-        class="title"
-      >{{ p_title }}:</span>
-    </p>
-    <p
-      v-for="item of p_items"
-      :key="item.title"
-      class="pl-4 body-2"
-      :title="item.title"
-    >
-      <v-icon
-        :size="item.isBig && '24' || '18'"
-      >mdi-{{ item.icon }}</v-icon>
-      &nbsp;
-      <span
-        :class="item.isBig && 'subheading' || ''"
-      >{{ item.name || item.title }}</span>
-    </p>
-  </v-flex>
+      <p
+        :title="block.title"
+      >
+        <v-icon
+          x-large
+        >mdi-{{ block.icon }}</v-icon>
+        &nbsp;
+        <span
+          class="title"
+        >{{ block.title }}:</span>
+      </p>
+      <p
+        v-for="item of block.items"
+        :key="item.title"
+        class="pl-4 body-2"
+        :title="item.title"
+      >
+        <v-icon
+          :size="item.isBig && '24' || '18'"
+        >mdi-{{ item.icon }}</v-icon>
+        &nbsp;
+        <span
+          :class="item.isBig && 'subheading' || ''"
+        >{{ item.name || item.title }}</span>
+      </p>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
+import infoBlocks from '@/assets/infoBlocks.json'
+
 export default {
   name: 'Contacts',
-  props: [ 'p_title', 'p_icon', 'p_items' ]
+  computed: {
+    infoBlocks () {
+      return infoBlocks || []
+    },
+    isMobileScreen () {
+      return this.$vuetify.breakpoint.smAndDown
+    }
+  }
 }
 </script>
 

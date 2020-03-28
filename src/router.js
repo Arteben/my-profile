@@ -12,8 +12,6 @@ var scrollToSmoth = function (_anchor) {
   }
 }
 
-console.log('print', print)
-
 export default new Router({
   // sinchronical
   // # - only for anchors,

@@ -15,6 +15,7 @@
       fixed
       app
       disable-resize-watcher
+      width="150"
     >
       <nav-drawer-app-content />
     </v-navigation-drawer>

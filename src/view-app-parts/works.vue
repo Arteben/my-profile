@@ -23,7 +23,8 @@
 </template>
 
 <script>
-import query from '@/mixins/query'
+import worksInfo from '@/assets/myWorks.json'
+// import query from '@/mixins/query'
 import { myWork } from '@/components'
 
 export default {
@@ -38,17 +39,13 @@ export default {
   components: {
     myWork
   },
-  created () {
-  },
-  mounted () {
-    console.log(this.$refs)
-  },
   computed: {
     size () {
       return this.$vuetify.breakpoint.name
     },
     myWorks () {
-      var works = this.myWorksData
+      // var works = this.myWorksData
+      var works = worksInfo
       var selectedWorkNames = this.selectedWorkNames
       if (works) {
         works.forEach(workInfo => {
@@ -86,9 +83,9 @@ export default {
       window.scrollTo({ top, behavior: 'smooth' })
     }
   },
-  mixins: [
-    query
-  ]
+  // mixins: [
+  //   query
+  // ]
 }
 </script>
 
