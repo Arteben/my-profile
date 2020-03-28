@@ -1,29 +1,31 @@
 <template>
   <v-layout
     justify-center
-    :class="$style.containerMinWidth"
-  >
-    <div
-      :class="[$style.contacts, contactsFontClass]"
+    :class="[$style.containerMinWidth, isMobile && 'column']"
+  > <v-flex
+      py-2
+      title="телефон"
     >
-      <p
-        title="телефон"
-      >
-        <v-icon>mdi-phone-classic</v-icon>
-        &nbsp;
-        <span>+7(920)-927-75-72</span>
-      </p>
-      <p title="электронная почта">
-        <v-icon>mdi-email</v-icon>
-        &nbsp;
-        <span>artjombebenin@gmail.com</span>
-      </p>
-      <p title="skype">
-        <v-icon>mdi-skype</v-icon>
-        &nbsp;
-        <span>artem__r</span>
-      </p>
-    </div>
+      <v-icon>mdi-phone-classic</v-icon>
+      &nbsp;
+      <span>+7(920)-927-75-72</span>
+    </v-flex>
+    <v-flex
+      title="электронная почта"
+      py-2
+    >
+      <v-icon>mdi-email</v-icon>
+      &nbsp;
+      <span>artjombebenin@gmail.com</span>
+    </v-flex>
+    <v-flex
+      title="skype"
+      py-2
+    >
+      <v-icon>mdi-skype</v-icon>
+      &nbsp;
+      <span>artem__r</span>
+    </v-flex>
   </v-layout>
 </template>
 
@@ -34,20 +36,15 @@ export default {
     return {}
   },
   computed: {
-    contactsFontClass () {
-      var breakpoint = this.$vuetify.breakpoint || {}
-      var fontClass = 'title'
-      if (breakpoint.smAndDown) {
-        fontClass = 'subheading'
-      }
-      return fontClass
-    }
+    isMobile () {
+      return  this.$vuetify.breakpoint.smAndDown
+    },
   }
 }
 </script>
 
 <style module>
   .containerMinWidth {
-    min-width: 250px;
+    min-width: 350px;
   }
 </style>
