@@ -53,7 +53,7 @@ export default {
     transform: rotate(-4deg);
   }
   .myPhoto {
-    border: 3px ridge floralwhite;
+    border: 3px solid var(--v-primary-base);
     border-radius: 3px;
   }
 </style>
