@@ -50,7 +50,7 @@ export default {
 
 <style module>
   .photoWithLabel {
-    transform: rotate(-3deg);
+    transform: rotate(-4deg);
   }
   .myPhoto {
     border: 3px ridge floralwhite;
