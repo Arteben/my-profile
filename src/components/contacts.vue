@@ -76,7 +76,7 @@ export default {
     min-width: 350px;
   }
   .contactInfo {
-    background-color: var(--v-secondary-lighten1);
+    background: linear-gradient(to right, var(--v-secondary-lighten1), var(--v-secondary-base));
     border-left: 2px solid var(--v-primary-base);
     border-radius: 20px;
     display: inline-block;
