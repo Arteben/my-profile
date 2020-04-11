@@ -7,11 +7,10 @@ import colors from 'vuetify/es5/util/colors'
 
 Vue.use(Vuetify, {
   theme: {
-    mainTextColor: colors.grey.lighten5,
-    mainBackground: colors.grey.darken3,
+    primary: colors.grey.lighten4,
+    secondary: colors.grey.darken3,
     worksTextColor: 'black',
     worksBackground: colors.grey.lighten1,
-    primary: colors.grey.darken2,
     // secondary: colors.blueGrey.darken4,
     // accent: colors.deepPurple.darken1,
     // error: '#FF5252',

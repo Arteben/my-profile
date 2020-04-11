@@ -25,8 +25,8 @@ export default {
   },
   mounted() {
     var vuetifyTheme = this.$vuetify.theme
-    var backgroundColor = vuetifyTheme.mainBackground
-    var textColor = vuetifyTheme.mainTextColor
+    var backgroundColor = vuetifyTheme.secondary
+    var textColor = vuetifyTheme.primary
     this.animation = new BannerAnimate(this.$refs.canvas, backgroundColor, textColor)
     this.animation.draw()
 

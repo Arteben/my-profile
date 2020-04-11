@@ -93,7 +93,7 @@ export default {
   .firstName {
     font-size: 40px;
     &.firstName_mobile {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
   .lastName {
