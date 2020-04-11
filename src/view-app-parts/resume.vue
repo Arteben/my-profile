@@ -14,6 +14,7 @@
       justify-center
     >
       <contacts />
+      <v-spacer v-if="!isMobileScreen" />
       <my-photo />
     </v-layout>
     <v-layout
