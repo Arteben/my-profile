@@ -1,13 +1,10 @@
 <template>
   <v-flex
-    :class="{ 'worksTextColor--text': true, [$style.fullWidth]: isExpanded }"
+    :class="{ 'worksTextColor--text': true, [$style[workItemWIdth]]: isExpanded }"
+    class="lg3 md4 sm6 xs12 my-3"
     :mx-1="breakpointMdUp"
     column
-    lg3
-    md4
-    sm6
-    xs12
-    my-3
+    @click.stop="onClickIcon('expand')"
   >
     <div
       :class="[isExpanded && 'elevation-8' || 'elevation-3', $style.worksInContainer]"
@@ -34,26 +31,24 @@
           > {{ string }} </p>
         </div>
         <v-flex
-          class="text-xs-right"
+          class="text-xs-right pa-0"
           full
-          pa-0
         >
           <template
-            v-for="icon of workeIcons"
+            v-for="icon of icons"
           >
             <v-btn
-              v-if="icon.isShow"
-              :key="icon.id"
+              :key="icon.id + p_workData.link"
               :title="icon.title"
-              @click="onClickIcon(icon.id)"
+              @click.stop="onClickIcon(icon.id)"
               light
               ma-2
               icon
               flat
             >
-              <v-icon large>
-                mdi-{{ icon.name }}
-              </v-icon>
+              <v-icon
+                large
+              >{{ icon.name }}</v-icon>
             </v-btn>
           </template>
         </v-flex>
@@ -64,11 +59,11 @@
 
 <script>
 
-var workeIcons = [
+var workIcons = [
   {
     types: {
-      outline: 'eye-outline',
-      full: 'eye'
+      outline: 'mdi-eye-outline',
+      full: 'mdi-eye'
     },
     id: 'expand',
     isShow: true,
@@ -79,7 +74,7 @@ var workeIcons = [
     isShow: true,
     title: 'играть',
     types: {
-      full: 'arrow-right'
+      full: 'mdi-arrow-right'
     }
   }
 ]
@@ -88,30 +83,25 @@ export default {
   name: 'MyWork',
   data () {
     return {
-      isExpanded: false
+      isExpanded: false,
     }
   },
   props: {
     p_workData: Object
   },
-  watch: {
-    isExpanded (_flag) {
-      this.$emit('toggletWork', this.p_workData.name, _flag)
-    }
-  },
   computed: {
     breakpointMdUp () {
       return this.$vuetify.breakpoint.mdAndUp
     },
-    workeIcons () {
-      var icons = [...workeIcons]
-      icons.forEach(icon => {
-        icon.name = icon.types.full
-        if (icon.id === 'expand' && !this.isExpanded) {
-          icon.name = icon.types.outline
+    icons () {
+
+      return [...workIcons].map(_iconSet => {
+        _iconSet.name = _iconSet.types.full
+        if (_iconSet.id === 'expand' && !this.isExpanded) {
+          _iconSet.name = _iconSet.types.outline
         }
+        return _iconSet
       })
-      return icons
     },
     descriptionClass () {
       var descriptionClass
@@ -120,6 +110,9 @@ export default {
         descriptionClass = 'subheading my-3'
       }
       return descriptionClass
+    },
+    workItemWIdth () {
+      return !this.breakpointMdUp && 'fullWidth' || 'halthWidth'
     }
   },
   methods: {
@@ -132,6 +125,7 @@ export default {
       switch (_iconId) {
       case 'expand':
         this.isExpanded = !this.isExpanded
+        this.$emit('toggletWork', this.p_workData.name, this.isExpanded)
         break
       case 'openGame':
         window.open(this.p_workData.link)
@@ -144,10 +138,12 @@ export default {
 <style module>
   .fullWidth {
     min-width: 100%;
-    max-width: 100%;
+  }
+  .halthWidth {
+    min-width: 40%;
   }
   .worksInContainer {
-    background-color: var(--v-worksBackground-lighten3)
+    background-color: var(--v-primary-base)
   }
   .shortWorkDescription {
     max-height: 20px;

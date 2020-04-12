@@ -12,8 +12,8 @@
       origin="center center"
     >
       <my-work
-        v-for="workItem in myWorks"
-        :key="workItem.name"
+        v-for="workItem in worksInfo"
+        :key="workItem.link"
         :p_workData="workItem"
         @toggletWork="onExpendWork"
         :ref="workItem.name"
@@ -32,9 +32,7 @@ export default {
   name: 'Works',
   data () {
     return {
-      myWorksData: null,
-      selectedWorkNames: [],
-      scrollTimeout: null
+      worksInfo,
     }
   },
   components: {
@@ -43,31 +41,10 @@ export default {
   computed: {
     size () {
       return this.$vuetify.breakpoint.name
-    },
-    myWorks () {
-      // var works = this.myWorksData
-      var works = worksInfo
-      var selectedWorkNames = this.selectedWorkNames
-      if (works) {
-        works.forEach(workInfo => {
-          var checkOfExpended = selectedWorkNames.indexOf(workInfo.name)
-          workInfo.key = workInfo.name
-          if (checkOfExpended >= 0) {
-            workInfo.key += '+isExpended'
-          }
-        })
-      }
-      return works
     }
   },
   methods: {
     onExpendWork (_nameWork, _isExpended) {
-      var idxSelectWork = this.selectedWorkNames.indexOf(_nameWork)
-      if (idxSelectWork >= 0 && !_isExpended) {
-        this.selectedWorkNames.splice(idxSelectWork, 1)
-      } else if (idxSelectWork === -1 && _isExpended) {
-        this.selectedWorkNames.push(_nameWork)
-      }
       if (_isExpended) {
         scrollToElementHref.call(this, _nameWork, true)
       }

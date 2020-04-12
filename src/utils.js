@@ -45,7 +45,6 @@ export const scrollToElementHref = (function() {
     if (timeout) {
       window.clearTimeout(this.scrollTimeout)
     }
-    console.log('this.', this.$vuetify)
     const breakpoint = this.$vuetify && this.$vuetify.breakpoint || {}
     if (!breakpoint.xs) {
       timeout = window.setTimeout(() => {
