@@ -26,6 +26,7 @@
 import worksInfo from '@/assets/myWorks.json'
 // import query from '@/mixins/query'
 import { myWork } from '@/components'
+import { scrollToElementHref } from '@/utils'
 
 export default {
   name: 'Works',
@@ -68,24 +69,10 @@ export default {
         this.selectedWorkNames.push(_nameWork)
       }
       if (_isExpended) {
-        if (this.scrollTimeout) {
-          window.clearTimeout(this.scrollTimeout)
-        }
-        this.scrollTimeout = window.setTimeout(() => {
-          this.smoothScroll(_nameWork)
-          window.clearTimeout(this.scrollTimeout)
-        } , 400)
+        scrollToElementHref.call(this, _nameWork, true)
       }
-    },
-    smoothScroll (_nameWork) {
-      var element = this.$refs && this.$refs[_nameWork][0].$el || {}
-      var top = element.getBoundingClientRect().top + window.scrollY
-      window.scrollTo({ top, behavior: 'smooth' })
     }
   },
-  // mixins: [
-  //   query
-  // ]
 }
 </script>
 

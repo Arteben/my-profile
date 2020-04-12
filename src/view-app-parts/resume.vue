@@ -8,7 +8,7 @@
       <banners />
     </v-layout>
     <v-layout
-      pa-4
+      class="pt-4 px-3 pb-0"
       wrap
       align-center
       justify-center

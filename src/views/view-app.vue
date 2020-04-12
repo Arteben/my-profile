@@ -4,7 +4,7 @@
     ref="app"
     dark
     v-resize="setVieport"
-    v-scroll="getCurrentPartAppAnchor"
+    v-scroll="onScrollApp"
   >
     <toolbar-app
       ref="toolbar"
@@ -45,6 +45,8 @@ import {
 import * as parts from '@/view-app-parts'
 import { getCurrentPartAppAnchor } from '@/utils'
 
+let scrollEventTimeout = null
+
 export default {
   name: 'ViewApp',
   data () {
@@ -81,7 +83,17 @@ export default {
     }
   },
   methods: {
-    getCurrentPartAppAnchor,
+    onScrollApp () {
+      if (!scrollEventTimeout) {
+        scrollEventTimeout = window.setTimeout(() => {
+          this.$emit('scrollApp')
+          window.clearTimeout(scrollEventTimeout)
+          scrollEventTimeout = null
+        }, 1000)
+      }
+
+      getCurrentPartAppAnchor.call(this)
+    },
     setVieport () {
       if (this.$el) {
         let viewport = {}

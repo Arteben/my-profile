@@ -1,48 +1,27 @@
 <template>
-  <v-layout
-    wrap
-    :justify-space-around="!isMobileScreen"
+  <v-scale-transition
+    :class="['layout', 'wrap', !isMobileScreen && 'justify-space-around']"
+    origin="top left"
+    tag="div"
+    group
   >
-    <v-flex
-      ma-3
-      :class="$style.rootContainer"
-      v-for="block of infoBlocks"
-      :key="block.title"
-    >
-      <p
-        :title="block.title"
-      >
-        <v-icon
-          x-large
-        >mdi-{{ block.icon }}</v-icon>
-        &nbsp;
-        <span
-          class="title"
-        >{{ block.title }}:</span>
-      </p>
-      <p
-        v-for="item of block.items"
-        :key="item.title"
-        class="pl-4 body-2"
-        :title="item.title"
-      >
-        <v-icon
-          :size="item.isBig && '24' || '18'"
-        >mdi-{{ item.icon }}</v-icon>
-        &nbsp;
-        <span
-          :class="item.isBig && 'subheading' || ''"
-        >{{ item.name || item.title }}</span>
-      </p>
-    </v-flex>
-  </v-layout>
+    <block-info-element
+      v-for="blockInfo of infoBlocks"
+      :key="blockInfo.title"
+      :p_blockInfo="blockInfo"
+      @changeTabs="onChangeTabs"
+      :ref="blockInfo.title"
+    />
+  </v-scale-transition>
 </template>
 
 <script>
 import infoBlocks from '@/assets/infoBlocks.json'
+import BlockInfoElement from './block-info-element'
+import { scrollToElementHref } from '@/utils'
 
 export default {
-  name: 'Contacts',
+  name: 'BlockInfo',
   computed: {
     infoBlocks () {
       return infoBlocks || []
@@ -50,13 +29,16 @@ export default {
     isMobileScreen () {
       return this.$vuetify.breakpoint.smAndDown
     }
+  },
+  methods: {
+    onChangeTabs({elementTitle, tabIdx}) {
+      if (tabIdx === 1) {
+        scrollToElementHref.call(this, elementTitle)
+      }
+    }
+  },
+  components: {
+    BlockInfoElement
   }
 }
 </script>
-
-<style module>
-  .rootContainer {
-    min-width: 250px;
-    flex-grow: 0;
-  }
-</style>
