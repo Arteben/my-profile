@@ -80,5 +80,8 @@ export default {
     border-left: 2px solid var(--v-primary-base);
     border-radius: 20px;
     display: inline-block;
+    & > a {
+      text-decoration: none;
+    }
   }
 </style>
