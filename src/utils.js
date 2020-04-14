@@ -50,7 +50,7 @@ export const scrollToElementHref = (function() {
       timeout = window.setTimeout(() => {
         const element = this.$refs && this.$refs[_ref][0].$el || {}
         const elementTop = element.getBoundingClientRect().top
-        const topWithCorrect = _withoutCorrect && elementTop || (elementTop - 200)
+        const topWithCorrect = _withoutCorrect && (elementTop - 100) || (elementTop - 200)
         const top = topWithCorrect + window.scrollY
         window.scrollTo({ top, behavior: 'smooth' })
         window.clearTimeout(timeout)

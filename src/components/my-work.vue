@@ -1,6 +1,6 @@
 <template>
   <v-flex
-    class="lg3 md4 sm6 xs12"
+    class="lg2 md3 sm4 xs12"
     :class=" { [$style[workItemWIdth]]: isExpanded}"
   >
     <v-card
@@ -12,6 +12,8 @@
       <v-img
         :aspect-ratio="!isExpanded && 3 || 2"
         :src="getImageSrc()"
+        :lazy-src="getImageSrc('lazy')"
+        :key="'img' + isExpanded"
         max-height="500"
       />
       <v-flex
@@ -68,15 +70,18 @@ export default {
     }
   },
   methods: {
-    getImageSrc () {
+    getImageSrc (_isLazy) {
       var dir = this.p_workData.img
       var path = `http://coderjs.zz.vc/projects/${dir}/info/`
-      var img = this.isExpanded && 'img_big.PNG' || 'img.PNG'
+      var img = (_isLazy || !this.isExpanded) && 'img.PNG' || 'img_big.PNG'
       return path + img
     },
     onClickCard() {
       this.isExpanded = !this.isExpanded
-      this.$emit('toggletWork', this.p_workData.name, this.isExpanded)
+      this.$emit('toggleWork', {
+        ref: this.p_workData.name,
+        isExpanded:  this.isExpanded
+      })
     },
     onClickIconOpenGame() {
       window.open(this.p_workData.link)
@@ -90,6 +95,6 @@ export default {
     min-width: 100%;
   }
   .halthWidth {
-    min-width: 100%;
+    min-width: 40%;
   }
 </style>

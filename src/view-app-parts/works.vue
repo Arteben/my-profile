@@ -15,7 +15,7 @@
         v-for="workItem in worksInfo"
         :key="workItem.link"
         :p_workData="workItem"
-        @toggletWork="onExpendWork"
+        @toggleWork="onExpendWork"
         :ref="workItem.name"
       />
     </v-scale-transition>
@@ -24,7 +24,6 @@
 
 <script>
 import worksInfo from '@/assets/myWorks.json'
-// import query from '@/mixins/query'
 import { myWork } from '@/components'
 import { scrollToElementHref } from '@/utils'
 
@@ -44,9 +43,10 @@ export default {
     }
   },
   methods: {
-    onExpendWork (_nameWork, _isExpended) {
-      if (_isExpended) {
-        scrollToElementHref.call(this, _nameWork, true)
+    onExpendWork ({ ref, isExpanded }) {
+      this.worksInfo = [...this.worksInfo]
+      if (isExpanded) {
+        scrollToElementHref.call(this, ref, true)
       }
     }
   },
