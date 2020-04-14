@@ -6,10 +6,10 @@
     fluid
   >
     <v-scale-transition
-      :class="[$style.transitionDiv, 'layout']"
+      class="layout justify-center wrap"
+      origin="center center"
       tag="div"
       group
-      origin="center center"
     >
       <my-work
         v-for="workItem in worksInfo"
@@ -53,9 +53,3 @@ export default {
 }
 </script>
 
-<style module>
-  .transitionDiv {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-</style>
