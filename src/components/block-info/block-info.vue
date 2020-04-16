@@ -22,16 +22,19 @@ import { scrollToElementHref } from '@/utils'
 
 export default {
   name: 'BlockInfo',
+  data () {
+    return {
+      infoBlocks: (infoBlocks || [])
+    }
+  },
   computed: {
-    infoBlocks () {
-      return infoBlocks || []
-    },
     isMobileScreen () {
       return this.$vuetify.breakpoint.smAndDown
     }
   },
   methods: {
     onChangeTabs({elementTitle, tabIdx}) {
+      this.infoBlocks = [...this.infoBlocks]
       if (tabIdx === 1) {
         scrollToElementHref.call(this, elementTitle)
       }

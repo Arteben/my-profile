@@ -6,15 +6,15 @@
       ma-3
       class="display-2"
     >
-      Артем Бебенин
+      Артём Бебенин
     </v-flex>
     <hr>
     <v-layout
       ma-3
       row
-      wrap
       justify-center
       align-center
+      full
     >
       <contacts />
       <my-photo
@@ -92,7 +92,7 @@ export default {
 
     .spacer {
       display: block;
-      min-height: 440px;
+      min-height: 500px;
     }
     .hideForPrint {
       display: none;

@@ -2,9 +2,9 @@
   <v-layout
     justify-center
     class="px-2"
-    :class="[$style.containerMinWidth, isMobile && 'column']"
+    :class="[$style.mainContainer, isMobile && 'column']"
   >
-    <template v-for="contactsData in myContacts">
+    <template v-for="contactsData in contactsInfo">
       <v-flex
         class="my-2"
         :key="contactsData.type"
@@ -30,32 +30,13 @@
 
 <script>
 
-const myContacts = [
-  {
-    type: 'phone',
-    text: '+7(920)-927-75-72',
-    href: '',
-    icon: 'mdi-cellphone-basic',
-  },
-  {
-    type: 'mail',
-    text: 'artjombebenin@gmail.com',
-    href: 'mailto:artjombebenin@gmail.com',
-    icon: 'mdi-email'
-  },
-  {
-    type: 'stype',
-    text: 'artem__r',
-    href: 'skype:artem__r?userinfo',
-    icon: 'mdi-skype'
-  }
-]
+import contactsInfo from '@/assets/contacts'
 
 export default {
   name: 'Contacts',
   data () {
     return {
-      myContacts
+      contactsInfo
     }
   },
   computed: {
@@ -72,8 +53,11 @@ export default {
 </script>
 
 <style module lang="less">
-  .containerMinWidth {
+  .mainContainer {
     min-width: 350px;
+    @media print {
+      flex-direction: column;
+    }
   }
   .contactInfo {
     background: linear-gradient(to right, var(--v-secondary-lighten1), var(--v-secondary-base));
