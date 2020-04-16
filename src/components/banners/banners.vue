@@ -2,10 +2,15 @@
   <v-carousel
     class="elevation-0"
     hide-delimiters
-    hide-controls
+    interval="15000"
     height="auto"
   >
-    <canvas-item />
+    <canvas-item
+      key="1"
+    />
+    <canvas-item
+      key="2"
+    />
   </v-carousel>
 </template>
 

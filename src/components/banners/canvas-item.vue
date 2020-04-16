@@ -4,7 +4,6 @@
       ref="canvas"
       :class="$style.canvas"
       @mousemove="startAnimate"
-      v-touch="onTouch(startAnimate)"
       @v-resize="onResize"
       :style="{ height: elementHeight }"
       width="250px"
@@ -33,14 +32,6 @@ export default {
     this.animation.animateBottom()
   },
   methods: {
-    onTouch (_function) {
-      var touchFunctions = {}
-      var directions = ['left', 'right', 'top', 'bottom']
-      directions.forEach((_dir) => {
-        touchFunctions[_dir] = () => _function('touch')
-      })
-      return touchFunctions
-    },
     startAnimate () {
       this.animation.animateBottom()
     },
