@@ -16,7 +16,7 @@
     >
       <v-icon
         large
-      >mdi-{{ icon.name }}</v-icon>
+      >{{ getNameIcon(icon) }}</v-icon>
     </v-btn>
   </v-layout>
 </template>
@@ -25,24 +25,52 @@
 var addedIcons = [
   {
     id: 'print',
-    name: 'printer',
+    name: 'mdi-printer',
     title: 'Печатать'
-  }
+  },
+  {
+    id: 'sound',
+    name: {
+      on: 'mdi-volume-high',
+      off: 'mdi-volume-off',
+    },
+    title: 'Звук'
+  },
 ]
 
 export default {
   name: 'AddButtons',
-  props: ['p_isColumn'],
+  props: {
+    p_isColumn: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
       addedIcons
     }
   },
   methods: {
+    getNameIcon (_icon) {
+      switch(_icon.id) {
+      case 'print':
+        return _icon.name
+      case 'sound':
+        if (this.$eventsBus.sound) {
+          return _icon.name.on
+        } else {
+          return _icon.name.off
+        }
+      }
+    },
     onClickIcon (_iconId) {
       switch(_iconId) {
       case 'print':
         this.$router.push({name: 'print'})
+        break
+      case 'sound':
+        this.$eventsBus.sound = !this.$eventsBus.sound
       }
     }
   }

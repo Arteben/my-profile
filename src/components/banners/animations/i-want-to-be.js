@@ -1,20 +1,24 @@
 import cq from './canvasquery'
-export default class CanvasQueryBanner {
-  constructor(_canvasElement, backgroundColor = 'black', textColor = 'white') {
-    var width = 250
-    var height = 40
+import click from '@/assets/sounds/478_click.wav'
 
-    this.backgroundColor = backgroundColor
-    this.textColor = textColor
+export default class CanvasQueryBanner {
+  constructor(_props) {
+    var width = _props.width
+    var height = _props.height
+
+    this.backgroundColor = _props.background || 'black'
+    this.textColor = _props.textColor || 'white'
     this.ventureFont = '14pt venture'
     this.maincraftFont = '13px maincraft'
+    this.isSound = _props.isSound
+    this.audio = new Audio(click)
     // this.mainFont
 
     this.w = width
     this.h = height
     this.setHW = false
     this.p = this.h / this.w
-    this.l = cq(_canvasElement)
+    this.l = cq(_props.canvas)
 
     this.banner = {
       topString: {
@@ -46,6 +50,10 @@ export default class CanvasQueryBanner {
 
     this.l.textBaseline('top')
     this.l.textAlign('center')
+  }
+
+  sound(_flag) {
+    this.isSound = _flag
   }
 
   draw() {
@@ -100,6 +108,9 @@ export default class CanvasQueryBanner {
           } else {
             ang = 0
             symbolIdx++
+            if (this.isSound && this.audio) {
+              this.audio.play()
+            }
           }
           window.requestAnimationFrame(requestFunc)
         } else {

@@ -9,10 +9,13 @@ import '@/assets/fonts/maincraft/maincraft.css'
 import '@/assets/fonts/press-start/press-start.css'
 import '@/assets/fonts/lobster/lobster.css'
 
+import { eventsBus } from '@/utils'
+
 import logMixin from '@/mixins/log'
 Vue.mixin(logMixin)
 
 Vue.config.productionTip = false
+Vue.prototype.$eventsBus = new Vue(eventsBus)
 
 new Vue({
   router,

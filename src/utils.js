@@ -58,3 +58,35 @@ export const scrollToElementHref = (function() {
     }
   }
 }())
+
+export const eventsBus = {
+  data: {
+    sound: null,
+    events: {
+      'scrollApp': 'eventsBus_scrollApp'
+    }
+  },
+  mixins: [{
+    methods: {
+      callEvent(_name) {
+        const event = this.events[_name]
+        if (event) {
+          this.$emit(event)
+        }
+      },
+      setListener(_name, _callback, _component) {
+        const event = this.events[_name]
+        if (event) {
+          this.$on(event, _callback)
+          const the = this
+          _component.$once('hook:beforeDestroy', (function () {
+            const scope = { the, event, callback: _callback }
+            return () => {
+              scope.the.$off(scope.event, scope.callback)
+            }
+          }()))
+        }
+      }
+    }
+  }]
+}

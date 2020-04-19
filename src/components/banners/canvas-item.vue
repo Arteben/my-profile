@@ -3,38 +3,60 @@
     <canvas
       ref="canvas"
       :class="$style.canvas"
-      @mousemove="startAnimate"
       @v-resize="onResize"
       :style="{ height: elementHeight }"
-      width="250px"
-      height="40px"
+      :width="width + 'px'"
+      :height="height + 'px'"
     />
   </v-carousel-item>
 </template>
 
 <script>
-import BannerAnimate from './animations'
+import bannerAnimations from './animations/bannerAnimations'
 export default {
   name: 'CanvasItem',
+  props: {
+    p_animationName: {
+      type: String,
+      default: ''
+    }
+  },
   data() {
     return {
       animation: null,
-      elementHeight: 'auto'
+      elementHeight: 'auto',
+      width: 250,
+      height: 40
+    }
+  },
+  watch: {
+    '$eventsBus.sound' (_flag) {
+      if (this.animation) {
+        this.animation.sound(_flag)
+      }
     }
   },
   mounted() {
     var vuetifyTheme = this.$vuetify.theme
     var backgroundColor = vuetifyTheme.secondary
     var textColor = vuetifyTheme.primary
-    this.animation = new BannerAnimate(this.$refs.canvas, backgroundColor, textColor)
-    this.animation.draw()
-
-    this.animation.animateBottom()
+    if (this.p_animationName) {
+      this.animation = bannerAnimations(this.p_animationName, {
+        canvas: this.$refs.canvas,
+        background: backgroundColor,
+        textColor,
+        width: this.width,
+        height: this.height,
+        isSound: this.$eventsBus.sound
+      })
+      this.animation.mounted()
+      this.animation.action()
+      this.$eventsBus.setListener('scrollApp', () => {
+        this.animation.action()
+      }, this)
+    }
   },
   methods: {
-    startAnimate () {
-      this.animation.animateBottom()
-    },
     onResize() {
       if (this.animation) {
         let elementWidth = this.$el.clientWidth

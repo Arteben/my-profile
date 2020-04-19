@@ -5,19 +5,31 @@
     interval="15000"
     height="auto"
   >
-    <canvas-item
-      key="1"
-    />
-    <canvas-item
-      key="2"
-    />
+    <template
+      v-for="banner in banners"
+    >
+      <canvas-item
+        :p_animationName="banner"
+        :key="banner"
+      />
+    </template>
   </v-carousel>
 </template>
 
 <script>
 import CanvasItem from './canvas-item'
+
+const banners = [
+  'iWantToBe', 'wordsBlocks'
+]
+
 export default {
   name: 'Banners',
+  data () {
+    return {
+      banners
+    }
+  },
   components: {
     CanvasItem
   }

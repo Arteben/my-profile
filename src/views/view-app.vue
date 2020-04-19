@@ -75,6 +75,7 @@ export default {
       route.meta.isScroll = false
       this.$router.push('/#' + this.partsKeys[0])
     }
+    this.$eventsBus.sound = false
   },
   computed: {
     minPartsAppHeight () {
@@ -86,7 +87,7 @@ export default {
     onScrollApp () {
       if (!scrollEventTimeout) {
         scrollEventTimeout = window.setTimeout(() => {
-          this.$emit('scrollApp')
+          this.$eventsBus.callEvent('scrollApp')
           window.clearTimeout(scrollEventTimeout)
           scrollEventTimeout = null
         }, 1000)
