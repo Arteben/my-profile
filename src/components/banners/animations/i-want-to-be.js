@@ -52,10 +52,6 @@ export default class CanvasQueryBanner {
     this.l.textAlign('center')
   }
 
-  sound(_flag) {
-    this.isSound = _flag
-  }
-
   draw() {
     var layer = this.l
     var banner = this.banner

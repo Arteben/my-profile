@@ -28,6 +28,7 @@ export default function (_name, _props) {
           break
         case animations.blocks:
           this.animation = new WordsBlocks(this.props)
+          this.animation.draw()
       }
     },
     action () {
@@ -35,11 +36,14 @@ export default function (_name, _props) {
         switch (this.name) {
           case animations.iWantBe:
             this.animation.animateBottom()
+            break
+          case animations.blocks:
+            this.animation.draw()
         }
       }
     },
     sound (_isSound) {
-      this.animation.sound(_isSound)
+      this.animation.isSound = _isSound
     }
   }
 }
