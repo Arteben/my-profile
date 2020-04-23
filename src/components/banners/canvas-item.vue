@@ -19,6 +19,10 @@ export default {
     p_animationName: {
       type: String,
       default: ''
+    },
+    p_isSelected: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -30,9 +34,12 @@ export default {
     }
   },
   watch: {
-    '$eventsBus.sound' (_flag) {
-      if (this.animation) {
-        this.animation.sound(_flag)
+    isSound (_flag) {
+      this.animation.sound(_flag)
+    },
+    p_isSelected (_flag) {
+      if (_flag) {
+        this.animation.action()
       }
     }
   },
@@ -50,10 +57,14 @@ export default {
         isSound: this.$eventsBus.sound
       })
       this.animation.mounted()
-      this.animation.action()
-      this.$eventsBus.setListener('scrollApp', () => {
+      if (this.p_isSelected) {
         this.animation.action()
-      }, this)
+      }
+    }
+  },
+  computed: {
+    isSound () {
+      return (this.animation && this.$eventsBus.sound && this.p_isSelected)
     }
   },
   methods: {

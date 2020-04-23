@@ -38,7 +38,7 @@ export default function (_name, _props) {
             this.animation.animateBottom()
             break
           case animations.blocks:
-            this.animation.draw()
+            this.animation.drop()
         }
       }
     },
