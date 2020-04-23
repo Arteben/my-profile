@@ -4,7 +4,7 @@
     hide-delimiters
     interval="15000"
     height="auto"
-    @input="onCarouselSelected"
+    @change="onCarouselSelected"
   >
     <template
       v-for="banner in banners"
