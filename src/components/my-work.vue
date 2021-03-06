@@ -54,7 +54,6 @@
 
 <script>
 export default {
-  //
   name: 'MyWork',
   data () {
     return {
