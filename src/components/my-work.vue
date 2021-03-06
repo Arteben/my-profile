@@ -72,8 +72,8 @@ export default {
   methods: {
     getImageSrc (_isLazy) {
       var dir = this.p_workData.img
-      var path = `http://coderjs.zz.vc/projects/${dir}/info/`
-      var img = (_isLazy || !this.isExpanded) && 'img.PNG' || 'img_big.PNG'
+      var path = `http://coderjs.host/projects/${_dir}/info/`
+      var img = (_isLazy || !this.isExpanded) && 'img.jpg' || 'img_big.jpg'
       return path + img
     },
     onClickCard() {
