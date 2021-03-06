@@ -60,7 +60,7 @@ export default {
       isExpanded: false,
     }
   },
-  props: { p_workData: Object },
+ props: { p_workData: Object },
   computed: {
     breakpointMdUp () {
       return this.$vuetify.breakpoint.mdAndUp
@@ -72,7 +72,7 @@ export default {
   methods: {
     getImageSrc (_isLazy) {
       var dir = this.p_workData.img
-      var path = `http://coderjs.host/projects/${_dir}/info/`
+      var path = `http://coderjs.host/projects/${dir}/info/`
       var img = (_isLazy || !this.isExpanded) && 'img.jpg' || 'img_big.jpg'
       return path + img
     },
