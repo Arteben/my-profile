@@ -60,7 +60,7 @@ export default {
       isExpanded: false,
     }
   },
- props: { p_workData: Object },
+  props: { p_workData: Object },
   computed: {
     breakpointMdUp () {
       return this.$vuetify.breakpoint.mdAndUp
