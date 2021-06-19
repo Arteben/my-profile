@@ -67,7 +67,7 @@ export default {
     },
     workItemWIdth () {
       return !this.breakpointMdUp && 'fullWidth' || 'halthWidth'
-    }
+    },
   },
   methods: {
     getImageSrc (_isLazy) {
@@ -80,13 +80,13 @@ export default {
       this.isExpanded = !this.isExpanded
       this.$emit('toggleWork', {
         ref: this.p_workData.name,
-        isExpanded:  this.isExpanded
+        isExpanded:  this.isExpanded,
       })
     },
     onClickIconOpenGame() {
       window.open(this.p_workData.link)
-    }
-  }
+    },
+  },
 }
 </script>
 

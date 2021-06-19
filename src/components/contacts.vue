@@ -36,7 +36,7 @@ export default {
   name: 'Contacts',
   data () {
     return {
-      contactsInfo
+      contactsInfo,
     }
   },
   computed: {
@@ -47,8 +47,8 @@ export default {
   methods: {
     getElementForContactInfo(_info) {
       return (_info && _info.href) && 'a' || 'span'
-    }
-  }
+    },
+  },
 }
 </script>
 

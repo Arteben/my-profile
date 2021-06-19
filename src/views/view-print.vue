@@ -55,7 +55,7 @@ export default {
     return {
       allImagesCounter: 0,
       loadImagesCounter: 0,
-      worksInfo
+      worksInfo,
     }
   },
   mounted () {
@@ -67,14 +67,14 @@ export default {
       if (_counter >= this.allImagesCounter) {
         window.print()
       }
-    }
+    },
   },
   components: {
     infoBlocks,
     contacts,
     myPhoto,
-    myPrintedWork
-  }
+    myPrintedWork,
+  },
 }
 </script>
 

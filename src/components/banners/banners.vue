@@ -22,7 +22,7 @@
 import CanvasItem from './canvas-item'
 
 const banners = [
-  'wordsBlocks', 'iWantToBe'
+  'wordsBlocks', 'iWantToBe',
 ]
 
 export default {
@@ -30,17 +30,17 @@ export default {
   data () {
     return {
       banners,
-      selectedItem: null
+      selectedItem: null,
     }
   },
   methods: {
     onCarouselSelected (_id) {
       this.selectedItem = banners[_id]
-    }
+    },
   },
   components: {
-    CanvasItem
-  }
+    CanvasItem,
+  },
 }
 </script>
 

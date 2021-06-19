@@ -1,15 +1,15 @@
 export default {
   props: {
-    _debug: Boolean
+    _debug: Boolean,
   },
   data: function () {
     return {
-      deferTimeout: null
+      deferTimeout: null,
     }
   },
   methods: {
     log: function () {
       console.log(this.$options.name, ...arguments)
-    }
-  }
+    },
+  },
 }

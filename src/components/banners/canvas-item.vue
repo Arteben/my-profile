@@ -18,19 +18,19 @@ export default {
   props: {
     p_animationName: {
       type: String,
-      default: ''
+      default: '',
     },
     p_isSelected: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
       animation: null,
       elementHeight: 'auto',
       width: 250,
-      height: 40
+      height: 40,
     }
   },
   watch: {
@@ -41,7 +41,7 @@ export default {
       if (_flag) {
         this.animation.action()
       }
-    }
+    },
   },
   mounted() {
     var vuetifyTheme = this.$vuetify.theme
@@ -54,7 +54,7 @@ export default {
         textColor,
         width: this.width,
         height: this.height,
-        isSound: this.$eventsBus.sound
+        isSound: this.$eventsBus.sound,
       })
       this.animation.mounted()
       if (this.p_isSelected) {
@@ -65,7 +65,7 @@ export default {
   computed: {
     isSound () {
       return (this.animation && this.$eventsBus.sound && this.p_isSelected)
-    }
+    },
   },
   methods: {
     onResize() {
@@ -73,8 +73,8 @@ export default {
         let elementWidth = this.$el.clientWidth
         this.elementHeight = elementWidth * this.animation.p
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -85,7 +85,7 @@ export default {
     return {
       props: ['кратко', 'подробно'],
       selectedIdx: 0,
-      heightTabs
+      heightTabs,
     }
   },
   computed: {
@@ -95,16 +95,16 @@ export default {
     isDescriptions () {
       const items = this.p_blockInfo && this.p_blockInfo.items || []
       return items.some(_item => Boolean(_item.description))
-    }
+    },
   },
   methods: {
     onTabsChange (_tabIdx) {
       this.$emit('changeTabs', {
         elementTitle: this.p_blockInfo.title,
-        tabIdx: _tabIdx
+        tabIdx: _tabIdx,
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

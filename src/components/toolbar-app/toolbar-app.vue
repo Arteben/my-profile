@@ -55,7 +55,7 @@ export default {
   name: 'ToolbarApp',
   components: {
     partLink,
-    addButtons
+    addButtons,
   },
   computed: {
     isMobile () {
@@ -63,7 +63,7 @@ export default {
     },
     isExtraSmall () {
       return this.$vuetify.breakpoint.xs
-    }
+    },
   },
   methods: {
     getClassFontSizeFor (_nameClass) {
@@ -74,8 +74,8 @@ export default {
         _nameClass += 'Desktop'
       }
       return _nameClass
-    }
-  }
+    },
+  },
 }
 </script>
 

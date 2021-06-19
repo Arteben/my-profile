@@ -25,9 +25,9 @@ export default class CanvasQueryBanner {
         x: width / 2,
         xPos: width / 2,
         y: 10,
-        yPos: 10
+        yPos: 10,
       },
-      bottomString: []
+      bottomString: [],
     }
 
     var bottomStringWords = ['game', 'developer']
@@ -134,7 +134,7 @@ export default class CanvasQueryBanner {
       xPos: xPosition,
       y: indentH,
       yPos: indentH,
-      s: _symbol
+      s: _symbol,
     }
   }
 }

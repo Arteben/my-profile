@@ -34,14 +34,14 @@ export default new Router({
       path: '/',
       name: 'app',
       meta: {
-        isScroll: true
+        isScroll: true,
       },
-      component: app
+      component: app,
     },
     {
       path: '/print',
       name: 'print',
-      component: printView
-    }
-  ]
+      component: printView,
+    },
+  ],
 })

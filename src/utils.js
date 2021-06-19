@@ -63,8 +63,8 @@ export const eventsBus = {
   data: {
     sound: null,
     events: {
-      'scrollApp': 'eventsBus_scrollApp'
-    }
+      'scrollApp': 'eventsBus_scrollApp',
+    },
   },
   mixins: [{
     methods: {
@@ -86,7 +86,7 @@ export const eventsBus = {
             }
           }()))
         }
-      }
-    }
-  }]
+      },
+    },
+  }],
 }

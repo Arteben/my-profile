@@ -31,26 +31,26 @@ export default {
   props: {
     p_workData: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   watch: {
     isExpanded (_flag) {
       this.$emit('toggletWork', this.p_workData.name, _flag)
-    }
+    },
   },
   computed: {
     breakpointMdUp () {
       return this.$vuetify.breakpoint.mdAndUp
-    }
+    },
   },
   methods: {
     getImageSrc (_dir) {
       var path = `http://coderjs.host/projects/${_dir}/info/`
       var img = this.isExpanded && 'img_big.PNG' || 'img.PNG'
       return path + img
-    }
-  }
+    },
+  },
 }
 </script>
 

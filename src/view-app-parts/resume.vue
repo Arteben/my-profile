@@ -35,13 +35,13 @@ export default {
     banners,
     contacts,
     infoBlocks,
-    myPhoto
+    myPhoto,
   },
 
   computed: {
     isMobileScreen () {
       return this.$vuetify.breakpoint.smAndDown
-    }
-  }
+    },
+  },
 }
 </script>

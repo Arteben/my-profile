@@ -1,11 +1,11 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
   },
   'extends': [
     'plugin:vue/strongly-recommended',
-    'eslint:recommended'
+    'eslint:recommended',
   ],
   rules: {
     'no-console': 'off',
@@ -13,7 +13,7 @@ module.exports = {
     'no-trailing-spaces': 'error',
     quotes: [
       'error',
-      'single'
+      'single',
     ],
     'vue/array-bracket-spacing': 'error',
     'vue/arrow-spacing': 'error',
@@ -26,9 +26,9 @@ module.exports = {
     'vue/attribute-hyphenation': 'off',
     'vue/prop-name-casing': 'off',
     'vue/multiline-html-element-content-newline': 'off',
-    'comma-dangle': ['warn', 'always-multiline'],
+    'comma-dangle': ['error', 'always-multiline'],
   },
   parserOptions: {
-    parser: 'babel-eslint'
-  }
+    parser: 'babel-eslint',
+  },
 }

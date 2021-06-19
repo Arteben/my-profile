@@ -5,7 +5,7 @@ const animateStates = {
   'calm': 'calm',
   'drop': 'drop',
   'fallingSupport': 'fallingSupport',
-  'fallingWords': 'fallingWords'
+  'fallingWords': 'fallingWords',
 }
 
 const destructionSound = new Audio(destruction)
@@ -26,7 +26,7 @@ export default class CanvasBanner {
       h: _props.height,
       textHeight: 11,
       font: ventureFont,
-      edgePers: 30
+      edgePers: 30,
     }
 
     this.colors = {
@@ -34,7 +34,7 @@ export default class CanvasBanner {
       support: textColor,
       container: textColor,
       containerBorder: background,
-      textColor: background
+      textColor: background,
     }
 
     this.isSound = _props.isSound
@@ -213,14 +213,14 @@ function getBreakSupportSprites(_percents) {
       x1: getNum(sizes.w, sizes.edgePers * 0.3),
       y1: getNum(sizes.h, 100 - sizes.edgePers),
       x2: getNum(sizes.w, sizes.edgePers),
-      y2: endPosY
+      y2: endPosY,
     }
 
     const lastLine = {
       x1: sizes.w - firstLine.x1,
       y1: firstLine.y1,
       x2: sizes.w - firstLine.x2,
-      y2: endPosY
+      y2: endPosY,
     }
 
     const drawLine = (_line) => {
