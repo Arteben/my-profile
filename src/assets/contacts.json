@@ -1,20 +1,14 @@
 [
   {
-    "type": "phone",
-    "text": "+7(920)-927-75-72",
-    "href": "",
-    "icon": "mdi-cellphone-basic"
+    "type": "telegram",
+    "text": "@abebenin",
+    "href": "https://t.me/abebenin",
+    "icon": "mdi-telegram"
   },
   {
     "type": "mail",
     "text": "artjombebenin@gmail.com",
     "href": "mailto:artjombebenin@gmail.com",
     "icon": "mdi-email"
-  },
-  {
-    "type": "stype",
-    "text": "artem__r",
-    "href": "skype:artem__r?userinfo",
-    "icon": "mdi-skype"
   }
 ]
