@@ -8,8 +8,8 @@ export default class CanvasQueryBanner {
 
     this.backgroundColor = _props.background || 'black'
     this.textColor = _props.textColor || 'white'
-    this.ventureFont = '14pt venture'
-    this.maincraftFont = '13px maincraft'
+    this.ventureFont = '16px venture'
+    this.maincraftFont = '16px maincraft'
     this.isSound = _props.isSound
     this.audio = new Audio(click)
     // this.mainFont
@@ -30,10 +30,10 @@ export default class CanvasQueryBanner {
       bottomString: [],
     }
 
-    var bottomStringWords = ['game', 'developer']
+    var bottomStringWords = ['a', 'game', 'developer']
     var indent = 0
     var gDsymbols = this.banner.bottomString
-    var spaceIndent = 26
+    var spaceIndent = 22
 
     var addSymbol = _sym => {
       gDsymbols.push(CanvasQueryBanner.getBigSymbols(indent, _sym, width))
@@ -45,6 +45,11 @@ export default class CanvasQueryBanner {
     }
     indent += spaceIndent
     for (let sym of bottomStringWords[1]) {
+      addSymbol(sym)
+    }
+
+    indent += spaceIndent
+    for (let sym of bottomStringWords[2]) {
       addSymbol(sym)
     }
 

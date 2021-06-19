@@ -18,13 +18,13 @@ export default class CanvasBanner {
 
     const background = _props.background || 'black'
     const textColor = _props.textColor || 'white'
-    const words = ['programmer', 'modest boy', 'perfect man']
-    const ventureFont = '11pt venture'
+    const words = ['programmer', 'modestboy', 'perfectman']
+    const ventureFont = '16px venture'
 
     this.sizes = {
       w: _props.width,
       h: _props.height,
-      textHeight: 11,
+      textHeight: 13,
       font: ventureFont,
       edgePers: 30,
     }
@@ -45,7 +45,7 @@ export default class CanvasBanner {
       const maxX = (_props.width * 0.58)
       const x = (Math.floor(Math.random() * (maxX - minX + 1)) + minX)
       return {
-        width: (String(word).length * 10),
+        width: (String(word).length * 11),
         symbs: word,
         y: 0,
         x,
@@ -69,7 +69,7 @@ export default class CanvasBanner {
       getBreakSupportSprites.call(this, animatePercents)
       setAllWords.call(this, animatePercents)
       if (100 > animatePercents) {
-        animatePercents += 3
+        animatePercents += 10
         window.requestAnimationFrame(dropAnimation)
       } else {
         this.animateCurrentState = animateStates.fallingSupport
@@ -81,7 +81,7 @@ export default class CanvasBanner {
       this.clear()
       getFallSupportSprite.call(this, animatePercents)
       if (100 > animatePercents) {
-        animatePercents += 8
+        animatePercents += 7
         window.requestAnimationFrame(fallingSupportAnimation)
       } else {
         this.animateCurrentState = animateStates.fallingWords
@@ -163,7 +163,7 @@ function drawBlockWord(_word, _layer, _sizes, _colors) {
   _layer.strokeRect(getRectX(middleX), getRextY(posY), width, _sizes.textHeight)
 
   _layer.fillStyle = _colors.textColor
-  _layer.fillText(_word.symbs, middleX, (posY - 1))
+  _layer.fillText(_word.symbs, middleX, posY)
 }
 
 function getStartedWordHeight (_idx, _sizes) {

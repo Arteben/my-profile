@@ -30,7 +30,7 @@ export default {
       animation: null,
       elementHeight: 'auto',
       width: 250,
-      height: 40,
+      height: 48,
     }
   },
   watch: {
