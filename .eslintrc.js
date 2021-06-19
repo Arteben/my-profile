@@ -25,7 +25,8 @@ module.exports = {
     'vue/script-indent': 'error',
     'vue/attribute-hyphenation': 'off',
     'vue/prop-name-casing': 'off',
-    'vue/multiline-html-element-content-newline': 'off'
+    'vue/multiline-html-element-content-newline': 'off',
+    'comma-dangle': ['warn', 'always-multiline'],
   },
   parserOptions: {
     parser: 'babel-eslint'
