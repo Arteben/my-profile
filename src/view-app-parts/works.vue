@@ -1,7 +1,7 @@
 <template>
   <v-container
     id="works"
-    class="worksBackground"
+    class="worksBackground pa-8"
     v-bind="{ [`grid-list-${size}`]: true }"
     fluid
   >
@@ -39,6 +39,7 @@ export default {
   },
   computed: {
     size () {
+      console.log('this.$vuetify.breakpoint.name', this.$vuetify.breakpoint.name, this.$vuetify)
       return this.$vuetify.breakpoint.name
     },
   },

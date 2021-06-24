@@ -1,6 +1,6 @@
 <template>
   <v-flex
-    class="lg2 md3 sm4 xs12"
+    class="lg3 md3 sm4"
     :class=" { [$style[workItemWIdth]]: isExpanded}"
   >
     <v-card
@@ -95,6 +95,6 @@ export default {
     min-width: 100%;
   }
   .halthWidth {
-    min-width: 40%;
+    min-width: 50%;
   }
 </style>
