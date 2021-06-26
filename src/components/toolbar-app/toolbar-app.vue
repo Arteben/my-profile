@@ -17,10 +17,10 @@
           align-end
         > <v-flex
             :class="[$style.firstName, isMobile && $style.firstName_mobile]"
-          > Артёма </v-flex>
+          > Артём </v-flex>
           <v-flex
             :class="[$style.lastName, isMobile && $style.lastName_mobile]"
-          > Бебенина </v-flex>
+          > Бебенин </v-flex>
         </v-layout>
         <v-layout
           :class="[$style.lobsterFont, $style.siteName, $style[getClassFontSizeFor('siteNameFont')]]"
