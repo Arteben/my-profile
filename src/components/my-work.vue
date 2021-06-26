@@ -1,13 +1,12 @@
 <template>
   <v-flex
-    class="lg3 md3 sm4"
-    :class=" { [$style[workItemWIdth]]: isExpanded}"
+    :class="workItemWIdthClasses"
   >
     <v-card
       light
       hover
       @click.stop="onClickCard('expand')"
-      :class="[`pa-${isExpanded && 4 || 1}`, $style.card]"
+      :class="[`pa-${isExpanded && 4 || 1}`]"
     >
       <v-img
         :aspect-ratio="!isExpanded && 3 || 2"
@@ -65,8 +64,10 @@ export default {
     breakpointMdUp () {
       return this.$vuetify.breakpoint.mdAndUp
     },
-    workItemWIdth () {
-      return !this.breakpointMdUp && 'fullWidth' || 'halthWidth'
+    workItemWIdthClasses () {
+      return this.isExpanded
+        ? 'lg4 md sm12'
+        : 'lg3 md3 sm4'
     },
   },
   methods: {
@@ -89,12 +90,3 @@ export default {
   },
 }
 </script>
-
-<style module lang="less">
-  .fullWidth {
-    min-width: 100%;
-  }
-  .halthWidth {
-    min-width: 50%;
-  }
-</style>
