@@ -39,7 +39,6 @@ export default {
   },
   computed: {
     size () {
-      console.log('this.$vuetify.breakpoint.name', this.$vuetify.breakpoint.name, this.$vuetify)
       return this.$vuetify.breakpoint.name
     },
   },
