@@ -3,13 +3,9 @@ export const getCurrentPartAppAnchor = (function () {
   var timeout
 
   var isSetHashForElement = function (_elementName) {
-    var isSet = false
     var element = this.$refs[_elementName][0].$el
     var bottomOffset = element.getBoundingClientRect().bottom
-    if (bottomOffset - this.viewport.top >= 200) {
-      isSet = true
-    }
-    return isSet
+    return (bottomOffset - this.viewport.top >= 200)
   }
 
   var setHash = function () {

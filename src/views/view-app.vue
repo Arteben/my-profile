@@ -71,9 +71,9 @@ export default {
   },
   mounted() {
     var route = this.$route
-    if (!route.hash) {
+    if (route.hash && route.hash === `#${this.partsKeys[0]}`) {
       route.meta.isScroll = false
-      this.$router.push('/#' + this.partsKeys[0])
+      this.$router.push({name: 'app'})
     }
     this.$eventsBus.sound = false
   },

@@ -19,12 +19,12 @@ export default new Router({
   mode: 'history',
   scrollBehavior (to) {
 
-    if (to.hash && to.meta.isScroll) {
-      scrollToSmoth(to.hash)
-    }
-
-    if (!to.meta.isScroll) {
-      to.meta.isScroll = true
+    if (to.name === 'app' && to.hash) {
+      if (to.meta.isScroll) {
+        scrollToSmoth(to.hash)
+      } else {
+        to.meta.isScroll = true
+      }
     }
 
     return false

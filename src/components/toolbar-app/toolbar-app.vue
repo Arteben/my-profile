@@ -30,11 +30,11 @@
           align-content-center
           wrap
         > <v-flex>
-            <partLink :p_item="{name: 'резюме', to: '#resume'}" />
+            <partLink :p_item="{name: 'резюме', to: '/#resume'}" />
             <span>&nbsp;и&nbsp;</span>
           </v-flex>
           <v-flex>
-            <partLink :p_item="{name: 'проектики', to: '#works'}" />
+            <partLink :p_item="{name: 'проектики', to: '/#works'}" />
           </v-flex>
         </v-layout>
         <!-- added icons for app panel -->
