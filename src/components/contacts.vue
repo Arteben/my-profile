@@ -5,8 +5,10 @@
     :class="[$style.mainContainer, isMobile && 'column']"
   >
     <template v-for="contactsData in contactsInfo">
-      <v-flex
-        class="my-2"
+      <v-component
+        :is="getElementForContactInfo(contactsData)"
+        class="flex my-2"
+        :href="contactsData.href"
         :key="contactsData.type"
         :title="contactsData.type"
       >
@@ -18,12 +20,11 @@
             medium
             left
           >{{ contactsData.icon }}</v-icon>
-          <v-component
-            :is="getElementForContactInfo(contactsData)"
-            :href="contactsData.href"
-          >{{ contactsData.text }}</v-component>
+          <span
+            class="title"
+          >{{ contactsData.text }}</span>
         </div>
-      </v-flex>
+      </v-component>
     </template>
   </v-layout>
 </template>
