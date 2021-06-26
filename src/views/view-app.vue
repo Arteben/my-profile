@@ -69,12 +69,7 @@ export default {
       }
     },
   },
-  mounted() {
-    var route = this.$route
-    if (route.hash && route.hash === `#${this.partsKeys[0]}`) {
-      route.meta.isScroll = false
-      this.$router.push({name: 'app'})
-    }
+  created() {
     this.$eventsBus.sound = false
   },
   computed: {
