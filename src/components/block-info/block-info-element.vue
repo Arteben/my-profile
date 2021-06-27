@@ -43,12 +43,12 @@
         <v-layout
           v-for="item of p_blockInfo.items"
           :key="item.title"
-          class="pl-4 body-2"
+          class="ml-5 body-2"
           :title="item.title"
-          align-start
+          align-center
         >
           <v-icon
-            left
+            :class="$style.itemIcon"
             :size="item.isBig && '24' || '18'"
           >
             mdi-{{ item.icon }}
@@ -117,5 +117,8 @@ export default {
   .infoText {
     line-height: 30px;
     color: var(--v-primary-darken);
+  }
+  .itemIcon {
+    width: 25px;
   }
 </style>
