@@ -26,7 +26,7 @@ var addedIcons = [
   {
     id: 'print',
     name: 'mdi-printer',
-    title: 'Печатать'
+    title: 'Печатать',
   },
   {
     id: 'sound',
@@ -34,7 +34,7 @@ var addedIcons = [
       on: 'mdi-volume-high',
       off: 'mdi-volume-off',
     },
-    title: 'Звук'
+    title: 'Звук',
   },
 ]
 
@@ -43,12 +43,12 @@ export default {
   props: {
     p_isColumn: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data () {
     return {
-      addedIcons
+      addedIcons,
     }
   },
   methods: {
@@ -72,7 +72,7 @@ export default {
       case 'sound':
         this.$eventsBus.sound = !this.$eventsBus.sound
       }
-    }
-  }
+    },
+  },
 }
 </script>

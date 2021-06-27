@@ -43,12 +43,12 @@
         <v-layout
           v-for="item of p_blockInfo.items"
           :key="item.title"
-          class="pl-4 body-2"
+          class="ml-5 body-2"
           :title="item.title"
-          align-start
+          align-center
         >
           <v-icon
-            left
+            :class="$style.itemIcon"
             :size="item.isBig && '24' || '18'"
           >
             mdi-{{ item.icon }}
@@ -85,7 +85,7 @@ export default {
     return {
       props: ['кратко', 'подробно'],
       selectedIdx: 0,
-      heightTabs
+      heightTabs,
     }
   },
   computed: {
@@ -95,16 +95,16 @@ export default {
     isDescriptions () {
       const items = this.p_blockInfo && this.p_blockInfo.items || []
       return items.some(_item => Boolean(_item.description))
-    }
+    },
   },
   methods: {
     onTabsChange (_tabIdx) {
       this.$emit('changeTabs', {
         elementTitle: this.p_blockInfo.title,
-        tabIdx: _tabIdx
+        tabIdx: _tabIdx,
       })
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -117,5 +117,8 @@ export default {
   .infoText {
     line-height: 30px;
     color: var(--v-primary-darken);
+  }
+  .itemIcon {
+    width: 25px;
   }
 </style>

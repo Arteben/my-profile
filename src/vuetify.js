@@ -19,7 +19,7 @@ Vue.use(Vuetify, {
     // warning: '#FFC107'
   },
   options: {
-    customProperties: true
+    customProperties: true,
   },
   iconfont: 'mdi',
 })

@@ -24,13 +24,13 @@ export default {
   name: 'BlockInfo',
   data () {
     return {
-      infoBlocks: (infoBlocks || [])
+      infoBlocks: (infoBlocks || []),
     }
   },
   computed: {
     isMobileScreen () {
       return this.$vuetify.breakpoint.smAndDown
-    }
+    },
   },
   methods: {
     onChangeTabs({elementTitle, tabIdx}) {
@@ -38,10 +38,10 @@ export default {
       if (tabIdx === 1) {
         scrollToElementHref.call(this, elementTitle)
       }
-    }
+    },
   },
   components: {
-    BlockInfoElement
-  }
+    BlockInfoElement,
+  },
 }
 </script>

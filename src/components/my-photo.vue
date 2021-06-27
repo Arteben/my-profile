@@ -37,14 +37,14 @@ export default {
   props: {
     p_isPrintMode: {
       default: false,
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   data () {
     return {
-      myPhoto2Src
+      myPhoto2Src,
     }
-  }
+  },
 }
 </script>
 

@@ -1,13 +1,12 @@
 <template>
   <v-flex
-    class="lg2 md3 sm4 xs12"
-    :class=" { [$style[workItemWIdth]]: isExpanded}"
+    :class="workItemWIdthClasses"
   >
     <v-card
       light
       hover
       @click.stop="onClickCard('expand')"
-      :class="[`pa-${isExpanded && 4 || 1}`, $style.card]"
+      :class="[`pa-${isExpanded && 4 || 1}`]"
     >
       <v-img
         :aspect-ratio="!isExpanded && 3 || 2"
@@ -53,6 +52,9 @@
 </template>
 
 <script>
+
+import { getInfoImgSrc } from '@/utils'
+
 export default {
   name: 'MyWork',
   data () {
@@ -65,36 +67,26 @@ export default {
     breakpointMdUp () {
       return this.$vuetify.breakpoint.mdAndUp
     },
-    workItemWIdth () {
-      return !this.breakpointMdUp && 'fullWidth' || 'halthWidth'
-    }
+    workItemWIdthClasses () {
+      return this.isExpanded
+        ? 'lg4 md6 sm6 xs12'
+        : 'lg3 md3 sm4'
+    },
   },
   methods: {
     getImageSrc (_isLazy) {
-      var dir = this.p_workData.img
-      var path = `http://coderjs.host/projects/${dir}/info/`
-      var img = (_isLazy || !this.isExpanded) && 'img.jpg' || 'img_big.jpg'
-      return path + img
+      return getInfoImgSrc(this.p_workData.img, !_isLazy && this.isExpanded)
     },
     onClickCard() {
       this.isExpanded = !this.isExpanded
       this.$emit('toggleWork', {
         ref: this.p_workData.name,
-        isExpanded:  this.isExpanded
+        isExpanded:  this.isExpanded,
       })
     },
     onClickIconOpenGame() {
       window.open(this.p_workData.link)
-    }
-  }
+    },
+  },
 }
 </script>
-
-<style module lang="less">
-  .fullWidth {
-    min-width: 100%;
-  }
-  .halthWidth {
-    min-width: 40%;
-  }
-</style>

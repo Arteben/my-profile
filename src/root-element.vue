@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: 'RootElement'
+  name: 'RootElement',
 }
 </script>

@@ -6,7 +6,7 @@
     {
      "isBig": true,
      "title": "Сколько времени я работаю",
-     "name": "Примерно два года",
+     "name": "Больше четырех лет",
      "icon": "clock"
     },
     {
@@ -16,7 +16,7 @@
     },
     {
      "title": "Какого я уровня?..",
-     "name": "Middle",
+     "name": "Senior",
      "icon": "summit"
     }
    ]
@@ -35,8 +35,8 @@
      "icon": "wordpress"
     },
     {
-     "title": "Скрипты под unix",
-     "icon": "linux"
+     "title": "Разработка казуальных игр",
+     "icon": "gamepad-variant"
     }
    ]
   },
@@ -73,8 +73,8 @@
      "icon": "webpack"
     },
     {
-     "title": "node.js",
-     "icon": "nodejs"
+     "title": "Raphael.js & Pixi.js",
+     "icon": "svg"
     }
    ]
   }

@@ -3,7 +3,7 @@ import WordsBlocks from './wordsBlocks'
 
 const animations = {
   iWantBe: 'iWantToBe',
-  blocks: 'wordsBlocks'
+  blocks: 'wordsBlocks',
 }
 
 /*
@@ -44,6 +44,6 @@ export default function (_name, _props) {
     },
     sound (_isSound) {
       this.animation.isSound = _isSound
-    }
+    },
   }
 }

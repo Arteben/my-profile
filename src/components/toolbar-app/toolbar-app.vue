@@ -17,10 +17,10 @@
           align-end
         > <v-flex
             :class="[$style.firstName, isMobile && $style.firstName_mobile]"
-          > Артёма </v-flex>
+          > Артём </v-flex>
           <v-flex
             :class="[$style.lastName, isMobile && $style.lastName_mobile]"
-          > Бебенина </v-flex>
+          > Бебенин </v-flex>
         </v-layout>
         <v-layout
           :class="[$style.lobsterFont, $style.siteName, $style[getClassFontSizeFor('siteNameFont')]]"
@@ -30,11 +30,11 @@
           align-content-center
           wrap
         > <v-flex>
-            <partLink :p_item="{name: 'резюме', to: '#resume'}" />
+            <partLink :p_item="{name: 'резюме', to: '/#resume'}" />
             <span>&nbsp;и&nbsp;</span>
           </v-flex>
           <v-flex>
-            <partLink :p_item="{name: 'проектики', to: '#works'}" />
+            <partLink :p_item="{name: 'проектики', to: '/#works'}" />
           </v-flex>
         </v-layout>
         <!-- added icons for app panel -->
@@ -55,7 +55,7 @@ export default {
   name: 'ToolbarApp',
   components: {
     partLink,
-    addButtons
+    addButtons,
   },
   computed: {
     isMobile () {
@@ -63,7 +63,7 @@ export default {
     },
     isExtraSmall () {
       return this.$vuetify.breakpoint.xs
-    }
+    },
   },
   methods: {
     getClassFontSizeFor (_nameClass) {
@@ -74,8 +74,8 @@ export default {
         _nameClass += 'Desktop'
       }
       return _nameClass
-    }
-  }
+    },
+  },
 }
 </script>
 

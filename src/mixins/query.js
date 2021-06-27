@@ -12,6 +12,6 @@ export default {
 
       xmlhttp.open('GET', _path);
       xmlhttp.send();
-    }
-  }
+    },
+  },
 }

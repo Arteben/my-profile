@@ -5,25 +5,26 @@
     :class="[$style.mainContainer, isMobile && 'column']"
   >
     <template v-for="contactsData in contactsInfo">
-      <v-flex
-        class="my-2"
+      <v-component
+        :is="getElementForContactInfo(contactsData)"
+        class="flex my-2"
+        :href="contactsData.href"
         :key="contactsData.type"
         :title="contactsData.type"
       >
         <div
-          class="px-2 py-1 flex-grow-0"
+          class="px-2 py-1 align-center"
           :class="[$style.contactInfo]"
         >
           <v-icon
             medium
             left
           >{{ contactsData.icon }}</v-icon>
-          <v-component
-            :is="getElementForContactInfo(contactsData)"
-            :href="contactsData.href"
-          >{{ contactsData.text }}</v-component>
+          <span
+            class="title"
+          >{{ contactsData.text }}</span>
         </div>
-      </v-flex>
+      </v-component>
     </template>
   </v-layout>
 </template>
@@ -36,7 +37,7 @@ export default {
   name: 'Contacts',
   data () {
     return {
-      contactsInfo
+      contactsInfo,
     }
   },
   computed: {
@@ -47,14 +48,18 @@ export default {
   methods: {
     getElementForContactInfo(_info) {
       return (_info && _info.href) && 'a' || 'span'
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style module lang="less">
   .mainContainer {
     min-width: 350px;
+    & > a {
+      text-decoration: none;
+    }
+
     @media print {
       flex-direction: column;
     }
@@ -63,9 +68,11 @@ export default {
     background: linear-gradient(to right, var(--v-secondary-lighten1), var(--v-secondary-base));
     border-left: 2px solid var(--v-primary-base);
     border-radius: 20px;
-    display: inline-block;
-    & > a {
-      text-decoration: none;
+    max-width: 400px;
+    overflow: hidden;
+    display: flex;
+    @media print {
+      color: black;
     }
   }
 </style>
