@@ -68,5 +68,8 @@ export default {
     & > a {
       text-decoration: none;
     }
+    @media print {
+      color: black;
+    }
   }
 </style>
