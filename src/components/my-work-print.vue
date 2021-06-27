@@ -6,7 +6,7 @@
   >
     <img
       :class="['mx-3', $style.workImage]"
-      :src="getImageSrc(p_workData.img)"
+      :src="getImgSrc(p_workData.img)"
       @load="$emit('loadImgWork')"
     >
     <v-flex
@@ -36,18 +36,8 @@ export default {
       default: () => {},
     },
   },
-  watch: {
-    isExpanded (_flag) {
-      this.$emit('toggletWork', this.p_workData.name, _flag)
-    },
-  },
-  computed: {
-    breakpointMdUp () {
-      return this.$vuetify.breakpoint.mdAndUp
-    },
-  },
   methods: {
-    getImgeSrc (_dir) {
+    getImgSrc (_dir) {
       return getInfoImgSrc(_dir)
     },
   },
