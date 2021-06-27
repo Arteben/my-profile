@@ -13,7 +13,7 @@
         :title="contactsData.type"
       >
         <div
-          class="px-2 py-1 flex-grow-0"
+          class="px-2 py-1 align-center"
           :class="[$style.contactInfo]"
         >
           <v-icon
@@ -56,6 +56,10 @@ export default {
 <style module lang="less">
   .mainContainer {
     min-width: 350px;
+    & > a {
+      text-decoration: none;
+    }
+
     @media print {
       flex-direction: column;
     }
@@ -64,10 +68,9 @@ export default {
     background: linear-gradient(to right, var(--v-secondary-lighten1), var(--v-secondary-base));
     border-left: 2px solid var(--v-primary-base);
     border-radius: 20px;
-    display: inline-block;
-    & > a {
-      text-decoration: none;
-    }
+    max-width: 400px;
+    overflow: hidden;
+    display: flex;
     @media print {
       color: black;
     }
