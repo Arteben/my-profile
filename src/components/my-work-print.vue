@@ -26,6 +26,8 @@
 
 <script>
 
+import { getInfoImgSrc } from '@/utils'
+
 export default {
   name: 'MyPrintedWork',
   props: {
@@ -45,10 +47,8 @@ export default {
     },
   },
   methods: {
-    getImageSrc (_dir) {
-      var path = `http://coderjs.host/projects/${_dir}/info/`
-      var img = this.isExpanded && 'img_big.PNG' || 'img.PNG'
-      return path + img
+    getImgeSrc (_dir) {
+      return getInfoImgSrc(_dir)
     },
   },
 }

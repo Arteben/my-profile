@@ -86,3 +86,9 @@ export const eventsBus = {
     },
   }],
 }
+
+export const getInfoImgSrc = (_projectName = '', _isBig = false) => {
+  const path = `http://coderjs.host/projects/${_projectName}/info/`
+  const img = _isBig ? 'img_big.jpg' : 'img.jpg'
+  return path + img
+}

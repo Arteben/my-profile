@@ -52,6 +52,9 @@
 </template>
 
 <script>
+
+import { getInfoImgSrc } from '@/utils'
+
 export default {
   name: 'MyWork',
   data () {
@@ -72,10 +75,7 @@ export default {
   },
   methods: {
     getImageSrc (_isLazy) {
-      var dir = this.p_workData.img
-      var path = `http://coderjs.host/projects/${dir}/info/`
-      var img = (_isLazy || !this.isExpanded) && 'img.jpg' || 'img_big.jpg'
-      return path + img
+      return getInfoImgSrc(this.p_workData.img, !_isLazy && this.isExpanded)
     },
     onClickCard() {
       this.isExpanded = !this.isExpanded
