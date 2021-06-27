@@ -69,7 +69,7 @@ export default {
     },
     workItemWIdthClasses () {
       return this.isExpanded
-        ? 'lg4 md sm12'
+        ? 'lg4 md6 sm6 xs12'
         : 'lg3 md3 sm4'
     },
   },
