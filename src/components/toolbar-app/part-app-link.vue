@@ -13,9 +13,9 @@ export default {
   props: {
     p_item: {
       default: () => {},
-      type: Object
-    }
-  }
+      type: Object,
+    },
+  },
 }
 </script>
 

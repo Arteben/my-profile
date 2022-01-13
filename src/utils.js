@@ -3,13 +3,9 @@ export const getCurrentPartAppAnchor = (function () {
   var timeout
 
   var isSetHashForElement = function (_elementName) {
-    var isSet = false
     var element = this.$refs[_elementName][0].$el
     var bottomOffset = element.getBoundingClientRect().bottom
-    if (bottomOffset - this.viewport.top >= 200) {
-      isSet = true
-    }
-    return isSet
+    return (bottomOffset - this.viewport.top >= 200)
   }
 
   var setHash = function () {
@@ -63,8 +59,8 @@ export const eventsBus = {
   data: {
     sound: null,
     events: {
-      'scrollApp': 'eventsBus_scrollApp'
-    }
+      'scrollApp': 'eventsBus_scrollApp',
+    },
   },
   mixins: [{
     methods: {
@@ -86,7 +82,13 @@ export const eventsBus = {
             }
           }()))
         }
-      }
-    }
-  }]
+      },
+    },
+  }],
+}
+
+export const getInfoImgSrc = (_projectName = '', _isBig = false) => {
+  const path = `http://coderjs.host/projects/${_projectName}/info/`
+  const img = _isBig ? 'img_big.jpg' : 'img.jpg'
+  return path + img
 }

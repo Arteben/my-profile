@@ -39,7 +39,7 @@
 <script>
 import {
   toolbarApp,
-  navDrawerAppContent
+  navDrawerAppContent,
 } from '@/components'
 
 import * as parts from '@/view-app-parts'
@@ -53,35 +53,30 @@ export default {
     return {
       isShowDrawer: false,
       viewport: {},
-      partsKeys: Object.keys(parts)
+      partsKeys: Object.keys(parts),
     }
   },
   components: {
     toolbarApp,
     navDrawerAppContent,
     resume: parts.resume,
-    works: parts.works
+    works: parts.works,
   },
   watch: {
     '$vuetify.breakpoint.smAndDown' (_newVal) {
       if (!_newVal) {
         this.isShowDrawer = false
       }
-    }
+    },
   },
-  mounted() {
-    var route = this.$route
-    if (!route.hash) {
-      route.meta.isScroll = false
-      this.$router.push('/#' + this.partsKeys[0])
-    }
+  created() {
     this.$eventsBus.sound = false
   },
   computed: {
     minPartsAppHeight () {
       var height = (this.viewport.height - this.viewport.top) || '0'
       return `min-height: ${height}px`
-    }
+    },
   },
   methods: {
     onScrollApp () {
@@ -105,7 +100,7 @@ export default {
     },
     showDrawer () {
       this.isShowDrawer = true
-    }
-  }
+    },
+  },
 }
 </script>

@@ -1,6 +1,7 @@
 <template>
   <v-carousel
     class="elevation-0"
+    :class="$style.banners"
     hide-delimiters
     interval="15000"
     height="auto"
@@ -22,7 +23,7 @@
 import CanvasItem from './canvas-item'
 
 const banners = [
-  'wordsBlocks', 'iWantToBe'
+  'wordsBlocks', 'iWantToBe',
 ]
 
 export default {
@@ -30,17 +31,23 @@ export default {
   data () {
     return {
       banners,
-      selectedItem: null
+      selectedItem: null,
     }
   },
   methods: {
     onCarouselSelected (_id) {
       this.selectedItem = banners[_id]
-    }
+    },
   },
   components: {
-    CanvasItem
-  }
+    CanvasItem,
+  },
 }
 </script>
 
+<style module>
+.banners {
+  padding: 0 5%;
+  max-width: 1200px;
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
   <v-container
     id="works"
-    class="worksBackground"
+    class="worksBackground pa-8"
     v-bind="{ [`grid-list-${size}`]: true }"
     fluid
   >
@@ -35,12 +35,12 @@ export default {
     }
   },
   components: {
-    myWork
+    myWork,
   },
   computed: {
     size () {
       return this.$vuetify.breakpoint.name
-    }
+    },
   },
   methods: {
     onExpendWork ({ ref, isExpanded }) {
@@ -48,7 +48,7 @@ export default {
       if (isExpanded) {
         scrollToElementHref.call(this, ref, true)
       }
-    }
+    },
   },
 }
 </script>

@@ -14,10 +14,10 @@ import addButtons from '@/components/additional-buttons'
 export default {
   name: 'NavDrawerAppContent',
   props: {
-    p_isShow: Boolean
+    p_isShow: Boolean,
   },
   components: {
-    addButtons
-  }
+    addButtons,
+  },
 }
 </script>

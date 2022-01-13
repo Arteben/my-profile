@@ -6,9 +6,9 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src')
-      }
-    }
+        '@': path.resolve(__dirname, './src'),
+      },
+    },
   },
 
   baseUrl: undefined,
@@ -16,5 +16,5 @@ module.exports = {
   assetsDir: undefined,
   runtimeCompiler: undefined,
   productionSourceMap: undefined,
-  parallel: undefined
+  parallel: undefined,
 }

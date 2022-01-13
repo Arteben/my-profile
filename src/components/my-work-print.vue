@@ -6,7 +6,7 @@
   >
     <img
       :class="['mx-3', $style.workImage]"
-      :src="getImageSrc(p_workData.img)"
+      :src="getImgSrc(p_workData.img)"
       @load="$emit('loadImgWork')"
     >
     <v-flex
@@ -26,31 +26,21 @@
 
 <script>
 
+import { getInfoImgSrc } from '@/utils'
+
 export default {
   name: 'MyPrintedWork',
   props: {
     p_workData: {
       type: Object,
-      default: () => {}
-    }
-  },
-  watch: {
-    isExpanded (_flag) {
-      this.$emit('toggletWork', this.p_workData.name, _flag)
-    }
-  },
-  computed: {
-    breakpointMdUp () {
-      return this.$vuetify.breakpoint.mdAndUp
-    }
+      default: () => {},
+    },
   },
   methods: {
-    getImageSrc (_dir) {
-      var path = `http://coderjs.host/projects/${_dir}/info/`
-      var img = this.isExpanded && 'img_big.PNG' || 'img.PNG'
-      return path + img
-    }
-  }
+    getImgSrc (_dir) {
+      return getInfoImgSrc(_dir)
+    },
+  },
 }
 </script>
 
