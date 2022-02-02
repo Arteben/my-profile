@@ -1,5 +1,4 @@
 import cq from './canvasquery'
-import click from '@/assets/sounds/478_click.wav'
 
 export default class CanvasQueryBanner {
   constructor(_props) {
@@ -10,8 +9,6 @@ export default class CanvasQueryBanner {
     this.textColor = _props.textColor || 'white'
     this.ventureFont = '16px venture'
     this.maincraftFont = '16px maincraft'
-    this.isSound = _props.isSound
-    this.audio = new Audio(click)
     // this.mainFont
 
     this.w = width
@@ -109,9 +106,6 @@ export default class CanvasQueryBanner {
           } else {
             ang = 0
             symbolIdx++
-            if (this.isSound && this.audio) {
-              this.audio.play()
-            }
           }
           window.requestAnimationFrame(requestFunc)
         } else {

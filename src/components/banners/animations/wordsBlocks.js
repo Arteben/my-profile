@@ -1,6 +1,3 @@
-import destruction from '@/assets/sounds/destruction.wav'
-import tip from '@/assets/sounds/tip.wav'
-
 const animateStates = {
   'calm': 'calm',
   'drop': 'drop',
@@ -8,8 +5,6 @@ const animateStates = {
   'fallingWords': 'fallingWords',
 }
 
-const destructionSound = new Audio(destruction)
-const tipSound = new Audio(tip)
 
 export default class CanvasBanner {
   constructor(_props) {
@@ -111,9 +106,6 @@ export default class CanvasBanner {
         getFallSupportSprite.call(this, 100)
         break
       case animateStates.drop:
-        if (this.isSound) {
-          destructionSound.play()
-        }
         window.requestAnimationFrame(dropAnimation)
         break
       case animateStates.fallingSupport:
@@ -255,12 +247,6 @@ function setAllWords (_addPosY, _beginIdx = 0, _endIdx = this.blockWords.length)
 function getSpriteForWord(_idx, _prs, _allPrc) {
   let wordPercents = _allPrc % _prs
 
-  if ((_idx * _prs) === _allPrc || _allPrc === 100) {
-    if (this.isSound) {
-      console.log('tip!')
-      tipSound.play()
-    }
-  }
   const reverseIndex = this.blockWords.length - _idx - 1
   const percents = (100 * (wordPercents) / _prs)
   const startY = this.sizes.textHeight
