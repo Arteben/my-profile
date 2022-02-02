@@ -5,8 +5,21 @@
     v-bind="{ [`grid-list-${size}`]: true }"
     fluid
   >
+    <div
+      v-if="isMobile"
+      :class="wrapWorkClass"
+    >
+      <my-work
+        v-for="workItem in worksInfo"
+        :key="workItem.link"
+        :p_workData="workItem"
+        @toggleWork="onExpendWork"
+        :ref="workItem.name"
+      />
+    </div>
     <v-scale-transition
-      class="layout justify-center wrap"
+      v-else
+      :class="wrapWorkClass"
       origin="center center"
       tag="div"
       group
@@ -32,6 +45,7 @@ export default {
   data () {
     return {
       worksInfo,
+      wrapWorkClass: 'layout justify-center wrap'
     }
   },
   components: {
@@ -41,13 +55,14 @@ export default {
     size () {
       return this.$vuetify.breakpoint.name
     },
+    isMobile () {
+      return this.$vuetify.breakpoint.xs
+    }
   },
   methods: {
-    onExpendWork ({ ref, isExpanded }) {
+    onExpendWork ({ ref }) {
       this.worksInfo = [...this.worksInfo]
-      if (isExpanded) {
-        scrollToElementHref.call(this, ref, true)
-      }
+      scrollToElementHref.call(this, ref, true)
     },
   },
 }

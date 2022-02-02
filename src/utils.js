@@ -42,16 +42,15 @@ export const scrollToElementHref = (function() {
       window.clearTimeout(this.scrollTimeout)
     }
     const breakpoint = this.$vuetify && this.$vuetify.breakpoint || {}
-    if (!breakpoint.xs) {
-      timeout = window.setTimeout(() => {
-        const element = this.$refs && this.$refs[_ref][0].$el || {}
-        const elementTop = element.getBoundingClientRect().top
-        const topWithCorrect = _withoutCorrect && (elementTop - 100) || (elementTop - 200)
-        const top = topWithCorrect + window.scrollY
-        window.scrollTo({ top, behavior: 'smooth' })
-        window.clearTimeout(timeout)
-      }, 400)
-    }
+    const timeLoop = breakpoint.xs && 100 || 400
+    timeout = window.setTimeout(() => {
+      const element = this.$refs && this.$refs[_ref][0].$el || {}
+      const elementTop = element.getBoundingClientRect().top
+      const topWithCorrect = _withoutCorrect && (elementTop - 100) || (elementTop - 200)
+      const top = topWithCorrect + window.scrollY
+      window.scrollTo({ top, behavior: 'smooth' })
+      window.clearTimeout(timeout)
+    }, timeLoop)
   }
 }())
 
