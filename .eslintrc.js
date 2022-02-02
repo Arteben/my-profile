@@ -27,6 +27,7 @@ module.exports = {
     'vue/prop-name-casing': 'off',
     'vue/multiline-html-element-content-newline': 'off',
     'comma-dangle': ['error', 'always-multiline'],
+    'vue/multi-word-component-names': 'off',
   },
   parserOptions: {
     parser: 'babel-eslint',
