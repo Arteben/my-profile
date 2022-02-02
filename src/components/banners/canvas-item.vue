@@ -54,18 +54,12 @@ export default {
         textColor,
         width: this.width,
         height: this.height,
-        isSound: this.$eventsBus.sound,
       })
       this.animation.mounted()
       if (this.p_isSelected) {
         this.animation.action()
       }
     }
-  },
-  computed: {
-    isSound () {
-      return (this.animation && this.$eventsBus.sound && this.p_isSelected)
-    },
   },
   methods: {
     onResize() {

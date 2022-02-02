@@ -27,15 +27,7 @@ var addedIcons = [
     id: 'print',
     name: 'mdi-printer',
     title: 'Печатать',
-  },
-  {
-    id: 'sound',
-    name: {
-      on: 'mdi-volume-high',
-      off: 'mdi-volume-off',
-    },
-    title: 'Звук',
-  },
+  }
 ]
 
 export default {
@@ -56,12 +48,6 @@ export default {
       switch(_icon.id) {
       case 'print':
         return _icon.name
-      case 'sound':
-        if (this.$eventsBus.sound) {
-          return _icon.name.on
-        } else {
-          return _icon.name.off
-        }
       }
     },
     onClickIcon (_iconId) {
@@ -69,8 +55,6 @@ export default {
       case 'print':
         this.$router.push({name: 'print'})
         break
-      case 'sound':
-        this.$eventsBus.sound = !this.$eventsBus.sound
       }
     },
   },
