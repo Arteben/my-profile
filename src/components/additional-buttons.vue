@@ -27,7 +27,7 @@ var addedIcons = [
     id: 'print',
     name: 'mdi-printer',
     title: 'Печатать',
-  }
+  },
 ]
 
 export default {
