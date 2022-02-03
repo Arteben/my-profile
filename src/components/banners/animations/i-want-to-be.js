@@ -27,8 +27,8 @@ export default class CanvasQueryBanner {
       bottomString: [],
     }
 
-    var bottomStringWords = ['a', 'game', 'developer']
-    var indent = 0
+    var bottomStringWords = ['a', 'frontend', 'developer']
+    var indent = -36
     var gDsymbols = this.banner.bottomString
     var spaceIndent = 22
 
@@ -71,7 +71,7 @@ export default class CanvasQueryBanner {
     })
     layer.fillStyle(this.textColor)
     layer.fillCircle(10, 10, 5)
-    layer.fillCircle(240, 30, 2)
+    layer.fillCircle(240, 40, 2)
     layer.fillCircle(230, 10, 1)
   }
 
