@@ -6,10 +6,10 @@
       light
       hover
       @click.stop="onClickCard('expand')"
-      :class="[`pa-${isExpanded && 4 || 1}`]"
+      :class="[paddingsForCardImg]"
     >
       <v-img
-        :aspect-ratio="!isExpanded && 3 || 2"
+        :aspect-ratio="isExpanded && 2 || 6"
         :src="getImageSrc()"
         :lazy-src="getImageSrc('lazy')"
         :key="'img' + isExpanded"
@@ -71,6 +71,11 @@ export default {
       return this.isExpanded
         ? 'lg4 md6 sm6 xs12'
         : 'lg3 md3 sm4'
+    },
+    paddingsForCardImg () {
+      const paddings = `pa-${this.isExpanded && 4 || 1}`
+      const isMobile = this.$vuetify.breakpoint.xs
+      return isMobile && 'pa-1' || paddings
     },
   },
   methods: {

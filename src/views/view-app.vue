@@ -69,9 +69,6 @@ export default {
       }
     },
   },
-  created() {
-    this.$eventsBus.sound = false
-  },
   computed: {
     minPartsAppHeight () {
       var height = (this.viewport.height - this.viewport.top) || '0'
