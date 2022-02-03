@@ -45,7 +45,7 @@ export default {
   data () {
     return {
       worksInfo,
-      wrapWorkClass: 'layout justify-center wrap'
+      wrapWorkClass: 'layout justify-center wrap',
     }
   },
   components: {
@@ -57,7 +57,7 @@ export default {
     },
     isMobile () {
       return this.$vuetify.breakpoint.xs
-    }
+    },
   },
   methods: {
     onExpendWork ({ ref }) {

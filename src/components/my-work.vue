@@ -76,7 +76,7 @@ export default {
       const paddings = `pa-${this.isExpanded && 4 || 1}`
       const isMobile = this.$vuetify.breakpoint.xs
       return isMobile && 'pa-1' || paddings
-    }
+    },
   },
   methods: {
     getImageSrc (_isLazy) {
