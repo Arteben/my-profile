@@ -5,6 +5,7 @@
     hide-delimiters
     interval="15000"
     height="auto"
+    light
     @change="onCarouselSelected"
   >
     <template
