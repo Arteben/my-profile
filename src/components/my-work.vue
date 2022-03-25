@@ -55,6 +55,8 @@
 
 import { getInfoImgSrc } from '@/utils'
 
+const linkToWork = 'http://coderjs.link/projects/'
+
 export default {
   name: 'MyWork',
   data () {
@@ -77,6 +79,11 @@ export default {
       const isMobile = this.$vuetify.breakpoint.xs
       return isMobile && 'pa-1' || paddings
     },
+    linkToWork () {
+      const isSpecial = this.p_workData.isSpecial
+      const link = this.p_workData.link
+      return isSpecial && link || `${linkToWork}${link}`
+    }
   },
   methods: {
     getImageSrc (_isLazy) {
@@ -90,7 +97,7 @@ export default {
       })
     },
     onClickIconOpenGame() {
-      window.open(this.p_workData.link)
+      window.open(this.linkToWork)
     },
   },
 }

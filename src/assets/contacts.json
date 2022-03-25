@@ -1,11 +1,5 @@
 [
   {
-    "type": "telegram",
-    "text": "@artbeb",
-    "href": "https://t.me/artbeb",
-    "icon": "mdi-telegram"
-  },
-  {
     "type": "mail",
     "text": "artjombebenin@gmail.com",
     "href": "mailto:artjombebenin@gmail.com",
