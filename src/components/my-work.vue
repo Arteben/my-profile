@@ -83,7 +83,7 @@ export default {
       const isSpecial = this.p_workData.isSpecial
       const link = this.p_workData.link
       return isSpecial && link || `${linkToWork}${link}`
-    }
+    },
   },
   methods: {
     getImageSrc (_isLazy) {
