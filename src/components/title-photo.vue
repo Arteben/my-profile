@@ -56,5 +56,6 @@ export default {
 <style module>
   .photoWithLabel {
     transform: rotate(-4deg);
+    color: var(--v-primaryText-base);
   }
 </style>

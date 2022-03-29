@@ -1,3 +1,4 @@
+import colors from 'vuetify/es5/util/colors'
 
 export const getCurrentPartAppAnchor = (function () {
   var timeout
@@ -59,6 +60,7 @@ export const eventsBus = {
     sound: null,
     events: {
       'scrollApp': 'eventsBus_scrollApp',
+      'switchColors': 'eventsBus_switchColors',
     },
   },
   mixins: [{
@@ -90,4 +92,33 @@ export const getInfoImgSrc = (_projectName = '', _isBig = false) => {
   const path = `http://coderjs.link/projects/${_projectName}/info/`
   const img = _isBig ? 'img_big.jpg' : 'img.jpg'
   return path + img
+}
+
+export const colorThems = {
+  'black': {
+    primaryText: 'white',
+    primaryBackground: colors.grey.darken3,
+    titleText: colors.grey.lighten5,
+    titleBackground: colors.grey.darken4,
+    worksTextColor: 'black',
+    worksBackground: colors.grey.darken1,
+  },
+  'white': {
+    primaryText: 'black',
+    primaryBackground: colors.grey.lighten3,
+    titleText: 'black',
+    titleBackground: colors.grey.lighten5,
+    worksTextColor: 'white',
+    worksBackground: colors.grey.darken1,
+  },
+}
+
+export const getColorSwitcher = function () {
+  const vueApp = this
+  let currentColorSet = 'black'
+  return function () {
+    const newSet = (currentColorSet == 'black') && 'white' || 'black'
+    currentColorSet = newSet
+    vueApp.$vuetify.theme = colorThems[newSet]
+  }
 }

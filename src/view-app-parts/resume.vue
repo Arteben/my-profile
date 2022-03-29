@@ -1,7 +1,7 @@
 <template>
   <v-container
     id="resume"
-    class="secondary"
+    class="primaryBackground"
     fluid
   >
     <v-layout justify-center>
