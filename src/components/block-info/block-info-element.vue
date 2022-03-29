@@ -2,32 +2,15 @@
   <v-card
     class="ma-2"
     flat
+    color="transparent"
   >
-    <v-tabs
-      v-if="isDescriptions"
-      v-model="selectedIdx"
-      :height="heightTabs"
-      color="transparent"
-      slider-color="primary"
-      @change="onTabsChange"
-    >
-      <v-tabs-slider color="primary" />
-      <v-tab
-        class="caption"
-        v-for="option in props"
-        :key="option"
-      >{{ option }}</v-tab>
-    </v-tabs>
-    <div
-      :style="{ minHeight: heightTabs + 'px' }"
-      v-else
-    />
     <v-card-title
       :class="$style.cardTitle"
     >
       <v-icon
         left
         medium
+        color="primaryText"
       >mdi-{{ p_blockInfo.icon }}</v-icon>
       <span
         class="title"
@@ -49,12 +32,14 @@
         >
           <v-icon
             :class="$style.itemIcon"
+            color="primaryText"
             :size="item.isBig && '24' || '18'"
           >
             mdi-{{ item.icon }}
           </v-icon>
           <v-flex
             ma-2
+            :class="$style.infoTextCommon"
           >
             <v-flex
               :class="item.isBig && 'subheading' || ''"
@@ -64,7 +49,7 @@
             <v-flex
               v-if="(idx > 0) && item.description"
               class="my-2 subheading font-weight-light"
-              :class="$style.infoText"
+              :class="$style.infoTextSpecialTitle"
             >
               {{ item.description }}
             </v-flex>
@@ -111,12 +96,14 @@ export default {
 <style module>
   .cardTitle {
     flex-wrap: nowrap;
-    background: linear-gradient(to bottom, var(--v-secondary-darken1), var(--v-secondary-base));
-    /* background-color: linear-gradient(to bottom, var(--v-secondary-darken1), var(--v-secondary-base)); */
+    background: linear-gradient(to bottom, var(--v-primaryBackground-darken3), var(--v-primaryBackground-base));
+    color: var(--v-primaryText-base);
   }
-  .infoText {
+  .infoTextCommon {
+    color: var(--v-primaryText-base);
+  }
+  .infoTextSpecialTitle {
     line-height: 30px;
-    color: var(--v-primary-darken);
   }
   .itemIcon {
     width: 25px;

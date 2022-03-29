@@ -15,6 +15,7 @@
       flat
     >
       <v-icon
+        color="titleText"
         large
       >{{ getNameIcon(icon) }}</v-icon>
     </v-btn>
@@ -27,6 +28,11 @@ var addedIcons = [
     id: 'print',
     name: 'mdi-printer',
     title: 'Печатать',
+  },
+  {
+    id: 'switchColors',
+    name: 'mdi-invert-colors',
+    title: 'Switch colors',
   },
 ]
 
@@ -45,16 +51,15 @@ export default {
   },
   methods: {
     getNameIcon (_icon) {
-      switch(_icon.id) {
-      case 'print':
-        return _icon.name
-      }
+      return _icon.name
     },
     onClickIcon (_iconId) {
       switch(_iconId) {
       case 'print':
         this.$router.push({name: 'print'})
         break
+      case 'switchColors':
+        this.$eventsBus.callEvent('switchColors')
       }
     },
   },

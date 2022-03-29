@@ -2,31 +2,40 @@
   <div
     :class="$style.mainContainer"
   >
-    <v-flex
-      ma-3
-      class="display-2"
+    <div
+      :class="$style.printedTitle"
     >
-      Артём Бебенин
-    </v-flex>
-    <hr>
-    <v-layout
-      ma-3
-      row
-      justify-center
-      align-center
-      full
+      <v-flex
+        ma-3
+        class="display-2"
+      >
+        Артём Бебенин
+      </v-flex>
+      <hr>
+    </div>
+    <div
+      :class="$style.printedMyInfo"
     >
-      <contacts />
-      <my-photo
-        :p_isPrintMode="true"
-        @photoLoad="loadImagesCounter++"
-      />
-    </v-layout>
-    <info-blocks ma-3 />
+      <v-layout
+        ma-3
+        row
+        justify-center
+        align-center
+        full
+      >
+        <contacts />
+        <my-photo
+          :p_isPrintMode="true"
+          @photoLoad="loadImagesCounter++"
+        />
+      </v-layout>
+      <info-blocks ma-3 />
+    </div>
     <div :class="$style.spacer" />
     <v-layout
       mx-3
       column
+      :class="$style.printedWorks"
     >
       <my-printed-work
         v-for="workItem of worksInfo"
@@ -78,10 +87,16 @@ export default {
 }
 </script>
 
-<style module>
+<style module lang="less">
   .mainContainer {
-    color: black;
     background: white;
+
+    .printedMyInfo *,
+    .printedTitle *,
+    .printedWorks * {
+      color: black !important;
+      background: white !important;
+    }
   }
 
   .spacer {
@@ -89,7 +104,6 @@ export default {
   }
 
   @media print {
-
     .spacer {
       display: block;
       min-height: 500px;

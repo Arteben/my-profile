@@ -2,7 +2,6 @@
   <v-app
     id="vuetify-app"
     ref="app"
-    dark
     v-resize="setVieport"
     v-scroll="onScrollApp"
   >
@@ -16,6 +15,7 @@
       app
       disable-resize-watcher
       width="150"
+      class="titleBackground"
     >
       <nav-drawer-app-content />
     </v-navigation-drawer>
@@ -43,9 +43,10 @@ import {
 } from '@/components'
 
 import * as parts from '@/view-app-parts'
-import { getCurrentPartAppAnchor } from '@/utils'
+import { getCurrentPartAppAnchor, getColorSwitcher } from '@/utils'
 
 let scrollEventTimeout = null
+
 
 export default {
   name: 'ViewApp',
@@ -55,6 +56,9 @@ export default {
       viewport: {},
       partsKeys: Object.keys(parts),
     }
+  },
+  mounted () {
+    this.$eventsBus.setListener('switchColors', getColorSwitcher.call(this), this)
   },
   components: {
     toolbarApp,

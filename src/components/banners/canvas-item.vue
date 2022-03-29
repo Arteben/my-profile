@@ -45,8 +45,14 @@ export default {
   },
   mounted() {
     var vuetifyTheme = this.$vuetify.theme
-    var backgroundColor = vuetifyTheme.secondary
-    var textColor = vuetifyTheme.primary
+    var backgroundColor = vuetifyTheme.primaryBackground
+    if (typeof backgroundColor == 'object') {
+      backgroundColor = backgroundColor.base
+    }
+    var textColor = vuetifyTheme.primaryText
+    if (typeof textColor == 'object') {
+      textColor = textColor.base
+    }
     if (this.p_animationName) {
       this.animation = bannerAnimations(this.p_animationName, {
         canvas: this.$refs.canvas,

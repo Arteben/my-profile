@@ -2,9 +2,11 @@
   <v-toolbar
     app
     height="100"
+    class="titleBackground"
   > <v-toolbar-side-icon
       v-if="isExtraSmall"
       @click="$emit('clickSideIcon')"
+      :class="$style.sideIcon"
     />
     <v-toolbar-title :class="$style.title">
       <v-layout
@@ -83,6 +85,7 @@ export default {
  .title {
     overflow: auto;
     flex-grow: 1;
+    color: var(--v-titleText-base);
   }
   /* name person */
   .wholeName {
@@ -115,5 +118,10 @@ export default {
   .siteNameFontMobile {
     min-width: 160px;
     font-size: 30px;
+  }
+
+  .sideIcon {
+    color: var(--v-titleText-base) !important;
+    background: var(--v-titleBackground-darken1) !important;
   }
 </style>

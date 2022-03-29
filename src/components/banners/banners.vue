@@ -7,6 +7,7 @@
     height="auto"
     light
     @change="onCarouselSelected"
+    :key="$vuetify.theme.primaryText"
   >
     <template
       v-for="banner in banners"

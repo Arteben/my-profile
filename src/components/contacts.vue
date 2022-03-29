@@ -19,6 +19,7 @@
           <v-icon
             medium
             left
+            color="primaryText"
           >{{ contactsData.icon }}</v-icon>
           <span
             class="title"
@@ -65,14 +66,12 @@ export default {
     }
   }
   .contactInfo {
-    background: linear-gradient(to right, var(--v-secondary-lighten1), var(--v-secondary-base));
-    border-left: 2px solid var(--v-primary-base);
+    background: linear-gradient(to right, var(--v-primaryBackground-lighten1), var(--v-primaryBackground-base));
+    border-left: 2px solid var(--v-primaryText-base);
+    color: var(--v-primaryText-base);
     border-radius: 20px;
     max-width: 400px;
     overflow: hidden;
     display: flex;
-    @media print {
-      color: black;
-    }
   }
 </style>
