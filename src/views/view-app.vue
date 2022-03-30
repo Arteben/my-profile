@@ -59,8 +59,11 @@ export default {
     }
   },
   created () {
-    const storageTheme = this.$browserStorage.getData('colorTheme')
-    const theme = Boolean(storageTheme) && storageTheme || 'black'
+    let theme = this.$browserStorage.getData('colorTheme')
+    if (theme == null) {
+      theme = 'black'
+      this.$browserStorage.setField('colorTheme', theme)
+    }
     this.$vuetify.theme = colorThems[theme]
   },
   mounted () {
