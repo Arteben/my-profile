@@ -30,7 +30,7 @@ export default {
 
 <style module>
   .myPhoto {
-    border: 3px solid var(--v-primaryText-base);
-    border-radius: 3px;
+    border: 3px solid #FFF;
+    border-radius: 10px;
   }
 </style>

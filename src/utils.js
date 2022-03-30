@@ -96,29 +96,45 @@ export const getInfoImgSrc = (_projectName = '', _isBig = false) => {
 
 export const colorThems = {
   'black': {
-    primaryText: 'white',
+    primaryText: '#FFF',
     primaryBackground: colors.grey.darken3,
     titleText: colors.grey.lighten5,
     titleBackground: colors.grey.darken4,
-    worksTextColor: 'black',
+    worksTextColor: '#000',
     worksBackground: colors.grey.darken1,
   },
   'white': {
-    primaryText: 'black',
+    primaryText: '#000',
     primaryBackground: colors.grey.lighten3,
-    titleText: 'black',
+    titleText: '#000',
     titleBackground: colors.grey.lighten5,
-    worksTextColor: 'white',
+    worksTextColor: '#FFF',
     worksBackground: colors.grey.darken1,
   },
 }
 
 export const getColorSwitcher = function () {
   const vueApp = this
-  let currentColorSet = 'black'
   return function () {
-    const newSet = (currentColorSet == 'black') && 'white' || 'black'
-    currentColorSet = newSet
+    const newSet = (this.$browserStorage.getData('colorTheme') == 'black') && 'white' || 'black'
+    vueApp.$browserStorage.setField('colorTheme', newSet)
     vueApp.$vuetify.theme = colorThems[newSet]
+  }
+}
+
+export const getBrowserStorageMethods = function (_prefix = 'artem_profile_') {
+  const storeObject = window.localStorage
+  return {
+    methods: {
+      setField(_field, _value) {
+        const fieldName = _prefix + _field
+        storeObject.removeItem(fieldName)
+        storeObject.setItem(fieldName, String(_value))
+      },
+      getData(_field) {
+        const value = storeObject.getItem(_prefix + _field)
+        return value !== null && String(value) || value
+      },
+    },
   }
 }

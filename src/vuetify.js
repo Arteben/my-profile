@@ -3,10 +3,8 @@ import Vuetify from 'vuetify/lib'
 import 'vuetify/src/stylus/app.styl'
 import '@mdi/font/css/materialdesignicons.css'
 
-import { colorThems } from '@/utils'
-
 Vue.use(Vuetify, {
-  theme: colorThems.black,
+  theme: null,
   options: {
     customProperties: true,
   },
