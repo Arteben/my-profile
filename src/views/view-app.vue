@@ -44,6 +44,7 @@ import {
 
 import * as parts from '@/view-app-parts'
 import { getCurrentPartAppAnchor, getColorSwitcher } from '@/utils'
+import { colorThems } from '@/utils'
 
 let scrollEventTimeout = null
 
@@ -56,6 +57,11 @@ export default {
       viewport: {},
       partsKeys: Object.keys(parts),
     }
+  },
+  created () {
+    const storageTheme = this.$browserStorage.getData('colorTheme')
+    const theme = Boolean(storageTheme) && storageTheme || 'black'
+    this.$vuetify.theme = colorThems[theme]
   },
   mounted () {
     this.$eventsBus.setListener('switchColors', getColorSwitcher.call(this), this)
