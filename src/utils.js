@@ -116,7 +116,8 @@ export const colorThems = {
 export const getColorSwitcher = function () {
   const vueApp = this
   return function () {
-    const newSet = (this.$browserStorage.getData('colorTheme') == 'black') && 'white' || 'black'
+    const storageTheme = this.$browserStorage.getData('colorTheme')
+    const newSet = (storageTheme == 'black') && 'white' || 'black'
     vueApp.$browserStorage.setField('colorTheme', newSet)
     vueApp.$vuetify.theme = colorThems[newSet]
   }
