@@ -122,3 +122,20 @@ export const getColorSwitcher = function () {
     vueApp.$vuetify.theme = colorThems[newSet]
   }
 }
+
+export const getBrowserStorageMethods = function (_prefix = 'artem_profile_') {
+  const storeObject = window.localStorage
+  return {
+    methods: {
+      setField(_field, _value) {
+        const fieldName = _prefix + _field
+        storeObject.removeItem(fieldName)
+        storeObject.setItem(fieldName, String(_value))
+      },
+      getData(_field) {
+        const value = storeObject.getItem(_prefix + _field)
+        return value !== null && String(value) || value
+      },
+    },
+  }
+}

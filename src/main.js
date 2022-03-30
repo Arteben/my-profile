@@ -9,13 +9,15 @@ import '@/assets/fonts/maincraft/maincraft.css'
 import '@/assets/fonts/press-start/press-start.css'
 import '@/assets/fonts/lobster/lobster.css'
 
-import { eventsBus } from '@/utils'
+import { eventsBus, getBrowserStorageMethods } from '@/utils'
 
 import logMixin from '@/mixins/log'
 Vue.mixin(logMixin)
 
 Vue.config.productionTip = false
 Vue.prototype.$eventsBus = new Vue(eventsBus)
+
+Vue.prototype.$browserStorage = new Vue(getBrowserStorageMethods('_my_profile_'))
 
 new Vue({
   router,
