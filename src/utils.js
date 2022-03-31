@@ -113,29 +113,27 @@ export const colorThems = {
   },
 }
 
+export const browserStorageMethods = (function(_prefix = 'artem_profile_') {
+  const storeObject = window.localStorage
+  return {
+    setField(_field, _value) {
+      const fieldName = _prefix + _field
+      storeObject.removeItem(fieldName)
+      storeObject.setItem(fieldName, String(_value))
+    },
+    getData(_field) {
+      const value = storeObject.getItem(_prefix + _field)
+      return value !== null && String(value) || value
+    },
+  }
+} ())
+
 export const getColorSwitcher = function () {
   const vueApp = this
   return function () {
-    const storageTheme = this.$browserStorage.getData('colorTheme')
+    const storageTheme = browserStorageMethods.getData('colorTheme')
     const newSet = (storageTheme == 'black') && 'white' || 'black'
-    vueApp.$browserStorage.setField('colorTheme', newSet)
+    browserStorageMethods.setField('colorTheme', newSet)
     vueApp.$vuetify.theme = colorThems[newSet]
-  }
-}
-
-export const getBrowserStorageMethods = function (_prefix = 'artem_profile_') {
-  const storeObject = window.localStorage
-  return {
-    methods: {
-      setField(_field, _value) {
-        const fieldName = _prefix + _field
-        storeObject.removeItem(fieldName)
-        storeObject.setItem(fieldName, String(_value))
-      },
-      getData(_field) {
-        const value = storeObject.getItem(_prefix + _field)
-        return value !== null && String(value) || value
-      },
-    },
   }
 }
