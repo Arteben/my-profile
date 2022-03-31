@@ -113,20 +113,21 @@ export const colorThems = {
   },
 }
 
-export const browserStorageMethods = (function(_prefix = 'artem_profile_') {
+export const browserStorageMethods = (function() {
+  const prefix = 'artem_profile_'
   const storeObject = window.localStorage
   return {
     setField(_field, _value) {
-      const fieldName = _prefix + _field
+      const fieldName = prefix + _field
       storeObject.removeItem(fieldName)
       storeObject.setItem(fieldName, String(_value))
     },
     getData(_field) {
-      const value = storeObject.getItem(_prefix + _field)
+      const value = storeObject.getItem(prefix + _field)
       return value !== null && String(value) || value
     },
   }
-} ())
+}) ()
 
 export const getColorSwitcher = function () {
   const vueApp = this
