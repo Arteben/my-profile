@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
+import engTranslates from '@/translates/eng.json'
+import ruTranslates from '@/translates/ru.json'
 
 export const getCurrentPartAppAnchor = (function () {
   var timeout
@@ -136,5 +138,25 @@ export const getColorSwitcher = function () {
     const newSet = (storageTheme == 'black') && 'white' || 'black'
     browserStorageMethods.setField('colorTheme', newSet)
     vueApp.$vuetify.theme = colorThems[newSet]
+  }
+}
+
+const getRootOptions = function (_veuApp) {
+  return _veuApp.$root.$children[0]
+}
+
+export const getTranslateMixin = function() {
+  const translates = {
+    eng: engTranslates,
+    ru: ruTranslates,
+  }
+  return {
+    methods: {
+      translate (_key) {
+        const lang = getRootOptions(this).lang
+        const text = translates[lang] && translates[lang][_key]
+        return text && text || `>[<${_key}>]<`
+      },
+   },
   }
 }
