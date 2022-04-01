@@ -2,6 +2,18 @@ import colors from 'vuetify/es5/util/colors'
 import engTranslates from '@/translates/eng.json'
 import ruTranslates from '@/translates/ru.json'
 
+export const pushAppRouter = function ({_name, _hash, _lang}, _isReplace) {
+  const route = this.$route
+  const name = _name && _name || route.name
+  const hash = _hash && _hash || route.hash
+  const lang = _lang && _lang || route.params.lang
+  if (_isReplace) {
+    this.$router.replace({name, hash, params: { lang }})
+  } else {
+    this.$router.push({name, hash, params: { lang }})
+  }
+}
+
 export const getCurrentPartAppAnchor = (function () {
   var timeout
 
@@ -20,7 +32,7 @@ export const getCurrentPartAppAnchor = (function () {
           let route = this.$route
           if (route.hash !== hash) {
             route.meta.isScroll = false
-            this.$router.push('/' + hash)
+            pushAppRouter.call(this, {_hash: hash})
           }
           break
         }
@@ -141,28 +153,33 @@ export const getColorSwitcher = function () {
   }
 }
 
-const getRootOptions = function (_veuApp) {
-  return _veuApp.$root.$children[0]
-}
-
-export const getTranslateMixin = function() {
+export const getTranslates = function() {
   const translates = {
     eng: engTranslates,
     ru: ruTranslates,
   }
+  const getLang = function () {
+    const params = this.$route.params
+    const langs = ['ru', 'eng']
+    return langs.includes(params.lang) && params.lang || 'ru'
+  }
   return {
-    methods: {
-      translate (_key) {
-        const lang = getRootOptions(this).lang
-        const text = translates[lang] && translates[lang][_key]
-        return text && text || `>[<${_key}>]<`
+    mixins: [{
+      methods: {
+        translate (_key) {
+          const lang = getLang.call(this)
+          const text = translates[lang] && translates[lang][_key]
+          return text && text || `>[<${_key}>]<`
+        },
+        getReverseLang () {
+          return getLang.call(this) == 'ru' && 'eng' || 'ru'
+        },
+        switch () {
+          const newLang = this.getReverseLang()
+          this.$route.meta.isScroll = false
+          pushAppRouter.call(this, {_lang: newLang})
+        },
       },
-      getLang () {
-        return getRootOptions(this).lang
-      },
-      setLang (_lang) {
-        getRootOptions(this).lang = _lang
-      },
-   },
+    }],
   }
 }

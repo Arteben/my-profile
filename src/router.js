@@ -18,7 +18,6 @@ export default new Router({
   //'/' - root path, not '#/'
   mode: 'history',
   scrollBehavior (to) {
-
     if (to.name === 'app' && to.hash) {
       if (to.meta.isScroll) {
         scrollToSmoth(to.hash)
@@ -31,7 +30,7 @@ export default new Router({
   },
   routes: [
     {
-      path: '/',
+      path: '/:lang?/',
       name: 'app',
       meta: {
         isScroll: true,
@@ -39,7 +38,7 @@ export default new Router({
       component: app,
     },
     {
-      path: '/print',
+      path: '/print/:lang/',
       name: 'print',
       component: printView,
     },

@@ -19,11 +19,22 @@
         large
       >{{ getNameIcon(icon) }}</v-icon>
     </v-btn>
+    <v-btn
+      class="ma-2"
+      icon
+      flat
+      @click="onClickIcon('switchLang')"
+    >
+      <flag-icon />
+    </v-btn>
   </v-layout>
 </template>
 
 <script>
-var addedIcons = [
+import flagIcon from '@/components/flag-icon'
+import { pushAppRouter } from '@/utils'
+
+const addedIcons = [
   {
     id: 'print',
     name: 'mdi-printer',
@@ -49,6 +60,7 @@ export default {
       addedIcons,
     }
   },
+  components: { flagIcon },
   methods: {
     getNameIcon (_icon) {
       return _icon.name
@@ -56,10 +68,13 @@ export default {
     onClickIcon (_iconId) {
       switch(_iconId) {
       case 'print':
-        this.$router.push({name: 'print'})
+        pushAppRouter.call(this, {_name: 'print'})
         break
       case 'switchColors':
         this.$eventsBus.callEvent('switchColors')
+        break
+      case 'switchLang':
+        this.$langs.switch()
       }
     },
   },

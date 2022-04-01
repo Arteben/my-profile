@@ -9,15 +9,17 @@ import '@/assets/fonts/maincraft/maincraft.css'
 import '@/assets/fonts/press-start/press-start.css'
 import '@/assets/fonts/lobster/lobster.css'
 
-import { eventsBus, getTranslateMixin } from '@/utils'
+import { eventsBus, getTranslates } from '@/utils'
 
 import logMixin from '@/mixins/log'
 
 Vue.mixin(logMixin)
-Vue.mixin(getTranslateMixin())
 
 Vue.config.productionTip = false
 Vue.prototype.$eventsBus = new Vue(eventsBus)
+const translateModule = getTranslates()
+translateModule.router = router
+Vue.prototype.$langs = new Vue(translateModule)
 
 new Vue({
   router,

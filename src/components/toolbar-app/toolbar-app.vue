@@ -19,10 +19,10 @@
           align-end
         > <v-flex
             :class="[$style.firstName, isMobile && $style.firstName_mobile]"
-          > Артём </v-flex>
+          > {{ $langs.translate('title_name') }} </v-flex>
           <v-flex
             :class="[$style.lastName, isMobile && $style.lastName_mobile]"
-          > Бебенин </v-flex>
+          > {{ $langs.translate('title_lastname') }} </v-flex>
         </v-layout>
         <v-layout
           :class="[$style.lobsterFont, $style.siteName, $style[getClassFontSizeFor('siteNameFont')]]"
@@ -32,11 +32,11 @@
           align-content-center
           wrap
         > <v-flex>
-            <partLink :p_item="{name: 'резюме', to: '/#resume'}" />
+            <partLink :p_item="{name: 'резюме', to: getPartLink('resume')}" />
             <span>&nbsp;и&nbsp;</span>
           </v-flex>
           <v-flex>
-            <partLink :p_item="{name: 'проектики', to: '/#works'}" />
+            <partLink :p_item="{name: 'проектики', to: getPartLink('works')}" />
           </v-flex>
         </v-layout>
         <!-- added icons for app panel -->
@@ -76,6 +76,10 @@ export default {
         _nameClass += 'Desktop'
       }
       return _nameClass
+    },
+    getPartLink(_hash) {
+      const lang = this.$route.params.lang || ''
+      return `/${lang}#${_hash}`
     },
   },
 }

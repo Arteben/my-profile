@@ -1,10 +1,14 @@
 <template>
-  <img
-    :src="icon"
-    :class="$style.icon"
-    :width="width"
-    :height="width"
+  <span
+    :class="$style.wrapper"
   >
+    <img
+      :src="icon"
+      :class="$style.icon"
+      :width="width"
+      :height="width"
+    >
+  </span>
 </template>
 
 <script>
@@ -15,14 +19,12 @@ export default {
   data() {
     return {
       icons,
-      width: 35,
+      width: 32,
     };
   },
   computed: {
     lang () {
-      // const lang = this.getLang()
-      // return lang == 'ru' && 'eng' || 'ru'
-      return 'ru'
+      return this.$langs.getReverseLang()
     },
     icon () {
       return this.icons[`${this.lang}Icon`]
@@ -32,8 +34,16 @@ export default {
 </script>
 
 <style module>
-.icon {
+.wrapper {
   border: 4px solid var(--v-primaryText-base);
-  border-radius: 30px;
+  background: var(--v-primaryText-base);
+  border-radius: 60px;
+  max-width: 30px;
+  max-height: 32px;
+  overflow: hidden;
+  vertical-align: top;
+}
+.icon {
+  margin: -12px -4.5px;
 }
 </style>

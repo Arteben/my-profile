@@ -7,10 +7,5 @@
 <script>
 export default {
   name: 'RootElement',
-  data() {
-    return {
-      lang: 'eng',
-    }
-  },
 }
 </script>
