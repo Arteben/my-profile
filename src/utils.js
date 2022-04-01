@@ -157,6 +157,12 @@ export const getTranslateMixin = function() {
         const text = translates[lang] && translates[lang][_key]
         return text && text || `>[<${_key}>]<`
       },
+      getLang () {
+        return getRootOptions(this).lang
+      },
+      setLang (_lang) {
+        getRootOptions(this).lang = _lang
+      },
    },
   }
 }
