@@ -1,27 +1,18 @@
 <template>
-  <span
-    :class="$style.wrapper"
-  >
-    <img
-      :src="icon"
+  <div>
+    <v-icon
       :class="$style.icon"
-      :width="width"
-      :height="width"
-    >
-  </span>
+      color="titleText"
+    >mdi-translate</v-icon>
+    <span
+      :class="$style.lang"
+    >{{ lang }}</span>
+  </div>
 </template>
 
 <script>
-import * as icons from '@/assets/flag-icons';
-
 export default {
   name: 'FlagIcon',
-  data() {
-    return {
-      icons,
-      width: 32,
-    };
-  },
   computed: {
     lang () {
       return this.$langs.getReverseLang()
@@ -33,17 +24,17 @@ export default {
 };
 </script>
 
-<style module>
-.wrapper {
-  border: 4px solid var(--v-primaryText-base);
-  background: var(--v-primaryText-base);
-  border-radius: 60px;
-  max-width: 30px;
-  max-height: 32px;
-  overflow: hidden;
-  vertical-align: top;
-}
+<style module lang="less">
 .icon {
-  margin: -12px -4.5px;
+  border: 3px solid var(--v-primaryText-base);
+  border-radius: 30px;
+}
+
+.lang {
+  color: var(--v-primaryText-base);
+  font-weight: bold;
+  margin-left: 2px;
+  font-size: 17px;
+  vertical-align: super;
 }
 </style>

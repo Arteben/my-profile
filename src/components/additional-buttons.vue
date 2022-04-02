@@ -6,7 +6,7 @@
     nowrap
   >
     <v-btn
-      class="ma-2"
+      class="ma-3"
       v-for="icon of addedIcons"
       :key="icon.id"
       :title="$langs.title(icon.title)"
@@ -20,9 +20,9 @@
       >{{ getNameIcon(icon) }}</v-icon>
     </v-btn>
     <v-btn
-      class="ma-2"
-      icon
+      class="ma-1"
       flat
+      small
       :title="$langs.title('head_title_switchlang')"
       @click="onClickIcon('switchLang')"
     >
