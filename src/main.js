@@ -10,7 +10,7 @@ import '@/assets/fonts/press-start/press-start.css'
 import '@/assets/fonts/lobster/lobster.css'
 
 import { eventsBus } from '@/utils'
-import { getTranslates } from '@/translates'
+import { getTranslateModule } from '@/translate'
 
 import logMixin from '@/mixins/log'
 
@@ -18,7 +18,7 @@ Vue.mixin(logMixin)
 
 Vue.config.productionTip = false
 Vue.prototype.$eventsBus = new Vue(eventsBus)
-const translateModule = getTranslates()
+const translateModule = getTranslateModule()
 translateModule.router = router
 Vue.prototype.$langs = new Vue(translateModule)
 
