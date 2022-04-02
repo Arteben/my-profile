@@ -9,7 +9,7 @@
       class="ma-2"
       v-for="icon of addedIcons"
       :key="icon.id"
-      :title="icon.title"
+      :title="$langs.title(icon.title)"
       @click="onClickIcon(icon.id)"
       icon
       flat
@@ -23,6 +23,7 @@
       class="ma-2"
       icon
       flat
+      :title="$langs.title('head_title_switchlang')"
       @click="onClickIcon('switchLang')"
     >
       <flag-icon />
@@ -38,12 +39,12 @@ const addedIcons = [
   {
     id: 'print',
     name: 'mdi-printer',
-    title: 'Печатать',
+    title: 'head_title_print',
   },
   {
     id: 'switchColors',
     name: 'mdi-invert-colors',
-    title: 'Switch colors',
+    title: 'head_title_switchColor',
   },
 ]
 

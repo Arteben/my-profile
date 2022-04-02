@@ -4,7 +4,7 @@
     :class="$style.myPhoto"
     :width="p_width"
     :height="p_width"
-    title="Это я!"
+    :title="$langs.title('photo_itsMe')"
     @load="$emit('imgPhotoLoad')"
   >
 </template>

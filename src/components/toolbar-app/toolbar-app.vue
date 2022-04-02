@@ -19,10 +19,10 @@
           align-end
         > <v-flex
             :class="[$style.firstName, isMobile && $style.firstName_mobile]"
-          > {{ $langs.translate('title_name') }} </v-flex>
+          > {{ $langs.title('head_name') }} </v-flex>
           <v-flex
             :class="[$style.lastName, isMobile && $style.lastName_mobile]"
-          > {{ $langs.translate('title_lastname') }} </v-flex>
+          > {{ $langs.title('head_lastname') }} </v-flex>
         </v-layout>
         <v-layout
           :class="[$style.lobsterFont, $style.siteName, $style[getClassFontSizeFor('siteNameFont')]]"
@@ -32,14 +32,13 @@
           align-content-center
           wrap
         > <v-flex>
-            <partLink :p_item="{name: 'резюме', to: getPartLink('resume')}" />
-            <span>&nbsp;и&nbsp;</span>
+            <partLink :p_item="{name: $langs.title('head_firstLink'), to: getPartLink('resume')}" />
+            <span>&nbsp; {{ $langs.title('head_unionLinks') }} &nbsp;</span>
           </v-flex>
           <v-flex>
-            <partLink :p_item="{name: 'проектики', to: getPartLink('works')}" />
+            <partLink :p_item="{name: $langs.title('head_works'), to: getPartLink('works')}" />
           </v-flex>
         </v-layout>
-        <!-- added icons for app panel -->
         <v-spacer />
         <add-buttons
           v-if="!isExtraSmall"
@@ -98,7 +97,7 @@ export default {
     flex-grow: 0;
   }
   .firstName {
-    font-size: 40px;
+    font-size: 35px;
     &.firstName_mobile {
       font-size: 18px;
     }

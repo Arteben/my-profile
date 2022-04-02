@@ -9,7 +9,8 @@ import '@/assets/fonts/maincraft/maincraft.css'
 import '@/assets/fonts/press-start/press-start.css'
 import '@/assets/fonts/lobster/lobster.css'
 
-import { eventsBus, getTranslates } from '@/utils'
+import { eventsBus } from '@/utils'
+import { getTranslates } from '@/translates'
 
 import logMixin from '@/mixins/log'
 

@@ -10,7 +10,7 @@
         class="flex my-2"
         :href="contactsData.href"
         :key="contactsData.type"
-        :title="contactsData.type"
+        :title="$langs.title(`contacts_title_${contactsData.type}`)"
       >
         <div
           class="px-2 py-1 align-center"
@@ -32,7 +32,12 @@
 
 <script>
 
-import contactsInfo from '@/assets/contacts'
+const contactsInfo = [{
+  type: 'mail',
+  text: 'artjombebenin@gmail.com',
+  href: 'mailto:artjombebenin@gmail.com',
+  icon: 'mdi-email',
+}]
 
 export default {
   name: 'Contacts',

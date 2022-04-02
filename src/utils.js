@@ -1,6 +1,4 @@
 import colors from 'vuetify/es5/util/colors'
-import engTranslates from '@/translates/eng.json'
-import ruTranslates from '@/translates/ru.json'
 
 export const pushAppRouter = function ({_name, _hash, _lang}, _isReplace) {
   const route = this.$route
@@ -150,36 +148,5 @@ export const getColorSwitcher = function () {
     const newSet = (storageTheme == 'black') && 'white' || 'black'
     browserStorageMethods.setField('colorTheme', newSet)
     vueApp.$vuetify.theme = colorThems[newSet]
-  }
-}
-
-export const getTranslates = function() {
-  const translates = {
-    eng: engTranslates,
-    ru: ruTranslates,
-  }
-  const getLang = function () {
-    const params = this.$route.params
-    const langs = ['ru', 'eng']
-    return langs.includes(params.lang) && params.lang || 'ru'
-  }
-  return {
-    mixins: [{
-      methods: {
-        translate (_key) {
-          const lang = getLang.call(this)
-          const text = translates[lang] && translates[lang][_key]
-          return text && text || `>[<${_key}>]<`
-        },
-        getReverseLang () {
-          return getLang.call(this) == 'ru' && 'eng' || 'ru'
-        },
-        switch () {
-          const newLang = this.getReverseLang()
-          this.$route.meta.isScroll = false
-          pushAppRouter.call(this, {_lang: newLang})
-        },
-      },
-    }],
   }
 }
