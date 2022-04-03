@@ -1,13 +1,7 @@
-// import engTranslates from '@/translates/eng.json'
-// import ruTranslates from '@/translates/ru.json'
 import titles from '@/translates/titles.json'
 import { pushAppRouter } from '@/utils'
 
 export const getTranslateModule = function() {
-  // const translates = {
-  //   eng: engTranslates,
-  //   ru: ruTranslates,
-  // }
   const getLang = function () {
     const params = this.$route.params
     const langs = ['ru', 'eng']
