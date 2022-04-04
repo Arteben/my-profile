@@ -92,7 +92,7 @@ export default {
       getCurrentPartAppAnchor.call(this)
     },
     setVieport () {
-      if (this.$el) {
+      if (this.$el && this.$refs.toolbar) {
         let viewport = {}
         viewport.height = window.innerHeight
         viewport.top = this.$refs.toolbar.$el.getBoundingClientRect().height

@@ -1,0 +1,54 @@
+{
+  "head_name": {
+    "ru": "Артем",
+    "eng": "Artem"
+  },
+  "head_lastname": {
+    "ru": "Бебенин",
+    "eng": "Bebenin"
+  },
+  "head_title_name": {
+    "ru": "Так меня зовут!",
+    "eng": "It is my full name"
+  },
+  "head_firstLink": {
+    "ru": "резюме",
+    "eng": "resume"
+  },
+  "head_unionLinks": {
+    "ru": "и",
+    "eng": "and"
+  },
+  "head_works": {
+    "ru": "проектики",
+    "eng": "works"
+  },
+  "head_title_switchColor": {
+    "ru": "сменить цвета",
+    "eng": "switch color theme"
+  },
+  "head_title_print": {
+    "ru": "открыть печать",
+    "eng": "print!"
+  },
+  "head_title_switchlang": {
+    "ru": "сменить язык",
+    "eng": "switch language"
+  },
+  "photo_itsMe": {
+    "ru": "Это я!",
+    "eng": "It's me!"
+  },
+  "contacts_title_mail": {
+    "ru": "электронная почта",
+    "eng": "email"
+  },
+  "print_backButton": {
+    "ru": "На главную страницу",
+    "eng": "Back"
+  },
+  "print_fullName": {
+    "ru": "Артем Бебенин",
+    "eng": "Artem Bebenin"
+  }
+}

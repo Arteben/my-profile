@@ -9,7 +9,7 @@
         ma-3
         class="display-2"
       >
-        Артём Бебенин
+        {{ $langs.title('print_fullName') }}
       </v-flex>
       <hr>
     </div>
@@ -46,8 +46,10 @@
     </v-layout>
     <div :class="$style.hideForPrint">
       <hr>
-      <v-btn @click="$router.push('/')">
-        На главную
+      <v-btn
+        @click="returnApp"
+      >
+        {{ $langs.title('print_backButton') }}
       </v-btn>
     </div>
   </div>
@@ -57,6 +59,7 @@
 import worksInfo from '@/assets/myWorks.json'
 // import query from '@/mixins/query'
 import { infoBlocks, contacts, myPhoto, myPrintedWork } from '@/components'
+import { pushAppRouter } from '@/utils'
 
 export default {
   name: 'ViewPrint',
@@ -71,6 +74,12 @@ export default {
     var images = document.getElementsByTagName('img')
     this.allImagesCounter = images.length
   },
+  components: {
+    infoBlocks,
+    contacts,
+    myPhoto,
+    myPrintedWork,
+  },
   watch: {
     loadImagesCounter (_counter) {
       if (_counter >= this.allImagesCounter) {
@@ -78,11 +87,10 @@ export default {
       }
     },
   },
-  components: {
-    infoBlocks,
-    contacts,
-    myPhoto,
-    myPrintedWork,
+  methods: {
+    returnApp () {
+      pushAppRouter.call(this, {_name: 'app'})
+    },
   },
 }
 </script>

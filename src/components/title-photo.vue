@@ -22,7 +22,7 @@
       <v-flex
         class="body-2"
         flex-grow-0
-      >Это я!</v-flex>
+      >{{ $langs.title('photo_itsMe') }}</v-flex>
     </v-layout>
   </v-flex>
 </template>
