@@ -42,5 +42,13 @@
   "contacts_title_mail": {
     "ru": "электронная почта",
     "eng": "email"
+  },
+  "print_backButton": {
+    "ru": "На главную страницу",
+    "eng": "Back"
+  },
+  "print_fullName": {
+    "ru": "Артем Бебенин",
+    "eng": "Artem Bebenin"
   }
 }

@@ -9,7 +9,7 @@
         ma-3
         class="display-2"
       >
-        Артём Бебенин
+        {{ $langs.title('print_fullName') }}
       </v-flex>
       <hr>
     </div>
@@ -46,8 +46,10 @@
     </v-layout>
     <div :class="$style.hideForPrint">
       <hr>
-      <v-btn @click="returnApp">
-        На главную
+      <v-btn
+        @click="returnApp"
+      >
+        {{ $langs.title('print_backButton') }}
       </v-btn>
     </div>
   </div>
