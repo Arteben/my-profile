@@ -5,8 +5,13 @@ export const getTranslateModule = function() {
   const getLang = function () {
     const params = this.$route.params
     const langs = ['ru', 'eng']
-    return langs.includes(params.lang) && params.lang || 'ru'
+    return langs.includes(params.lang) && params.lang || langs[0]
   }
+
+  if (window.location.hash == '#/') {
+    window.location.hash = '#/ru'
+  }
+
   return {
     mixins: [{
       methods: {

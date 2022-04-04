@@ -1,36 +1,36 @@
 import colors from 'vuetify/es5/util/colors'
 
-export const pushAppRouter = function ({_name, _hash, _lang}, _isReplace) {
+export const pushAppRouter = function ({_name, _pagePart, _lang}, _isReplace) {
   const route = this.$route
   const name = _name && _name || route.name
-  const hash = _hash && _hash || route.hash
+  const pagePart = _pagePart && _pagePart || route.params.pagePart
   const lang = _lang && _lang || route.params.lang
   if (_isReplace) {
-    this.$router.replace({name, hash, params: { lang }})
+    this.$router.replace({name, params: { lang, pagePart }})
   } else {
-    this.$router.push({name, hash, params: { lang }})
+    this.$router.push({name, params: { lang, pagePart }})
   }
 }
 
 export const getCurrentPartAppAnchor = (function () {
-  var timeout
+  let timeout
 
-  var isSetHashForElement = function (_elementName) {
-    var element = this.$refs[_elementName][0].$el
-    var bottomOffset = element.getBoundingClientRect().bottom
+  const isSetHashForElement = function (_elementName) {
+    const element = this.$refs[_elementName][0].$el
+    const bottomOffset = element.getBoundingClientRect().bottom
     return (bottomOffset - this.viewport.top >= 200)
   }
 
-  var setHash = function () {
+  const setHash = function () {
     if (this.$el) {
-      let names = this.partsKeys
-      for (let elementName of names) {
+      const names = this.partsKeys
+      for (const elementName of names) {
         if (isSetHashForElement.call(this, elementName)) {
-          let hash = '#' + elementName
-          let route = this.$route
-          if (route.hash !== hash) {
+          const route = this.$route
+          const pagePart = route.params.pagePart
+          if (route.name == 'app' && pagePart != elementName) {
             route.meta.isScroll = false
-            pushAppRouter.call(this, {_hash: hash})
+            pushAppRouter.call(this, { _pagePart: elementName })
           }
           break
         }

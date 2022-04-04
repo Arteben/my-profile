@@ -78,7 +78,7 @@ export default {
     },
     getPartLink(_hash) {
       const lang = this.$route.params.lang || ''
-      return `/${lang}#${_hash}`
+      return `/${lang}/${_hash}/`
     },
   },
 }

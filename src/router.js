@@ -4,8 +4,8 @@ import { app, printView } from '@/views'
 
 Vue.use(Router)
 
-var scrollToSmoth = function (_anchor) {
-  var toElement = document.querySelector(_anchor)
+const scrollToSmoth = function (_anchor) {
+  const toElement = document.querySelector(_anchor)
   if (toElement) {
     let offsetTop = toElement.offsetTop + 5
     window.scrollTo({ top: offsetTop, behavior: 'smooth' })
@@ -13,14 +13,12 @@ var scrollToSmoth = function (_anchor) {
 }
 
 export default new Router({
-  // sinchronical
-  // # - only for anchors,
-  //'/' - root path, not '#/'
-  mode: 'history',
+  // /# - root,
+  mode: 'hash',
   scrollBehavior (to) {
-    if (to.name === 'app' && to.hash) {
-      if (to.meta.isScroll) {
-        scrollToSmoth(to.hash)
+    if (to.name === 'app') {
+      if (to.meta.isScroll && to.params.pagePart) {
+        scrollToSmoth('#' + to.params.pagePart)
       } else {
         to.meta.isScroll = true
       }
@@ -30,7 +28,7 @@ export default new Router({
   },
   routes: [
     {
-      path: '/:lang?/',
+      path: '/:lang/:pagePart?',
       name: 'app',
       meta: {
         isScroll: true,
