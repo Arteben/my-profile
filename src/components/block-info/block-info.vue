@@ -1,16 +1,16 @@
 <template>
   <v-scale-transition
     :class="['layout', 'wrap', !isMobileScreen && 'justify-space-around']"
-    origin="top left"
+    origin="center"
     tag="div"
     group
   >
     <block-info-element
-      v-for="blockInfo of infoBlocks"
-      :key="blockInfo.title"
+      v-for="(blockInfo, idx) of infoBlocks"
+      :key="idx"
       :p_blockInfo="blockInfo"
-      @changeTabs="onChangeTabs"
-      :ref="blockInfo.title"
+      :p_isExpanded="hasExpanded(idx)"
+      @expandCard="expand(idx)"
     />
   </v-scale-transition>
 </template>
@@ -18,13 +18,19 @@
 <script>
 import infoBlocks from '@/assets/infoBlocks.json'
 import BlockInfoElement from './block-info-element'
-import { scrollToElementHref } from '@/utils'
 
 export default {
   name: 'BlockInfo',
+  props: {
+    p_isExpanded: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data () {
     return {
       infoBlocks: (infoBlocks || []),
+      expandedBlock: null,
     }
   },
   computed: {
@@ -33,10 +39,14 @@ export default {
     },
   },
   methods: {
-    onChangeTabs({elementTitle, tabIdx}) {
-      this.infoBlocks = [...this.infoBlocks]
-      if (tabIdx === 1) {
-        scrollToElementHref.call(this, elementTitle)
+    hasExpanded(_idx) {
+      return this.p_isExpanded || (this.expandedBlock === _idx)
+    },
+    expand (_idx) {
+      if (this.expandedBlock === _idx) {
+        this.expandedBlock = null
+      } else {
+        this.expandedBlock = _idx
       }
     },
   },
