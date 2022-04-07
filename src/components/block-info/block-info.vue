@@ -41,11 +41,7 @@ export default {
       return this.p_isExpanded || (this.expandedBlock === _idx)
     },
     expand (_idx) {
-      if (this.expandedBlock === _idx) {
-        this.expandedBlock = null
-      } else {
-        this.expandedBlock = _idx
-      }
+      this.expandedBlock = _idx
     },
   },
   components: {
