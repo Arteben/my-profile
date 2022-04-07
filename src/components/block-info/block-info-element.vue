@@ -104,8 +104,8 @@ export default {
   }
 
   .cardExpanded {
-    width: 100%;
-    max-width: 800px
+    width: 800px;
+    max-width: 100%;
   }
 
   .card:hover {

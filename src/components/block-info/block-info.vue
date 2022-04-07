@@ -1,9 +1,7 @@
 <template>
-  <v-scale-transition
-    :class="['layout', 'wrap', !isMobileScreen && 'justify-space-around']"
-    origin="center"
-    tag="div"
-    group
+  <v-layout
+    wrap
+    justify-center
   >
     <block-info-element
       v-for="(blockInfo, idx) of infoBlocks"
@@ -12,7 +10,7 @@
       :p_isExpanded="hasExpanded(idx)"
       @expandCard="expand(idx)"
     />
-  </v-scale-transition>
+  </v-layout>
 </template>
 
 <script>
