@@ -39,6 +39,7 @@
             :class="$style.infoTextCommon"
           >
             <v-flex
+              class="bold"
               :class="item.isBig && 'subheading' || ''"
             >
               {{ getTitle(item) }}
@@ -104,7 +105,7 @@ export default {
 
   .cardExpanded {
     width: 100%;
-    max-width: 1000px
+    max-width: 800px
   }
 
   .card:hover {

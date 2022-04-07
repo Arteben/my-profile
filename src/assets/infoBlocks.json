@@ -1,94 +1,185 @@
 [
   {
-   "title": {
-    "ru": "Мой опыт работы",
-    "eng": "My work exipireince"
-   },
-   "icon": "gavel",
-   "items": [
-    {
-     "isBig": true,
-     "icon": "clock",
-     "question": {
-      "ru": "Сколько времени я работаю?",
-      "eng": "How much time do I work?"
-     },
-     "title": {
-      "ru": "Больше четырех лет",
-      "eng": "More four years"
-     },
-     "description": {
-       "ru": "Программа Статус S05E31: видео. Социальная механика одичания, весенний призыв (по прежним правилам), газ за рубли, новые иноагенты (рост социального разнообразия). Понятие: пятая колонна. Отец (в этот раз мать): Долорес Ибарурри по прозвищу Страстоцвет. Вопросы слушателей: о здоровье публичных политиков, об отмене всех законов разом, о режимной динамике седина в голову - бес в ребро.",
-       "eng": "dsfasdfasdfasdfasdf"
-     }
+    "title": {
+      "ru": "Мой опыт работы",
+      "eng": "My work experience"
     },
-    {
-     "title": "Основное направление",
-     "name": "Front-end",
-     "icon": "wrench"
-    },
-    {
-     "title": "Какого я уровня?..",
-     "name": "Senior",
-     "icon": "summit"
-    }
-  ]
+    "icon": "gavel",
+    "items": [
+      {
+        "isBig": true,
+        "icon": "clock",
+        "title": {
+          "ru": "Больше четырех лет",
+          "eng": "More than four years"
+        },
+        "question": {
+          "ru": "Сколько времени я работаю?",
+          "eng": "How much time do I work?"
+        },
+        "description": {
+          "ru": "В большей части, мой опыт связан с компанией Altenar(altenar.com), в которой я проработал четыре года. В этой компании я начал работать с рядового программиста и закончил с должностью руководителя команды frontend разработки.",
+          "eng": "Most of my experience is made up of work in Altenar(altenar.com), where I have worked for four years. In this company, I started working as an ordinary programmer and ended up as the lead of the frontend development team."
+        }
+      },
+
+      {
+        "title": {
+          "ru": "Браузерные приложения",
+          "eng": "Front-end"
+        },
+        "question": {
+          "ru": "Твоя основная специальность?",
+          "eng": "Which main skill do I have?"
+        },
+        "description": {
+          "ru": "Я начал разрабатывать браузерные игры с 2013 года. Затем, в компании Altenar я занимался командной разработкой браузерного приложения для спортивных ставок. Это было полноценное web приложение, которое так же имела функционал по встраиванию на букмекерские платформы. То есть, моя основная специальность — это разработка браузерных приложений на JavaScript.",
+          "eng": "I have become developing browser games since 2013. Then, at Altenar, our develop team craated and was supproting a sports betting web-application. It was a big commercial web application, which also had the ability of embedding on some betting platforms. That is, my main skill is the development of web-applications with JavaScript."
+        },
+        "icon": "wrench"
+      },
+      {
+        "title": {
+          "ru": "Senior",
+          "eng": "Senior"
+        },
+        "question": {
+          "ru": "Какой твой уровень?",
+          "eng": "What is my level?"
+        },
+        "description": {
+          "ru": "Коммерческие проекты я начал делать в 2015 и тогда я был джуном. После года работы в Altenar, в 2018,  мой уровень можно было бы оценить как мидл. Ну а после того, как я стал заниматься управлением командой, постановками задач и работами по глубокому рефакторингу проекта, после этого, я уже оцениваю свой уровень как сеньер.",
+          "eng": "In 2015, I started commercial programming from a junior level. In 2018, after a year of work at Altenar, I assessed my level as middle. And in the end, after I started managing the team, setting tasks and working on deep project refactoring, I can already assess my level as a senior level."
+        },
+        "icon": "summit"
+      }
+    ]
   },
+
   {
-    "title": "Основные виды разработки",
+    "title": {
+      "ru": "Основные виды разработки",
+      "eng": "Main types of development"
+    },
     "icon": "settings",
     "items": [
-     {
-      "isBig": true,
-      "title": "Web-приложения",
-      "icon": "firefox"
-     },
-     {
-      "title": "Проектирование сайтов",
-      "icon": "wordpress"
-     },
-     {
-      "title": "Разработка казуальных игр",
-      "icon": "gamepad-variant"
-     }
+      {
+        "isBig": true,
+        "title": {
+          "ru": "Web-приложения",
+          "eng": "Web-applications"
+        },
+        "question": {
+          "ru": "Самый главный вид разработки?",
+          "eng": "What is the main type?"
+        },
+        "description": {
+          "ru": "Я разрабатывал браузерные приложения, игры, коммерческие приложения для ставок на спорт. Также я разрабатывал несколько пользовательских скриптов для браузера.",
+          "eng": "I have developed browser applications, games, and commercial sports betting applications. I also developed а few browser custom scripts."
+        },
+        "icon": "firefox"
+      },
+      {
+        "title": {
+          "ru": "Разработка казуальных игр",
+          "eng": "Development of casual games"
+        },
+        "question": {
+          "ru": "Разработчик игр?",
+          "eng": "Game developer?"
+        },
+        "description": {
+          "ru": "Я люблю компьютерные игры. Их интересно разрабатывать, поэтому я создал несколько игр и это, конечно, просто хобби.",
+          "eng": "I like computer games. They are fun to develop and I have created several of them. Of course, these are not commercial projects, just a hobby."
+        },
+        "icon": "gamepad-variant"
+      },
+      {
+        "title": {
+          "ru": "Проектирование сайтов",
+          "eng": "Development of sites"
+        },
+        "question": {
+          "ru": "Полноценные сайты?",
+          "eng": "True php sites?"
+        },
+        "description": {
+          "ru": "Я разработал несколько сайтов. Также я проектировал запросы на php для ajax.",
+          "eng": "I have developed several websites. I also designed php queries for ajax."
+        },
+        "icon": "wordpress"
+      }
     ]
-   },
-   {
-    "title": "Языки программирования",
+  },
+  {
+    "title": {
+      "ru": "Языки программирования",
+      "eng": "Programming languages"
+    },
     "icon": "video-input-component",
     "items": [
-     {
-      "isBig": true,
-      "title": "JavaScript",
-      "icon": "language-javascript"
-     },
-     {
-      "title": "php",
-      "icon": "language-php"
-     },
-     {
-      "title": "Совсем чуть-чуть",
-      "icon": "language-csharp"
-     }
+      {
+        "isBig": true,
+        "title": "JavaScript",
+        "description": {
+          "ru": "Я изучаю Javascript с 2012 года. Знаю что такое замыкания, прототипы и функции. Так же относительно недавно стал изучать такую удобную вещь, как TypeScript.",
+          "eng": "I have been learning Javascript since 2012. I know what closures, prototypes and functions. Also i have learned Typescript a little."
+        },
+        "icon": "language-javascript"
+      },
+      {
+        "title": "php",
+        "description": {
+          "ru": "С Php я знаком с университета. Мое знание этого языка не очень полное, но я могу сделать ajax запрос, например. Может быть, я даже способен написать сайт, но будет лучше, если я буду заниматься скриптами на js.",
+          "eng": "I studied php at university. My knowledge of this language is not complete, but it is enough to write a couple of server requests. Perhaps I can even write the backend of the site in php, but I'm not sure about that. My specialty is browser js scripting."
+        },
+        "icon": "language-php"
+      },
+      {
+        "title": {
+          "ru": "Очень мало С#",
+          "eng": "A little C#"
+        },
+        "description": {
+          "ru": "На этом языке я писал проект в университете. Потом, я чуть-чуть занимался серверной частью проекта на C#. То есть я знаю основы этого языка и не более того.",
+          "eng": "In this language, I made a project at the university. Then, I wrote a bit of the server side of the project in C#. That is, I know the basics of this language and nothing more."
+        },
+        "icon": "language-csharp"
+      }
     ]
-   },
-   {
-    "title": "Javascript-фреймворки",
+  },
+  {
+    "title": {
+      "ru": "Javascript-фреймворки",
+      "eng": "Javascript frameworks"
+    },
     "icon": "toolbox",
     "items": [
-     {
-      "isBig": true,
-      "title": "vue.js",
-      "icon": "vuejs"
-     },
-     {
-      "title": "webpack",
-      "icon": "webpack"
-     },
-     {
-      "title": "Raphael.js & Pixi.js",
-      "icon": "svg"
-     }
+      {
+        "isBig": true,
+        "title": "vue.js",
+        "description": {
+          "ru": "С vue.js я работал в Altenar и собираюсь и дальше продолжать с ним работать. Мне кажется, что это очень удобный инструмент для создания интерфейсов и браузерных приложений. Так же я работал с vuex, vue-router и vuetify.",
+          "eng": "I have been working with vue.js in Altenar. I find this tool very useful for creating interfaces and web-applications. Also, I have worked with vuex, vue-router and vuetify."
+        },
+        "icon": "vuejs"
+      },
+      {
+        "title": "webpack",
+        "description": {
+          "ru": "Это важный инструмент для поддержки js проектов. Я с ним постоянно работаю и знаю его основные принципы. Так же  я знаком с основными инструментами для поддержки js проектов, например, с  линтерами, с git и со системой пакетов npm. ",
+          "eng": "This is an important tool for supporting js projects, and I work with it all the time and know its basic principles. I'm also worked with linter, with git, and with npm."
+        },
+        "icon": "webpack"
+      },
+      {
+        "title": "Raphael.js & Pixi.js",
+        "description": {
+          "ru": "Это инструменты, которые облегчают вывод графики. Так как я занимался играми, то с помощью этих библиотек, я работал с графикой. К несчастью, опыта у меня, относительно, не так много, но я знаком с базовыми принципами графики, в том числе с принципами векторной графикой. Я создал несколько игр использую векторную библиотеку Raphael.js.",
+          "eng": "I have used these libraries for programming games. Therefore, I learned with the basic principles of browser graphics. In particular, I have written several games using svg vector graphics."
+        },
+        "icon": "svg"
+      }
     ]
   }
 ]
