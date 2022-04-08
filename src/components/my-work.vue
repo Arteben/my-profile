@@ -37,6 +37,10 @@
         </template>
       </v-flex>
       <v-card-actions>
+        <work-add-buttons
+          v-if="p_workData.addLinks"
+          :p_links="p_workData.addLinks"
+        />
         <v-spacer />
         <v-btn
           @click.stop="onClickIconOpenGame()"
@@ -54,8 +58,24 @@
 <script>
 
 import { getInfoImgSrc } from '@/utils'
+import workAddButtons from './work-add-buttons'
 
 const linkToWork = 'http://coderjs.link/projects/'
+
+// {
+//   "name": "Calculator",
+//   "isSpecial": false,
+//   "text": [
+//     "This is my first typescript project and I created it for training"
+//   ],
+//   "img": "calculatorts",
+//   "img_big": "calculatorts",
+//   "link": "calculatorts/index.html",
+//   "addLinks": {
+//     "habr": "",
+//     "gith": ""
+//   },
+// },
 
 export default {
   name: 'MyWork',
@@ -65,6 +85,7 @@ export default {
     }
   },
   props: { p_workData: Object },
+  components: { workAddButtons },
   computed: {
     breakpointMdUp () {
       return this.$vuetify.breakpoint.mdAndUp

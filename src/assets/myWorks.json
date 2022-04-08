@@ -6,7 +6,10 @@
     ],
     "img": "calculatorts",
     "img_big": "calculatorts",
-    "link": "calculatorts/index.html"
+    "link": "calculatorts/index.html",
+    "addLinks": {
+      "git": "https://pictogrammers.github.io/@mdi/font/2.0.46/"
+    }
   },
   {
     "name": "\u0413\u043e\u043d\u043e\u0447\u043a\u0438",
