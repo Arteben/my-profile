@@ -28,6 +28,18 @@ export const getTranslateModule = function() {
           this.$route.meta.isScroll = false
           pushAppRouter.call(this, {_lang: newLang})
         },
+        translate(_data) {
+          let translate
+          if (typeof _data == 'string') {
+            translate = _data
+          } else if (_data) {
+            const lang = getLang.call(this)
+            translate = (_data || {})[lang] || `<>${_data}|${lang}<>`
+          } else {
+            translate = 'no data in:' + _data
+          }
+          return translate
+        },
       },
     }],
   }

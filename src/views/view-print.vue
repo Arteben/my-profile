@@ -29,8 +29,12 @@
           @photoLoad="loadImagesCounter++"
         />
       </v-layout>
-      <info-blocks ma-3 />
+      <info-blocks
+        ma-3
+        :p_isExpanded="true"
+      />
     </div>
+    <hr>
     <div :class="$style.spacer" />
     <v-layout
       mx-3
@@ -112,10 +116,6 @@ export default {
   }
 
   @media print {
-    .spacer {
-      display: block;
-      min-height: 500px;
-    }
     .hideForPrint {
       display: none;
     }

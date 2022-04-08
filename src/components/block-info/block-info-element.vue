@@ -1,8 +1,10 @@
 <template>
   <v-card
     class="ma-2"
+    :class="$style[`card${isExpanded && 'Expanded' || ''}`]"
     flat
-    color="transparent"
+    :color="isExpanded && 'titleBackground' || 'transparent'"
+    @click="$emit('expandCard')"
   >
     <v-card-title
       :class="$style.cardTitle"
@@ -14,21 +16,16 @@
       >mdi-{{ p_blockInfo.icon }}</v-icon>
       <span
         class="title"
-      >{{ p_blockInfo.title }}:</span>
+      >{{ $langs.translate(p_blockInfo.title) }}:</span>
     </v-card-title>
-    <v-tabs-items
-      v-model="selectedIdx"
-    >
-      <v-tab-item
-        v-for="(option, idx) in props"
-        :key="option"
-      >
+    <v-tabs-items>
+      <v-tab-item>
         <v-layout
-          v-for="item of p_blockInfo.items"
-          :key="item.title"
-          class="ml-5 body-2"
-          :title="item.title"
-          align-center
+          v-for="(item, idx) of p_blockInfo.items"
+          :key="idx"
+          class="ml-4 body-2"
+          pa-2
+          align-start
         >
           <v-icon
             :class="$style.itemIcon"
@@ -38,20 +35,21 @@
             mdi-{{ item.icon }}
           </v-icon>
           <v-flex
-            ma-2
+            mx-2
             :class="$style.infoTextCommon"
           >
             <v-flex
+              class="bold"
               :class="item.isBig && 'subheading' || ''"
             >
-              {{ item.name || item.title }}
+              {{ getTitle(item) }}
             </v-flex>
             <v-flex
-              v-if="(idx > 0) && item.description"
+              v-if="isExpanded && item.description"
               class="my-2 subheading font-weight-light"
               :class="$style.infoTextSpecialTitle"
             >
-              {{ item.description }}
+              {{ $langs.translate(item.description) }}
             </v-flex>
           </v-flex>
         </v-layout>
@@ -65,11 +63,15 @@ const heightTabs = '25'
 
 export default {
   name: 'BlockInfoElement',
-  props: { p_blockInfo: Object },
+  props: {
+    p_blockInfo: Object,
+    p_isExpanded: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data () {
     return {
-      props: ['кратко', 'подробно'],
-      selectedIdx: 0,
       heightTabs,
     }
   },
@@ -81,19 +83,36 @@ export default {
       const items = this.p_blockInfo && this.p_blockInfo.items || []
       return items.some(_item => Boolean(_item.description))
     },
+    isExpanded () {
+      return this.p_isExpanded
+    },
   },
   methods: {
-    onTabsChange (_tabIdx) {
-      this.$emit('changeTabs', {
-        elementTitle: this.p_blockInfo.title,
-        tabIdx: _tabIdx,
-      })
+    getTitle (_item) {
+      const text = this.isExpanded ?
+        (_item.question || _item.title) :_item.title
+      return this.$langs.translate(text)
     },
   },
 }
 </script>
 
 <style module>
+  .card, .cardExpanded {
+    width: 300px;
+    cursor: pointer;
+  }
+
+  .cardExpanded {
+    width: 800px;
+    max-width: 100%;
+    cursor: default;
+  }
+
+  .card:hover {
+    background: linear-gradient(to bottom, var(--v-primaryBackground-darken3), var(--v-primaryBackground-base));
+  }
+
   .cardTitle {
     flex-wrap: nowrap;
     background: linear-gradient(to bottom, var(--v-primaryBackground-darken3), var(--v-primaryBackground-base));
@@ -106,6 +125,7 @@ export default {
     line-height: 30px;
   }
   .itemIcon {
+
     width: 25px;
   }
 </style>

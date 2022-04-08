@@ -1,18 +1,17 @@
 <template>
-  <v-scale-transition
-    :class="['layout', 'wrap', !isMobileScreen && 'justify-space-around']"
-    origin="top left"
-    tag="div"
-    group
+  <v-layout
+    wrap
+    justify-center
   >
     <block-info-element
-      v-for="blockInfo of infoBlocks"
-      :key="blockInfo.title"
+      v-for="(blockInfo, idx) of infoBlocks"
+      :key="idx"
       :p_blockInfo="blockInfo"
-      @changeTabs="onChangeTabs"
-      :ref="blockInfo.title"
+      :p_isExpanded="hasExpanded(idx)"
+      @expandCard="expand(idx)"
+      :ref="getHref(idx)"
     />
-  </v-scale-transition>
+  </v-layout>
 </template>
 
 <script>
@@ -22,9 +21,16 @@ import { scrollToElementHref } from '@/utils'
 
 export default {
   name: 'BlockInfo',
+  props: {
+    p_isExpanded: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data () {
     return {
       infoBlocks: (infoBlocks || []),
+      expandedBlock: null,
     }
   },
   computed: {
@@ -33,10 +39,18 @@ export default {
     },
   },
   methods: {
-    onChangeTabs({elementTitle, tabIdx}) {
-      this.infoBlocks = [...this.infoBlocks]
-      if (tabIdx === 1) {
-        scrollToElementHref.call(this, elementTitle)
+    getHref (_idx) {
+      return 'blockElement_' + _idx
+    },
+    hasExpanded(_idx) {
+      return this.p_isExpanded || (this.expandedBlock === _idx)
+    },
+    expand (_idx) {
+      if (this.expandedBlock == _idx) {
+        this.expandedBlock = null
+      } else {
+        this.expandedBlock = _idx
+        scrollToElementHref.call(this, this.getHref(_idx))
       }
     },
   },
