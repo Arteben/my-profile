@@ -9,6 +9,7 @@
       :p_blockInfo="blockInfo"
       :p_isExpanded="hasExpanded(idx)"
       @expandCard="expand(idx)"
+      :ref="getHref(idx)"
     />
   </v-layout>
 </template>
@@ -16,6 +17,7 @@
 <script>
 import infoBlocks from '@/assets/infoBlocks.json'
 import BlockInfoElement from './block-info-element'
+import { scrollToElementHref } from '@/utils'
 
 export default {
   name: 'BlockInfo',
@@ -37,11 +39,19 @@ export default {
     },
   },
   methods: {
+    getHref (_idx) {
+      return 'blockElement_' + _idx
+    },
     hasExpanded(_idx) {
       return this.p_isExpanded || (this.expandedBlock === _idx)
     },
     expand (_idx) {
-      this.expandedBlock = _idx
+      if (this.expandedBlock == _idx) {
+        this.expandedBlock = null
+      } else {
+        this.expandedBlock = _idx
+        scrollToElementHref.call(this, this.getHref(_idx))
+      }
     },
   },
   components: {
