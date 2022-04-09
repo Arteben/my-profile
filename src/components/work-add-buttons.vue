@@ -1,10 +1,13 @@
 <template>
-  <v-flex>
+  <v-flex
+    class="pa-0"
+  >
     <v-btn
       v-for="(link, idx) of Object.keys(p_links)"
       :key="idx"
       @click.stop="btnClick(link)"
       icon
+      :title="getTitle(link)"
     >
       <v-icon
         large
@@ -19,6 +22,17 @@
 //       "habr": "",
 //       "gith": ""
 //     },
+
+const icons = {
+  git: {
+    title: 'work_titleGithub',
+    icon: 'github-circle',
+  },
+  habr: {
+    title: 'work_titleHabra',
+    icon: 'alphabetical',
+  },
+}
 
 export default {
   name: 'WorkAddButtons',
@@ -39,11 +53,10 @@ export default {
       window.open(this.p_links[_link])
     },
     getFullIconName (_icon) {
-      const icons = {
-        git: 'github-circle',
-        habr: 'alphabetical',
-      }
-      return 'mdi-' + icons[_icon]
+      return 'mdi-' + (icons[_icon] || {}).icon
+    },
+    getTitle (_icon) {
+      return this.$langs.title((icons[_icon] || {}).title)
     },
   },
 }

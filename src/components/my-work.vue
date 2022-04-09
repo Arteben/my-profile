@@ -45,6 +45,7 @@
         <v-btn
           @click.stop="onClickIconOpenGame()"
           icon
+          :title="$langs.title('work_linkGoTitle')"
         >
           <v-icon
             large
