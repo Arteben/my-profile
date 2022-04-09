@@ -50,5 +50,17 @@
   "print_fullName": {
     "ru": "Артем Бебенин",
     "eng": "Artem Bebenin"
+  },
+  "work_linkGoTitle": {
+    "ru": "Запустить проект",
+    "eng": "Launch work"
+  },
+  "work_titleGithub": {
+    "ru": "Открыть github для проекта",
+    "eng": "Open github"
+  },
+  "work_titleHabra": {
+    "ru": "Отрыть статью habrahabr",
+    "eng": "Open a habrahabr article(ru)"
   }
 }

@@ -22,25 +22,43 @@
           class="headline
                 font-weight-medium
                 px-0 py-3"
-        >{{ p_workData.name }}</v-card-title>
-        <template
-          v-for="(string, idx) of p_workData.text"
+        >{{ $langs.translate(p_workData.name) }}</v-card-title>
+        <v-layout
+          column
         >
-          <p
-            :key="string"
-            v-if="isExpanded || idx === 0 "
-            class="subheading font-weight-regular"
-            :class="{ 'text-truncate': !isExpanded }"
-            column
-            full
-          > {{ string }} </p>
-        </template>
+          <v-layout
+            v-if="p_workData.date"
+            align-center
+            justify-end
+            px-2
+          >
+            <span
+              class="mx-1"
+            >{{ date }}</span>
+            <v-icon
+              small
+            >mdi-clock</v-icon>
+          </v-layout>
+          <v-flex>
+            <p
+              class="subheading font-weight-regular"
+              :class="{ 'text-truncate': !isExpanded }"
+              column
+              full
+            > {{ $langs.translate(p_workData.text) }} </p>
+          </v-flex>
+        </v-layout>
       </v-flex>
       <v-card-actions>
+        <work-add-buttons
+          v-if="p_workData.addLinks"
+          :p_links="p_workData.addLinks"
+        />
         <v-spacer />
         <v-btn
           @click.stop="onClickIconOpenGame()"
           icon
+          :title="$langs.title('work_linkGoTitle')"
         >
           <v-icon
             large
@@ -54,8 +72,25 @@
 <script>
 
 import { getInfoImgSrc } from '@/utils'
+import workAddButtons from './work-add-buttons'
 
 const linkToWork = 'http://coderjs.link/projects/'
+
+// {
+//   "name": "Calculator",
+//   "isSpecial": false,
+//   "date": ''
+//   "text": [
+//     "This is my first typescript project and I created it for training"
+//   ],
+//   "img": "calculatorts",
+//   "img_big": "calculatorts",
+//   "link": "calculatorts/index.html",
+//   "addLinks": {
+//     "habr": "",
+//     "gith": ""
+//   },
+// },
 
 export default {
   name: 'MyWork',
@@ -65,6 +100,7 @@ export default {
     }
   },
   props: { p_workData: Object },
+  components: { workAddButtons },
   computed: {
     breakpointMdUp () {
       return this.$vuetify.breakpoint.mdAndUp
@@ -83,6 +119,16 @@ export default {
       const isSpecial = this.p_workData.isSpecial
       const link = this.p_workData.link
       return isSpecial && link || `${linkToWork}${link}`
+    },
+    date () {
+      const localLangOptions = {
+        'ru': 'ru-RU',
+        'eng': 'en-GB',
+      }
+      const options = {month: 'long', year: 'numeric'}
+      const date = new Date(this.p_workData.date)
+      const localLang = localLangOptions[this.$langs.getLang()]
+      return date.toLocaleDateString(localLang, options)
     },
   },
   methods: {

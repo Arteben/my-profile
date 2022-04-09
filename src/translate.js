@@ -20,6 +20,9 @@ export const getTranslateModule = function() {
           const title = titles[_key] && titles[_key][lang]
           return title && title || `><${_key}><`
         },
+        getLang() {
+          return getLang.call(this)
+        },
         getReverseLang () {
           return getLang.call(this) == 'ru' && 'eng' || 'ru'
         },
