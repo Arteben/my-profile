@@ -1,73 +1,113 @@
 [
   {
-    "name": "Calculator",
-    "text": [
-      "This is my first typescript project and I created it for training"
-    ],
+    "name": {
+      "ru": "Калькулятор",
+      "eng": "Calculator"
+    },
+    "text": {
+      "ru": "Это мой первый проект на typescript и я его сделал в учебных целях.",
+      "eng": "This is my first typescript project and I created it for training."
+    },
+    "date": "2022-03",
     "img": "calculatorts",
     "img_big": "calculatorts",
     "link": "calculatorts/index.html",
     "addLinks": {
-      "git": "https://pictogrammers.github.io/@mdi/font/2.0.46/"
+      "git": "https://github.com/Arteben/calculatorts"
     }
   },
   {
-    "name": "\u0413\u043e\u043d\u043e\u0447\u043a\u0438",
-    "text": [
-      "\u0410\u0440\u043a\u0430\u0434\u043d\u0430\u044f \u0433\u043e\u043d\u043a\u0430. \u0415\u0441\u043b\u0438 \u043f\u0440\u0438\u0439\u0442\u0438 \u043a \u0444\u0438\u043d\u0438\u0448\u0443 \u043d\u0435 \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0438\u043c, \u0442\u043e \u043d\u0430 \u0441\u0435\u0440\u0432\u0435\u0440 \u0441\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u0441\u044f \u044d\u0442\u043e\u0442 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442. \u0420\u0435\u0430\u043b\u0438\u0437\u043e\u0432\u0430\u043d\u043e \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e playgraund.js \u0438 raphael.js. \u0412\u0441\u0435 \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u044b \u0438\u0433\u0440\u044b \u043e\u0442\u0440\u0438\u0441\u043e\u0432\u0430\u043d\u044b \u043d\u0430 SVG.",
-      "\u0414\u0430\u0442\u0430 \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f - \u0438\u044e\u043d\u044c 2017"
-    ],
+    "name": {
+      "ru": "Гоночки",
+      "eng": "Races"
+    },
+    "text": {
+      "ru": "Аркадная гонка. Если прийти к финишу не последним, то на сервер сохранится этот результат. Реализовано с помощью playgraund.js и raphael.js. Все элементы игры отображены с помощью SVG. На телефонах не работает.",
+      "eng": "This is an arcade race. If you do not reach the finish line last, then this result will be saved to the server. Implemented with playgraund.js and raphael.js. All elements of the game are displayed with SVG. Doesn't work on smartphones."
+    },
+    "date": "2017-06",
     "img": "races",
     "img_big": "races",
-    "link": "races\/index.html"
+    "link": "races\/index.html",
+    "addLinks": {
+      "git": "https://github.com/Arteben/races",
+      "habr": "https://habr.com/en/post/331430/"
+    }
   },
   {
-    "name": "\"lines\"(\u0434\u0430, \u044f \u0437\u043d\u0430\u044e, \u044d\u0442\u043e \u0433\u043b\u0443\u043f\u043e\u0435 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435)",
-    "text": [
-      "\u0426\u0435\u043b\u044c - \u043e\u0442\u043c\u0435\u0442\u0438\u0442\u044c \u0432\u0441\u0435 \u0442\u043e\u0447\u043a\u0438 \u043d\u0430 \u0438\u0433\u0440\u043e\u0432\u043e\u043c \u043f\u043e\u043b\u0435 \u0437\u0430 \u0432\u044b\u0434\u0435\u043b\u0435\u043d\u043d\u043e\u0435 \u0432\u0440\u0435\u043c\u044f.",
-      "\u0418\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0435 \u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0438: raphael.js \u0438 playgraund.js",
-      "\u0414\u0430\u0442\u0430 \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f - \u044f\u043d\u0432\u0430\u0440\u044c 2017."
-    ],
+    "name": {
+      "ru": "Линии",
+      "eng": "Lines"
+    },
+    "text": {
+      "ru": "Цель - отметить все точки на игровом поле за выделенное время. Использованные библиотеки: raphael.js и playgraund.js",
+      "eng": "The goal is to mark all points on the playing field for the allowed time. Libraries used: raphael.js and playground.js"
+    },
+    "date": "2017-01",
     "img": "lines",
     "img_big": "lines",
     "link": "lines\/index.html"
   },
   {
-    "name": "\u0427\u0438\u0447\u0438\u0432\u0435",
-    "text": [
-      "\u041d\u0430\u0441\u0442\u043e\u043b\u044c\u043d\u0430\u044f \u0438\u0433\u0440\u0430, \u0432 \u043a\u043e\u0442\u043e\u0440\u043e\u0439 \u0438\u0433\u0440\u043e\u043a\u0438 \u043f\u043e \u043e\u0447\u0435\u0440\u0435\u0434\u0438 \u0431\u0440\u043e\u0441\u0430\u044e\u0442 \u043a\u0443\u0431\u0438\u043a(\u0437\u0434\u0435\u0441\u044c \u043a\u0440\u0443\u0442\u044f\u0442 \u0440\u0443\u043b\u0435\u0442\u043a\u0443). \u0415\u0441\u043b\u0438 \u0432\u044b\u043f\u043e\u043b\u0430 \u0448\u0435\u0441\u0442\u0435\u0440\u043a\u0430(\u0441\u0442\u0440\u0435\u043b\u043a\u0430 \u0443\u043a\u0430\u0437\u0430\u043b\u0430 \u043d\u0430 \u0448\u0435\u0441\u0442\u044c \u0442\u043e\u0447\u0435\u043a), \u0442\u043e \u0438\u0433\u0440\u043e\u043a \u043c\u043e\u0436\u0435\u0442 \u043f\u043e\u0441\u0442\u0430\u0432\u0438\u0442\u044c \u043d\u043e\u0432\u0443\u044e \u0444\u0438\u0448\u043a\u0443. \u041f\u043e\u0441\u043b\u0435 \u0442\u043e\u0433\u043e, \u043a\u0430\u043a \u043e\u043d \u0435\u0435 \u043f\u043e\u0441\u0442\u0430\u0432\u0438\u043b, \u0442\u043e \u0435\u0439 \u043c\u043e\u0436\u043d\u043e \u0445\u043e\u0434\u0438\u0442\u044c. \u041f\u043e\u0431\u0435\u0436\u0434\u0430\u0435\u0442 \u0442\u043e\u0442, \u043a\u0442\u043e \u043f\u0435\u0440\u0432\u044b\u043c \u043f\u0440\u043e\u0432\u0435\u0434\u0435\u0442 \u043f\u043e \u0432\u0441\u0435\u043c\u0443 \u043f\u043e\u043b\u044e \u0447\u0435\u0442\u044b\u0440\u0435 \u0444\u0438\u0448\u043a\u0438. \u0418\u0433\u0440\u0430\u0442\u044c \u0437\u0430 \u0438\u0433\u0440\u043e\u043a\u0430 \"Reds\", \u0437\u0430 \u043e\u0442\u0441\u0430\u043b\u044c\u043d\u044b\u0445 \u0438\u0433\u0440\u0430\u0435\u0442 \u043a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440. \u041e\u0434\u043d\u0430 \u0438\u0433\u0440\u0430 \u043c\u043e\u0436\u0435\u0442 \u0437\u0430\u043d\u044f\u0442\u044c \u043e\u0442 10 \u0434\u043e 20 \u043c\u0438\u043d\u0443\u0442.",
-      "\u0414\u0430\u0442\u0430 \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f - \u043c\u0430\u0439, \u0438\u044e\u043d\u044c 2015"
-    ],
+    "name": {
+      "ru": "Чичиве",
+      "eng": "Chichive"
+    },
+    "text": {
+      "ru": "Настольная игра, в которой игроки по очереди бросают кубик(здесь крутят рулетку). Если выпала шестерка (стрелка указала на шесть точек), то игрок может поставить новую фишку. Побеждает тот, кто первым проведет по всему полю четыре фишки. Игрок играет за «Reds», остальными игроками управляет AI.",
+      "eng": "A board game when players throw dice (roulette is spinning here). If a six has fallen (the arrow points to six dots), then the player can put a new chip. The first player to swipe four chips across the board wins. The player plays for the Reds, other players are controlled by AI."
+    },
+    "date": "2015-06",
     "img": "chichive",
     "img_big": "chichive",
     "link": "chichive\/index.html"
   },
   {
-    "name": "\u0420\u0435\u043d\u0434\u0437\u044e",
-    "text": [
-      "\u041c\u043e\u044f \u0440\u0435\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f \u0440\u0435\u043d\u0434\u0437\u044e (\u043a\u0440\u0435\u0441\u0442\u0438\u043a\u043e\u0432-\u043d\u043e\u043b\u0438\u043a\u043e\u0432 \u043d\u0430 \u0431\u043e\u043b\u044c\u0448\u043e\u043c \u043f\u043e\u043b\u0435) \u0441 \u0430\u043b\u0433\u043e\u0440\u0438\u0442\u043c\u043e\u043c, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u043d\u0430\u0445\u043e\u0434\u0438\u0442 \u0445\u043e\u0434\u044b \u043c\u0435\u0442\u043e\u0434\u043e\u043c \u043f\u0435\u0440\u0435\u0431\u043e\u0440\u0430.",
-      "\u0414\u0430\u0442\u0430 \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f - \u0434\u0435\u043a\u0430\u0431\u0440\u044c 2013, \u044f\u043d\u0432\u0430\u0440\u044c 2014"
-    ],
+    "name": {
+      "ru": "Рэндзю",
+      "eng": "Renju"
+    },
+    "text": {
+      "ru": "Моя реализация рэндзю (крестиков-ноликов на большом поле) с алгоритмом, который находит ходы методом перебора.",
+      "eng": "This is my renju realisation (tic-tac-toe on a large field). The AI find moves with a brute-force search algorithm."
+    },
+    "date": "2014-01",
     "img": "nac",
     "img_big": "nac",
-    "link": "nac\/index.html"
+    "link": "nac\/index.html",
+    "addLinks": {
+      "git": "https://github.com/Arteben/noughtscrossesjs",
+      "habr": "https://habr.com/en/post/209544/"
+    }
   },
   {
-    "name": "\u0423\u0433\u043e\u043b\u043a\u0438",
-    "text": [
-      "\u042d\u0442\u0430 \u043d\u0430\u0441\u0442\u043e\u043b\u044c\u043d\u0430\u044f \u0438\u0433\u0440\u0430 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442 \u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u044e \u0434\u0438\u043d\u043e\u043c\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e DOM \u0438 \u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0443 jquery.",
-      "\u0414\u0430\u0442\u0430 \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f - \u043b\u0435\u0442\u043e 2011"
-    ],
+    "name": {
+      "ru": "Уголки",
+      "eng": "Сorners"
+    },
+    "text": {
+      "ru": "Эта настольная игра использует технологию динамического DOM и библиотеку jquery.",
+      "eng": "This board game uses dynamic DOM and the jQuery library."
+    },
+    "date": "2011-08",
     "img": "corners",
     "img_big": "corners",
-    "link": "corners\/index.html"
+    "link": "corners\/index.html",
+    "addLinks": {
+      "git": "https://github.com/Arteben/CornersJS",
+      "habr": "https://habr.com/en/post/184726/"
+    }
   },
   {
-    "name": "\u041f\u044f\u0442\u043d\u0430\u0448\u043a\u0438",
-    "text": [
-      "\u0418\u0433\u0440\u0430 \u043f\u044f\u0442\u043d\u0430\u0448\u043a\u0438. \u0420\u0435\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f \u0441 \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044c\u044e \u0432\u0440\u0430\u0449\u0435\u043d\u0438\u044f \u0444\u0438\u0448\u0435\u043a (\u0438\u0433\u0440\u043e\u0432\u043e\u0433\u043e \u043f\u043e\u043b\u044f), \u0442\u0430\u043a \u0447\u0442\u043e \u0442\u0443\u0442 \u043d\u0435\u0442 \u043f\u0440\u043e\u0438\u0433\u0440\u044b\u0448\u043d\u044b\u0445 \u043a\u043e\u043c\u0431\u0438\u043d\u0430\u0446\u0438\u0439. \u0418\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442\u0441\u044f \u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0430 jquery.",
-      "\u0414\u0430\u0442\u0430 \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f - \u0432\u0435\u0441\u043d\u0430 2015"
-    ],
+    "name": {
+      "ru": "Пятнашки",
+      "eng": "Game of Fifteen"
+    },
+    "text": {
+      "ru": "Игра пятнашки. Реализация с возможностью вращения фишек (игрового поля), так что тут нет проигрышных комбинаций. Используется библиотека jquery.",
+      "eng": "This is almost a classical game of Fifteen. The playing field can turn over and therefore there are no win-win situations. There is jQuery library used."
+    },
+    "date": "2015-04",
     "img": "tag",
     "img_big": "tag",
     "link": "tag\/index.html"
