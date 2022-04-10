@@ -57,6 +57,7 @@
         />
         <v-spacer />
         <v-btn
+          v-if="p_workData.link"
           @click.stop="onClickIconOpenGame()"
           icon
           :title="$langs.title('work_linkGoTitle')"
