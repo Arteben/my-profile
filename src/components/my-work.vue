@@ -31,9 +31,10 @@
             align-center
             justify-end
             px-2
+            mx-0
           >
             <span
-              class="mx-1"
+              class="mr-1"
             >{{ date }}</span>
             <v-icon
               small
