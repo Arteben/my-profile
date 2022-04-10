@@ -2,33 +2,30 @@
   <div
     :class="$style.mainContainer"
   >
-    <div
+    <v-layout
       :class="$style.printedTitle"
+      align-end
     >
+      <my-photo
+        class="xs2"
+        :p_isPrintMode="true"
+        @photoLoad="loadImagesCounter++"
+      />
       <v-flex
         ma-3
         class="display-2"
       >
         {{ $langs.title('print_fullName') }}
       </v-flex>
-      <hr>
-    </div>
+      <v-flex>
+        <canvas ref="qrCodeEl" />
+      </v-flex>
+    </v-layout>
+    <hr>
     <div
       :class="$style.printedMyInfo"
     >
-      <v-layout
-        ma-3
-        row
-        justify-center
-        align-center
-        full
-      >
-        <contacts />
-        <my-photo
-          :p_isPrintMode="true"
-          @photoLoad="loadImagesCounter++"
-        />
-      </v-layout>
+      <contacts class="my-3" />
       <info-blocks
         ma-3
         :p_isExpanded="true"
@@ -60,10 +57,12 @@
 </template>
 
 <script>
+import QRCode from 'qrcode'
+
 import worksInfo from '@/assets/myWorks.json'
 // import query from '@/mixins/query'
 import { infoBlocks, contacts, myPhoto, myPrintedWork } from '@/components'
-import { pushAppRouter } from '@/utils'
+import { pushAppRouter, rootLink } from '@/utils'
 
 export default {
   name: 'ViewPrint',
@@ -77,6 +76,9 @@ export default {
   mounted () {
     var images = document.getElementsByTagName('img')
     this.allImagesCounter = images.length
+
+    QRCode.toDataURL(this.$refs.qrCodeEl, rootLink)
+
   },
   components: {
     infoBlocks,

@@ -100,8 +100,10 @@ export const eventsBus = {
   }],
 }
 
+export const rootLink = 'http://coderjs.link'
+
 export const getInfoImgSrc = (_projectName = '', _isBig = false) => {
-  const path = `http://coderjs.link/projects/${_projectName}/info/`
+  const path = `${rootLink}/projects/${_projectName}/info/`
   const img = _isBig ? 'img_big.jpg' : 'img.jpg'
   return path + img
 }
