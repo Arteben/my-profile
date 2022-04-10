@@ -12,13 +12,11 @@
     <v-flex
       column
     >
-      <span class="display-1"> {{ p_workData.name }} </span>
+      <span class="display-1"> {{ $langs.translate(p_workData.name) }} </span>
       <div>
         <p
-          v-for="(string) of p_workData.text"
-          :key="string"
           class="body-1"
-        > {{ string }} </p>
+        > {{ $langs.translate(p_workData.text) }} </p>
       </div>
     </v-flex>
   </v-layout>
