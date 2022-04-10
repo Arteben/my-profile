@@ -18,6 +18,22 @@
   },
   {
     "name": {
+      "ru": "Портфолио",
+      "eng": "Profile"
+    },
+    "text": {
+      "ru": "Этот проект разрабатывался для презентации моих профессиональных навыков и моих работ.  Он написан на vue2, с использованием библиотеки vuetify. Этот проект был создан два года назад и время от времени немного доделывается.",
+      "eng": "This project was created to present my professional skills and my works. It has written with the vue2 library and the vuetify. This project was created two years ago and has been developed a bit since then."
+    },
+    "date": "2022-03",
+    "img": "myprofile",
+    "img_big": "myprofile",
+    "addLinks": {
+      "git": "https://github.com/Arteben/my-profile"
+    }
+  },
+  {
+    "name": {
       "ru": "Гоночки",
       "eng": "Races"
     },

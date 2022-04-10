@@ -26,7 +26,7 @@
     >
       <my-work
         v-for="workItem in worksInfo"
-        :key="workItem.link"
+        :key="workItem.img"
         :p_workData="workItem"
         @toggleWork="onExpendWork"
         :ref="workItem.name"
