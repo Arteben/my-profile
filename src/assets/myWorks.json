@@ -1,6 +1,23 @@
 [
   {
     "name": {
+      "ru": "Шахматы 3d",
+      "eng": "Chess3d"
+    },
+    "text": {
+      "ru": "Это было мое знакомство с библиотекой three.js и углубление познаний в typescript. Логику шахмат я взял из проекта github.com/josefjadrny/js-chess-engine. С помощью three.js я нарисовал игровое окружение, расставил модельки, интегрировал эту шахматную библиотеку и настроил взаимодействие игрока. На смартфоны это не было рассчитано, но, к моему удивлению, и там тоже может работать.",
+      "eng": "This was my introduction to the three.js library and continued learning about typescript.js. The chess algorithm was taken from github.com/josefjadrny/js-chess-engine. I drew the game environment and integrated the algorithm. I also set up the player's interaction with these chess."
+    },
+    "date": "2022-05",
+    "img": "chess3d",
+    "img_big": "chess3d",
+    "link": "chess3d/index.html",
+    "addLinks": {
+      "git": "https://github.com/Arteben/chess3d"
+    }
+  },
+  {
+    "name": {
       "ru": "Калькулятор",
       "eng": "Calculator"
     },
