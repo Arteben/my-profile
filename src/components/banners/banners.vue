@@ -23,10 +23,7 @@
 
 <script>
 import CanvasItem from './canvas-item'
-
-const banners = [
-  'wordsBlocks', 'iWantToBe',
-]
+import { animationList as banners } from './animations/bannerAnimations'
 
 export default {
   name: 'Banners',
