@@ -1,10 +1,12 @@
 import IWantToBe from './i-want-to-be'
 import WordsBlocks from './wordsBlocks'
+// import Scalling from './scalling'
 
-const animations = {
-  iWantBe: 'iWantToBe',
-  blocks: 'wordsBlocks',
-}
+export const animationList = [
+  'iWantBe',
+  'blocks',
+  // 'scalling',
+]
 
 /*
   name - name for animation
@@ -17,33 +19,43 @@ const animations = {
     isSounds
 */
 export default function (_name, _props) {
-  return {
+
+  const animation = {
     name: _name,
     props: _props,
-    mounted () {
-      switch (this.name) {
-        case animations.iWantBe:
-          this.animation = new IWantToBe(this.props)
-          this.animation.draw()
-          break
-        case animations.blocks:
-          this.animation = new WordsBlocks(this.props)
-          this.animation.draw()
-      }
-    },
-    action () {
-      if (this.animation) {
-        switch (this.name) {
-          case animations.iWantBe:
-            this.animation.animateBottom()
-            break
-          case animations.blocks:
-            this.animation.drop()
-        }
-      }
-    },
+    picture: null,
     sound (_isSound) {
-      this.animation.isSound = _isSound
+      const animation = this.picture || {}
+      animation.isSound = _isSound
     },
   }
+
+  let picture
+
+  switch (_name) {
+    case 'iWantBe':
+      picture = new IWantToBe(_props)
+      animation.picture = picture
+      animation.play = () => {
+        picture.animateBottom()
+      }
+      picture.draw()
+      break
+    case 'blocks':
+      picture = new WordsBlocks(_props)
+      animation.picture = picture
+      animation.play = () => {
+        picture.drop()
+      }
+      picture.draw()
+      break
+    // case 'scalling':
+    //   this.picture = new Scalling(this.props)
+    //   // this.play = () => {
+    //   //   this.picture.clear()
+    //   // }
+    //   this.picture.clear()
+  }
+
+  return animation
 }

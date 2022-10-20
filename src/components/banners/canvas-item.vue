@@ -31,15 +31,16 @@ export default {
       elementHeight: 'auto',
       width: 250,
       height: 48,
+      isFirstLoaded: false,
     }
   },
   watch: {
     isSound (_flag) {
-      this.animation.sound(_flag)
+      this.animation && this.animation.sound(_flag)
     },
     p_isSelected (_flag) {
-      if (_flag) {
-        this.animation.action()
+      if (_flag && this.animation && this.isFirstLoaded) {
+        this.animation.play()
       }
     },
   },
@@ -61,13 +62,18 @@ export default {
         width: this.width,
         height: this.height,
       })
-      this.animation.mounted()
-      if (this.p_isSelected) {
-        this.animation.action()
-      }
     }
+
+    window.addEventListener('load', this.playAnimationForLoaded)
+  },
+  beforeDestroy () {
+    window.removeEventListener('load', this.playAnimationForLoaded)
   },
   methods: {
+    playAnimationForLoaded () {
+      this.animation && this.animation.play()
+      this.isFirstLoaded = true
+    },
     onResize() {
       if (this.animation) {
         let elementWidth = this.$el.clientWidth
