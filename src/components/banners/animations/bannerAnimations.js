@@ -1,10 +1,11 @@
 import IWantToBe from './i-want-to-be'
 import WordsBlocks from './wordsBlocks'
-// import ScallingIsArt from './scalling'
+import ScallingIsArt from './scalling'
 
 export const animationList = [
-  'iWantBe',
-  'blocks',
+  // 'iWantBe',
+  // 'blocks',
+  'scalling',
 ]
 
 /*
@@ -58,13 +59,9 @@ export default function (_name, _props) {
       }, 'draw')
       break
     case 'scalling':
-      // createAnimation(ScallingIsArt, ())
-      // this.picture = new ScallingIsArt(this.props)
-      // animation
-      // // this.play = () => {
-      // //   this.picture.clear()
-      // // }
-      // this.picture.clear()
+      createAnimation(ScallingIsArt, (_anim) => {
+        _anim.drawScalling()
+      }, 'clear')
   }
 
   return animation

@@ -1,68 +1,109 @@
-// const animateStates = {
-//   'calm': 'calm',
-//   'drop': 'drop',
-//   'fallingSupport': 'fallingSupport',
-//   'fallingWords': 'fallingWords',
-// }
+import cq from './canvasquery'
 
+const animateStates = {
+  'showTitle': 1,
+  'scaleCOde': 10,
+  // 'toGray': 2,
+  // 'scaleRectangles': 3,
+}
+
+let animateCounter = 0
 
 export default class CanvasBanner {
   constructor(_props) {
-    // var width = _props.width
-    // var height = _props.height
-
     this.background = _props.background || 'black'
     this.textColor = _props.textColor || 'white'
-    this.words = ['Code is art']
-    this.ventureFont = '16px venture'
-    this.isSound = _props.isSound
+    this.phrases = ['Code is art', 'that does something']
+    this.mainFont = '32px venture'
+    this.smallFont = '14px maincraft'
     this.sizes = {
       h: _props.height,
       w: _props.width,
     }
 
-    const ctx = _props.canvas && _props.canvas.getContext('2d') || {}
-    ctx.font = '16px venture'
-    ctx.textBaseline = 'middle'
-    ctx.textAlign = 'center'
-    this.layer = ctx
+    this.layer = cq(_props.canvas)
+    this.layer.textBaseline('top')
+    this.layer.textAlign('left')
 
+    this.stateId = 0
+    this.stateList = Object.keys(animateStates)
+  }
+
+  setTransform (_zoom = 1, _moveX = 0, _moveY = 0) {
+    _zoom = (1 > _zoom) ? 1 : _zoom
+    this.layer.context.setTransform(_zoom, 0, 0, _zoom, _moveX, _moveY)
+  }
+
+  clear() {
+    this.layer.clear(this.background)
+    this.layer.context.fillStyle = this.textColor
+  }
+
+  clearWithTransform() {
+    this.setTransform()
     this.clear()
   }
 
+  setNextStateId () {
+    const maxStates = this.stateList.length
+    const nextStateId = this.stateId + 1
+    this.stateId = (nextStateId > maxStates) ? 0 : nextStateId
+  }
 
+  getTimeCount () {
+    return animateStates[this.stateList[this.stateId]] * 60
+  }
 
-  clear() {
-    this.layer.clearRect(0, 0, this.sizes.w, this.sizes.h)
-    this.layer.fillStyle = this.textColor
+  drawScalling () {
+    const time = this.getTimeCount()
+    const timePercent = 100 / time
+    if (animateCounter > time) {
+      animateCounter = 0
+      this.setNextStateId()
+      if (this.stateId !== 0) {
+        this.drawScalling()
+      }
+    } else {
+      if (animateCounter === 0) {
+        this.clearWithTransform()
+      }
+
+      const pT = animateCounter * timePercent
+
+      switch (this.stateList[this.stateId]) {
+        case 'showTitle':
+          this.showTitle()
+          break;
+          case 'scaleCOde':
+            this.showTitle()
+            this.scaleCOde(pT)
+          }
+      animateCounter++
+      window.requestAnimationFrame(() => {
+        this.drawScalling()
+      })
+    }
+  }
+
+  showTitle () {
+    this.clear()
+    this.layer.context.font = this.mainFont
+    this.layer.context.fillText(this.phrases[0],
+      this.sizes.w * 0.1, this.sizes.h * 0.1)
+    this.layer.context.font = this.smallFont
+    this.layer.context.fillText(this.phrases[1],
+      this.sizes.w * 0.4, this.sizes.h * 0.7)
+  }
+
+  scaleCOde (_pT) {
+    const oneTranslatePW = -400 / 100
+    const oneTranslatePH = -180 / 100
+    const oneScallingP = 16 / 100
+
+    const stepScalling = _pT * oneScallingP
+    const moveX = oneTranslatePW * _pT
+    const moveY = oneTranslatePH * _pT
+
+    this.setTransform(stepScalling, moveX, moveY)
   }
 }
-
-// function drawBlockWord(_word, _layer, _sizes, _colors) {
-//   const middleX = _word.x
-//   const width = _word.width
-//   const posY = _word.y
-
-//   const getRectX = _x => (_x - (width / 2))
-//   const getRextY = _y => (_y - (_sizes.textHeight / 2) - 1)
-
-//   _layer.fillStyle = _colors.container
-//   _layer.strokeStyle = _colors.containerBorder
-
-//   const rectParams = [getRectX(middleX), getRextY(posY), width, _sizes.textHeight]
-//   _layer.fillRect(...rectParams)
-//   _layer.strokeRect(getRectX(middleX), getRextY(posY), width, _sizes.textHeight)
-
-//   _layer.fillStyle = _colors.textColor
-//   _layer.fillText(_word.symbs, middleX, posY)
-// }
-
-// function drawSupportLine(_layer, color, _pos1X, _pos1Y, _pos2X, _pos2Y) {
-//   _layer.strokeStyle = color
-//   _layer.beginPath()
-//   _layer.moveTo(_pos1X, _pos1Y)
-//   _layer.lineTo(_pos2X, _pos2Y)
-//   _layer.closePath()
-//   _layer.stroke()
-// }
-
