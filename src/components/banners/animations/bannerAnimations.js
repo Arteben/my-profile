@@ -1,11 +1,11 @@
 import IWantToBe from './i-want-to-be'
 import WordsBlocks from './wordsBlocks'
-// import Scalling from './scalling'
+import ScallingIsArt from './scalling'
 
 export const animationList = [
   'iWantBe',
   'blocks',
-  // 'scalling',
+  'scalling',
 ]
 
 /*
@@ -32,29 +32,36 @@ export default function (_name, _props) {
 
   let picture
 
+  const createAnimation = (
+    _Class,
+    _playMethod,
+    _clearNameMethod,
+  ) => {
+    picture = new _Class(_props)
+    animation.picture = picture
+    animation.play = () => {
+      _playMethod(picture)
+    }
+    if (typeof picture[_clearNameMethod] == 'function') {
+      picture[_clearNameMethod]()
+    }
+  }
+
   switch (_name) {
     case 'iWantBe':
-      picture = new IWantToBe(_props)
-      animation.picture = picture
-      animation.play = () => {
-        picture.animateBottom()
-      }
-      picture.draw()
+      createAnimation(IWantToBe, (_animation) => {
+        _animation.animateBottom()
+      }, 'draw')
       break
     case 'blocks':
-      picture = new WordsBlocks(_props)
-      animation.picture = picture
-      animation.play = () => {
-        picture.drop()
-      }
-      picture.draw()
+      createAnimation(WordsBlocks, (_anim) => {
+        _anim.drop()
+      }, 'draw')
       break
-    // case 'scalling':
-    //   this.picture = new Scalling(this.props)
-    //   // this.play = () => {
-    //   //   this.picture.clear()
-    //   // }
-    //   this.picture.clear()
+    case 'scalling':
+      createAnimation(ScallingIsArt, (_anim) => {
+        _anim.startScalling()
+      }, 'clear')
   }
 
   return animation

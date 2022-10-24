@@ -39,7 +39,7 @@ export default {
       this.animation && this.animation.sound(_flag)
     },
     p_isSelected (_flag) {
-      if (_flag && this.animation && this.isFirstLoaded) {
+      if (_flag && this.animation) {
         this.animation.play()
       }
     },
@@ -64,16 +64,12 @@ export default {
       })
     }
 
-    window.addEventListener('load', this.playAnimationForLoaded)
+    window.addEventListener('load', this.animation.play)
   },
   beforeDestroy () {
-    window.removeEventListener('load', this.playAnimationForLoaded)
+    window.removeEventListener('load', this.animation.play)
   },
   methods: {
-    playAnimationForLoaded () {
-      this.animation && this.animation.play()
-      this.isFirstLoaded = true
-    },
     onResize() {
       if (this.animation) {
         let elementWidth = this.$el.clientWidth
