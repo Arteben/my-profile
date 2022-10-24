@@ -3,8 +3,8 @@ import WordsBlocks from './wordsBlocks'
 import ScallingIsArt from './scalling'
 
 export const animationList = [
-  // 'iWantBe',
-  // 'blocks',
+  'iWantBe',
+  'blocks',
   'scalling',
 ]
 
@@ -60,7 +60,7 @@ export default function (_name, _props) {
       break
     case 'scalling':
       createAnimation(ScallingIsArt, (_anim) => {
-        _anim.drawScalling()
+        _anim.startScalling()
       }, 'clear')
   }
 
