@@ -1,10 +1,10 @@
 import cq from './canvasquery'
 
 const animateStates = {
-  'showTitle': 1,
+  'showTitle': 0.5,
   'scaleCOde': 3,
   'circles': 3,
-  'outScalling': 4,
+  'outScalling': 3,
 }
 
 const getLeftSideScallingMove = (_w, _s) => {

@@ -3,9 +3,9 @@ import WordsBlocks from './wordsBlocks'
 import ScallingIsArt from './scalling'
 
 export const animationList = [
-  'iWantBe',
   'blocks',
   'scalling',
+  'iWantBe',
 ]
 
 /*
