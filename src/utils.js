@@ -100,7 +100,7 @@ export const eventsBus = {
   }],
 }
 
-export const rootLink = 'http://coderjs.link'
+export const rootLink = 'http://coderjs.space'
 
 export const getInfoImgSrc = (_projectName = '', _isBig = false) => {
   const path = `${rootLink}/projects/${_projectName}/info/`

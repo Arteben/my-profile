@@ -20,10 +20,10 @@
             medium
             left
             color="primaryText"
-          >{{ contactsData.icon }}</v-icon>
-          <span
-            class="title"
-          >{{ contactsData.text }}</span>
+          >{{
+            contactsData.icon
+          }}</v-icon>
+          <span class="title">{{ contactsData.text }}</span>
         </div>
       </v-component>
     </template>
@@ -31,52 +31,63 @@
 </template>
 
 <script>
-
-const contactsInfo = [{
-  type: 'mail',
-  text: 'artjombebenin@gmail.com',
-  href: 'mailto:artjombebenin@gmail.com',
-  icon: 'mdi-email',
-}]
+const contactsInfo = [
+  {
+    type: 'mail',
+    text: 'artjombebenin@gmail.com',
+    href: 'mailto:artjombebenin@gmail.com',
+    icon: 'mdi-email',
+  },
+  {
+    type: 'telegram',
+    text: '@artjomben',
+    href: 'https://t.me/artjomben',
+    icon: 'mdi-telegram',
+  },
+];
 
 export default {
   name: 'Contacts',
-  data () {
+  data() {
     return {
       contactsInfo,
-    }
+    };
   },
   computed: {
-    isMobile () {
-      return  this.$vuetify.breakpoint.smAndDown
+    isMobile() {
+      return this.$vuetify.breakpoint.smAndDown;
     },
   },
   methods: {
     getElementForContactInfo(_info) {
-      return (_info && _info.href) && 'a' || 'span'
+      return (_info && _info.href && 'a') || 'span';
     },
   },
-}
+};
 </script>
 
 <style module lang="less">
-  .mainContainer {
-    min-width: 350px;
-    & > a {
-      text-decoration: none;
-    }
+.mainContainer {
+  min-width: 350px;
+  & > a {
+    text-decoration: none;
+  }
 
-    @media print {
-      flex-direction: column;
-    }
+  @media print {
+    flex-direction: column;
   }
-  .contactInfo {
-    background: linear-gradient(to right, var(--v-primaryBackground-lighten1), var(--v-primaryBackground-base));
-    border-left: 2px solid var(--v-primaryText-base);
-    color: var(--v-primaryText-base);
-    border-radius: 20px;
-    max-width: 400px;
-    overflow: hidden;
-    display: flex;
-  }
+}
+.contactInfo {
+  background: linear-gradient(
+    to right,
+    var(--v-primaryBackground-lighten1),
+    var(--v-primaryBackground-base)
+  );
+  border-left: 2px solid var(--v-primaryText-base);
+  color: var(--v-primaryText-base);
+  border-radius: 20px;
+  max-width: 400px;
+  overflow: hidden;
+  display: flex;
+}
 </style>

@@ -76,7 +76,7 @@
 import { getInfoImgSrc } from '@/utils'
 import workAddButtons from './work-add-buttons'
 
-const linkToWork = 'http://coderjs.link/projects/'
+const linkToWork = 'http://coderjs.space/projects/'
 
 // {
 //   "name": "Calculator",

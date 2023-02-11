@@ -43,6 +43,10 @@
     "ru": "электронная почта",
     "eng": "email"
   },
+  "contacts_title_telegram": {
+    "ru": "телеграм",
+    "eng": "telegram"
+  },
   "print_backButton": {
     "ru": "На главную страницу",
     "eng": "Back"
