@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar
+  <v-app-bar
     app
     height="100"
     class="titleBackground"
@@ -45,7 +45,7 @@
         />
       </v-layout>
     </v-toolbar-title>
-  </v-toolbar>
+  </v-app-bar>
 </template>
 
 <script>
@@ -84,7 +84,7 @@ export default {
 }
 </script>
 
-<style module lang="less">
+<style module lang="sass">
  .title {
     overflow: auto;
     flex-grow: 1;

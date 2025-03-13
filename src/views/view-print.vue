@@ -101,7 +101,7 @@ export default {
 }
 </script>
 
-<style module lang="less">
+<style module lang="sass">
   .mainContainer {
     background: white;
 

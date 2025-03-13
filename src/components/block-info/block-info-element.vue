@@ -2,7 +2,7 @@
   <v-card
     class="ma-2"
     :class="$style[`card${isExpanded && 'Expanded' || ''}`]"
-    flat
+    text
     :color="isExpanded && 'titleBackground' || 'transparent'"
     @click="$emit('expandCard')"
   >

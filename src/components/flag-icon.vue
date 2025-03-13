@@ -24,7 +24,7 @@ export default {
 };
 </script>
 
-<style module lang="less">
+<style module lang="sass">
 .icon {
   border: 3px solid var(--v-primaryText-base);
   border-radius: 30px;

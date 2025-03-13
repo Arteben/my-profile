@@ -66,7 +66,7 @@ export default {
 };
 </script>
 
-<style module lang="less">
+<style module lang="sass">
 .mainContainer {
   min-width: 350px;
   & > a {

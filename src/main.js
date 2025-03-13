@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import '@/vuetify'
+import vuetify from '@/vuetify'
 import root from '@/root-element.vue'
 import router from '@/router'
 // fonts
@@ -23,6 +23,7 @@ translateModule.router = router
 Vue.prototype.$langs = new Vue(translateModule)
 
 new Vue({
+  vuetify,
   router,
   render: h => h(root),
 }).$mount('#app')

@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import Vuetify from 'vuetify/lib'
-import 'vuetify/src/stylus/app.styl'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
 
 import { browserStorageMethods, colorThems } from '@/utils'
@@ -11,10 +11,13 @@ if (theme == null) {
   browserStorageMethods.setField('colorTheme', theme)
 }
 
-Vue.use(Vuetify, {
+Vue.use(Vuetify)
+
+export default new Vuetify({
   theme: colorThems[theme],
   options: {
     customProperties: true,
   },
   iconfont: 'mdi',
 })
+

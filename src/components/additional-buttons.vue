@@ -12,7 +12,7 @@
       :title="$langs.title(icon.title)"
       @click="onClickIcon(icon.id)"
       icon
-      flat
+      text
     >
       <v-icon
         color="titleText"
@@ -21,7 +21,7 @@
     </v-btn>
     <v-btn
       class="ma-3"
-      flat
+      text
       icon
       large
       :title="$langs.title('head_title_switchlang')"
