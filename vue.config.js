@@ -11,7 +11,7 @@ module.exports = {
     },
   },
 
-  baseUrl: undefined,
+  publicPath: undefined,
   outputDir: undefined,
   assetsDir: undefined,
   runtimeCompiler: undefined,

@@ -30,6 +30,6 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
   },
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
   },
 }
