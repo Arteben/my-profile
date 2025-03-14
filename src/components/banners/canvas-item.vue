@@ -31,7 +31,6 @@ export default {
       elementHeight: 'auto',
       width: 250,
       height: 48,
-      isFirstLoaded: false,
     }
   },
   watch: {
@@ -39,41 +38,54 @@ export default {
       this.animation && this.animation.sound(_flag)
     },
     p_isSelected (_flag) {
-      if (_flag && this.animation) {
-        this.animation.play()
+      if (!_flag) return
+
+      if(this.animation) {
+        this.animationPLay()
+      } else {
+        window.setTimeout(() => {
+          this.createAnimation()
+          this.animationPLay()
+        }, 100)
       }
     },
   },
   mounted() {
-    var vuetifyTheme = this.$vuetify.theme
-    var backgroundColor = vuetifyTheme.primaryBackground
-    if (typeof backgroundColor == 'object') {
-      backgroundColor = backgroundColor.base
-    }
-    var textColor = vuetifyTheme.primaryText
-    if (typeof textColor == 'object') {
-      textColor = textColor.base
-    }
-    if (this.p_animationName) {
-      this.animation = bannerAnimations(this.p_animationName, {
-        canvas: this.$refs.canvas,
-        background: backgroundColor,
-        textColor,
-        width: this.width,
-        height: this.height,
-      })
-    }
-
-    window.addEventListener('load', this.animation.play)
+    window.addEventListener('load', this.animationPLay)
   },
   beforeDestroy () {
-    window.removeEventListener('load', this.animation.play)
+    window.removeEventListener('load', this.animationPLay)
   },
   methods: {
+    animationPLay() {
+      this.animation?.play()
+    },
     onResize() {
       if (this.animation) {
         let elementWidth = this.$el.clientWidth
         this.elementHeight = elementWidth * this.animation.p
+      }
+    },
+    createAnimation() {
+      if (this.animation || !this.$refs.canvas) return
+
+      var vuetifyTheme = this.$vuetify.theme
+      var backgroundColor = vuetifyTheme.primaryBackground
+      if (typeof backgroundColor == 'object') {
+        backgroundColor = backgroundColor.base
+      }
+      var textColor = vuetifyTheme.primaryText
+      if (typeof textColor == 'object') {
+        textColor = textColor.base
+      }
+      if (this.p_animationName) {
+        this.animation = bannerAnimations(this.p_animationName, {
+          canvas: this.$refs.canvas,
+          background: backgroundColor,
+          textColor,
+          width: this.width,
+          height: this.height,
+        })
       }
     },
   },
