@@ -3,7 +3,7 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
 
-import { browserStorageMethods, colorThems } from '@/utils'
+import { browserStorageMethods, colorThemes } from '@/utils'
 
 let theme = browserStorageMethods.getData('colorTheme')
 if (theme == null) {
@@ -14,10 +14,16 @@ if (theme == null) {
 Vue.use(Vuetify)
 
 export default new Vuetify({
-  theme: colorThems[theme],
-  options: {
-    customProperties: true,
-  },
+  theme: {
+    dark: false,
+    themes: {
+      light: colorThemes.light,
+      dark: colorThemes.dark,
+    },
+    options: {
+      customProperties: true,
+    },
+   },
   iconfont: 'mdi',
 })
 

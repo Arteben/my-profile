@@ -108,8 +108,8 @@ export const getInfoImgSrc = (_projectName = '', _isBig = false) => {
   return path + img
 }
 
-export const colorThems = {
-  'black': {
+export const colorThemes = {
+  'dark': {
     primaryText: '#FFF',
     primaryBackground: colors.grey.darken3,
     titleText: colors.grey.lighten5,
@@ -117,7 +117,7 @@ export const colorThems = {
     worksTextColor: '#000',
     worksBackground: colors.grey.darken1,
   },
-  'white': {
+  'light': {
     primaryText: '#000',
     primaryBackground: colors.grey.lighten3,
     titleText: '#000',
@@ -149,6 +149,6 @@ export const getColorSwitcher = function () {
     const storageTheme = browserStorageMethods.getData('colorTheme')
     const newSet = (storageTheme == 'black') && 'white' || 'black'
     browserStorageMethods.setField('colorTheme', newSet)
-    vueApp.$vuetify.theme = colorThems[newSet]
+    vueApp.$vuetify.theme = colorThemes[newSet]
   }
 }

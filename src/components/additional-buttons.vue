@@ -6,35 +6,33 @@
     nowrap
   >
     <v-btn
-      class="ma-2"
+      class="ma-1"
       v-for="icon of addedIcons"
       :key="icon.id"
       :title="$langs.title(icon.title)"
       @click="onClickIcon(icon.id)"
       icon
-      text
+      large
     >
       <v-icon
         color="titleText"
-        large
       >{{ getNameIcon(icon) }}</v-icon>
     </v-btn>
     <v-btn
-      class="ma-3"
-      text
-      icon
+      class="ma-1"
       large
+      icon
       :title="$langs.title('head_title_switchlang')"
       @click="onClickIcon('switchLang')"
     >
-      <flag-icon />
+      <lang-switcher />
     </v-btn>
   </v-layout>
 </template>
 
 <script>
-import flagIcon from '@/components/flag-icon'
 import { pushAppRouter } from '@/utils'
+import langSwitcher from './lang-switcher.vue'
 
 const addedIcons = [
   {
@@ -62,7 +60,7 @@ export default {
       addedIcons,
     }
   },
-  components: { flagIcon },
+  components: { langSwitcher },
   methods: {
     getNameIcon (_icon) {
       return _icon.name

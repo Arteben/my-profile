@@ -1,18 +1,12 @@
 <template>
-  <div>
-    <v-icon
-      :class="$style.icon"
-      color="titleText"
-    >mdi-translate</v-icon>
-    <span
-      :class="$style.lang"
-    >{{ lang }}</span>
-  </div>
+  <span
+    :class="$style.lang"
+  >{{ lang }}</span>
 </template>
 
 <script>
 export default {
-  name: 'FlagIcon',
+  name: 'LangSwitcher',
   computed: {
     lang () {
       return this.$langs.getReverseLang()
@@ -25,16 +19,10 @@ export default {
 </script>
 
 <style module lang="sass">
-.icon {
-  border: 3px solid var(--v-primaryText-base);
-  border-radius: 30px;
-}
-
 .lang {
   color: var(--v-primaryText-base);
   font-weight: bold;
   margin-left: 2px;
   font-size: 17px;
-  vertical-align: super;
 }
 </style>

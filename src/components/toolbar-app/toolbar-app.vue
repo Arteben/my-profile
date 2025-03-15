@@ -27,7 +27,7 @@
         <v-layout
           :class="[$style.lobsterFont, $style.siteName, $style[getClassFontSizeFor('siteNameFont')]]"
           row
-          px-4
+          mx-4
           justify-start
           align-content-center
           wrap
