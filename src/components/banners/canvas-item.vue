@@ -49,6 +49,17 @@ export default {
         }, 100)
       }
     },
+    '$vuetify.theme.dark': function(_isDark) {
+      if (!this.animation) return
+
+      var vuetifyTheme = {}
+      if (_isDark) {
+        vuetifyTheme = this.$vuetify.theme.themes.dark
+      } else {
+        vuetifyTheme = this.$vuetify.theme.themes.light
+      }
+      this.animation.updateColors(vuetifyTheme.primaryText, vuetifyTheme.primaryBackground)
+    },
   },
   mounted() {
     window.addEventListener('load', this.animationPLay)
@@ -67,17 +78,19 @@ export default {
       }
     },
     createAnimation() {
-      if (this.animation || !this.$refs.canvas) return
+      if ((this.animation) || !this.$refs.canvas) return
 
-      var vuetifyTheme = this.$vuetify.theme
+      var vuetifyThemes = this.$vuetify.theme
+      var vuetifyTheme = null
+      if(vuetifyThemes.dark) {
+        vuetifyTheme = vuetifyThemes.themes.dark
+      } else {
+        vuetifyTheme = vuetifyThemes.themes.light
+      }
+
       var backgroundColor = vuetifyTheme.primaryBackground
-      if (typeof backgroundColor == 'object') {
-        backgroundColor = backgroundColor.base
-      }
       var textColor = vuetifyTheme.primaryText
-      if (typeof textColor == 'object') {
-        textColor = textColor.base
-      }
+
       if (this.p_animationName) {
         this.animation = bannerAnimations(this.p_animationName, {
           canvas: this.$refs.canvas,

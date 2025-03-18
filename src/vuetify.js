@@ -5,17 +5,19 @@ import '@mdi/font/css/materialdesignicons.css'
 
 import { browserStorageMethods, colorThemes } from '@/utils'
 
-let theme = browserStorageMethods.getData('colorTheme')
-if (theme == null) {
-  theme = 'black'
-  browserStorageMethods.setField('colorTheme', theme)
+var isDark = browserStorageMethods.getData('isDark')
+if (isDark == null) {
+  isDark = true
+  browserStorageMethods.setField('isDark', isDark)
+} else {
+  isDark = (isDark == 'true')
 }
 
 Vue.use(Vuetify)
 
 export default new Vuetify({
   theme: {
-    dark: false,
+    dark: isDark,
     themes: {
       light: colorThemes.light,
       dark: colorThemes.dark,

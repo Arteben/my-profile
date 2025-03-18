@@ -5,8 +5,7 @@ export default class CanvasQueryBanner {
     var width = _props.width
     var height = _props.height
 
-    this.backgroundColor = _props.background || 'black'
-    this.textColor = _props.textColor || 'white'
+    this.updateColors(_props.textColor, _props.background)
     this.ventureFont = '16px venture'
     this.maincraftFont = '16px maincraft'
     // this.mainFont
@@ -52,6 +51,11 @@ export default class CanvasQueryBanner {
 
     this.l.textBaseline('top')
     this.l.textAlign('center')
+  }
+
+  updateColors(_text = 'black', _back = 'white') {
+    this.textColor = _text
+    this.backgroundColor = _back
   }
 
   draw() {

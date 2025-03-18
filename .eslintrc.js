@@ -15,6 +15,7 @@ module.exports = {
       'error',
       'single',
     ],
+    'no-extra-boolean-cast': 'off',
     'vue/array-bracket-spacing': 'error',
     'vue/arrow-spacing': 'error',
     'vue/block-spacing': 'error',

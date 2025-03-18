@@ -24,13 +24,7 @@ export default class CanvasBanner {
       edgePers: 30,
     }
 
-    this.colors = {
-      background,
-      support: textColor,
-      container: textColor,
-      containerBorder: background,
-      textColor: background,
-    }
+    this.updateColors(textColor, background)
 
     this.isSound = _props.isSound
     // this.mainFont
@@ -54,6 +48,16 @@ export default class CanvasBanner {
     ctx.textBaseline = 'middle'
     ctx.textAlign = 'center'
     this.layer = ctx
+  }
+
+  updateColors (_text, _back) {
+    this.colors = {
+      background: _back,
+      support: _text,
+      container: _text,
+      containerBorder: _back,
+      textColor: _back,
+    }
   }
 
   draw () {

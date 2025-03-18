@@ -1,14 +1,14 @@
 import colors from 'vuetify/es5/util/colors'
 
-export const pushAppRouter = function ({_name, _pagePart, _lang}, _isReplace) {
+export const pushAppRouter = function ({ _name, _pagePart, _lang }, _isReplace) {
   const route = this.$route
   const name = _name && _name || route.name
   const pagePart = _pagePart && _pagePart || route.params.pagePart
   const lang = _lang && _lang || route.params.lang
   if (_isReplace) {
-    this.$router.replace({name, params: { lang, pagePart }})
+    this.$router.replace({ name, params: { lang, pagePart } })
   } else {
-    this.$router.push({name, params: { lang, pagePart }})
+    this.$router.push({ name, params: { lang, pagePart } })
   }
 }
 
@@ -38,7 +38,7 @@ export const getCurrentPartAppAnchor = (function () {
     }
   }
 
-  return  function () {
+  return function () {
     if (timeout) {
       window.clearTimeout(timeout)
     }
@@ -48,7 +48,7 @@ export const getCurrentPartAppAnchor = (function () {
   }
 }())
 
-export const scrollToElementHref = (function() {
+export const scrollToElementHref = (function () {
   let timeout = null
   return function (_ref, _withoutCorrect) {
     if (timeout) {
@@ -127,7 +127,7 @@ export const colorThemes = {
   },
 }
 
-export const browserStorageMethods = (function() {
+export const browserStorageMethods = (function () {
   const prefix = 'artem_profile_'
   const storeObject = window.localStorage
   return {
@@ -141,14 +141,14 @@ export const browserStorageMethods = (function() {
       return value !== null && String(value) || value
     },
   }
-}) ()
+})()
 
 export const getColorSwitcher = function () {
   const vueApp = this
   return function () {
-    const storageTheme = browserStorageMethods.getData('colorTheme')
-    const newSet = (storageTheme == 'black') && 'white' || 'black'
-    browserStorageMethods.setField('colorTheme', newSet)
-    vueApp.$vuetify.theme = colorThemes[newSet]
+    const isDark = browserStorageMethods.getData('isDark') == 'true'
+    const newSet = !isDark
+    browserStorageMethods.setField('isDark', newSet)
+    vueApp.$vuetify.theme.dark = newSet
   }
 }

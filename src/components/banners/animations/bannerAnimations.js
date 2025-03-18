@@ -36,11 +36,16 @@ export default function (_name, _props) {
     _Class,
     _playMethod,
     _clearNameMethod,
+    _updateColors,
   ) => {
     picture = new _Class(_props)
     animation.picture = picture
     animation.play = () => {
       _playMethod(picture)
+    }
+    animation.updateColors = (_text, _back) => {
+      _updateColors(picture, _text, _back)
+      animation.play()
     }
     if (typeof picture[_clearNameMethod] == 'function') {
       picture[_clearNameMethod]()
@@ -49,19 +54,37 @@ export default function (_name, _props) {
 
   switch (_name) {
     case 'iWantBe':
-      createAnimation(IWantToBe, (_animation) => {
+      createAnimation(
+      IWantToBe,
+      (_animation) => {
         _animation.animateBottom()
-      }, 'draw')
+      },
+      'draw',
+      (_anim, _text, _color) => {
+        _anim.updateColors(_text, _color)
+      })
       break
     case 'blocks':
-      createAnimation(WordsBlocks, (_anim) => {
+      createAnimation(
+      WordsBlocks,
+      (_anim) => {
         _anim.drop()
-      }, 'draw')
+      },
+      'draw',
+      (_anim, _text, _color) => {
+        _anim.updateColors(_text, _color)
+      })
       break
     case 'scalling':
-      createAnimation(ScallingIsArt, (_anim) => {
+      createAnimation(
+      ScallingIsArt,
+      (_anim) => {
         _anim.startScalling()
-      }, 'clear')
+      },
+      'clear',
+      (_anim, _text, _color) => {
+        _anim.updateColors(_text, _color)
+      })
   }
 
   return animation

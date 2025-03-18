@@ -18,8 +18,7 @@ const getReturnPtValue = (_pt, _value) => {
 
 export default class CanvasBanner {
   constructor(_props) {
-    this.background = _props.background || 'black'
-    this.textColor = _props.textColor || 'white'
+    this.updateColors(_props.textColor, _props.background)
     this.phrases = ['Code is art', 'that does something']
     this.phrasesParams = {
       mainFont: 'venture',
@@ -44,6 +43,11 @@ export default class CanvasBanner {
 
     this.stateId = 0
     this.counter = 0
+  }
+
+  updateColors(_text, _back) {
+    this.background = _back || 'black'
+    this.textColor = _text || 'white'
   }
 
   setTransform (_zoom = 1, _moveX = 0, _moveY = 0) {
