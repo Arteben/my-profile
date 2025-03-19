@@ -3,7 +3,8 @@
     class="elevation-0"
     :class="$style.banners"
     hide-delimiters
-    interval="15000"
+    cycle
+    interval="12000"
     height="auto"
     light
     @change="onCarouselSelected"
