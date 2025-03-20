@@ -111,8 +111,8 @@ export default {
   }
 
   .cardExpanded {
-    width: 800px;
-    max-width: 100%;
+    max-width: 700px;
+    width: 80%;
     cursor: default;
   }
   .cardTitle {

@@ -13,6 +13,20 @@
 export default {
   name: 'AppAlerts',
   props: { p_text: String },
+  data () {
+    return {
+      timeOut: null,
+    }
+  },
+  mounted () {
+    if (this.timeOut) {
+      window.clearTimeout(this.timeOut)
+    }
+
+    this.timeOut = window.setTimeout(() => {
+      this.onClick()
+    }, 1000)
+  },
   methods: {
     onClick() {
       this.$emit('closeAlert')

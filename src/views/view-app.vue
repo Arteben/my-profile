@@ -20,7 +20,7 @@
       <nav-drawer-app-content />
     </v-navigation-drawer>
     <app-alerts
-      v-show="alertText"
+      v-if="alertText"
       @closeAlert="showAlert()"
       :p_text="alertText"
     />
