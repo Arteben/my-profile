@@ -11,9 +11,6 @@ export default {
     lang () {
       return this.$langs.getReverseLang()
     },
-    icon () {
-      return this.icons[`${this.lang}Icon`]
-    },
   },
 };
 </script>

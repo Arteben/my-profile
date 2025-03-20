@@ -1,23 +1,32 @@
 <template>
   <v-app-bar
     app
-    height="100"
+    height="80"
     class="titleBackground"
-  > <v-toolbar-side-icon
-      v-if="isExtraSmall"
+  >
+    <v-btn
+      icon
+      v-if="isMedium"
       @click="$emit('clickSideIcon')"
       :class="$style.sideIcon"
-    />
-    <v-toolbar-title :class="$style.title">
+    >
+      <v-icon>mdi-menu</v-icon>
+    </v-btn>
+    <v-toolbar-title
+      :class="$style.title"
+    >
       <v-layout
         raw
         fill-height
         align-center
-      > <v-layout
-          :class="$style.wholeName"
+      >
+        <v-layout
+          :class="[$style.wholeName, isExtraSmall ? 'mr-4' : 'mr-16']"
           column
           align-end
-        > <v-flex
+          mr-10
+        >
+          <v-flex
             :class="[$style.firstName, isMobile && $style.firstName_mobile]"
           > {{ $langs.title('head_name') }} </v-flex>
           <v-flex
@@ -27,7 +36,6 @@
         <v-layout
           :class="[$style.lobsterFont, $style.siteName, $style[getClassFontSizeFor('siteNameFont')]]"
           row
-          mx-4
           justify-start
           align-content-center
           wrap
@@ -41,7 +49,8 @@
         </v-layout>
         <v-spacer />
         <add-buttons
-          v-if="!isExtraSmall"
+          v-if="!isMedium"
+          class="flex-grow-0"
         />
       </v-layout>
     </v-toolbar-title>
@@ -65,6 +74,9 @@ export default {
     isExtraSmall () {
       return this.$vuetify.breakpoint.xs
     },
+    isMedium () {
+      return this.isExtraSmall || this.$vuetify.breakpoint.sm
+    },
   },
   methods: {
     getClassFontSizeFor (_nameClass) {
@@ -86,7 +98,7 @@ export default {
 
 <style module lang="sass">
  .title {
-    overflow: auto;
+    overflow: hidden;
     flex-grow: 1;
     color: var(--v-titleText-base);
   }
