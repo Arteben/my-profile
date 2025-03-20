@@ -56,8 +56,9 @@ export const scrollToElementHref = (function () {
     }
     const breakpoint = this.$vuetify && this.$vuetify.breakpoint || {}
     const timeLoop = breakpoint.xs && 100 || 400
+    const refs = this.$refs
     timeout = window.setTimeout(() => {
-      const element = this.$refs && this.$refs[_ref][0].$el || {}
+      const element = refs && refs[_ref][0].$el || {}
       const elementTop = element.getBoundingClientRect().top
       const topWithCorrect = _withoutCorrect && (elementTop - 100) || (elementTop - 200)
       const top = topWithCorrect + window.scrollY

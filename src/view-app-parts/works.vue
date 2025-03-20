@@ -8,17 +8,20 @@
     <div
       v-if="isMobile"
       :class="wrapWorkClass"
+      class="ma-1"
     >
       <my-work
         v-for="workItem in worksInfo"
-        :key="workItem.link"
+        :key="workItem.img"
         :p_workData="workItem"
+        :p_isExpandWork="isExpanded(workItem.img)"
         @toggleWork="onExpendWork"
-        :ref="workItem.name"
+        :ref="getWorkItemRef(workItem.img)"
       />
     </div>
     <v-scale-transition
       v-else
+      class="ma-1"
       :class="wrapWorkClass"
       origin="center center"
       tag="div"
@@ -28,8 +31,9 @@
         v-for="workItem in worksInfo"
         :key="workItem.img"
         :p_workData="workItem"
+        :p_isExpandWork="isExpanded(workItem.img)"
         @toggleWork="onExpendWork"
-        :ref="workItem.name"
+        :ref="getWorkItemRef(workItem.img)"
       />
     </v-scale-transition>
   </v-container>
@@ -46,6 +50,7 @@ export default {
     return {
       worksInfo,
       wrapWorkClass: 'layout justify-center wrap',
+      expandedWork: null,
     }
   },
   components: {
@@ -60,9 +65,20 @@ export default {
     },
   },
   methods: {
-    onExpendWork ({ ref }) {
+    onExpendWork (_idx) {
       this.worksInfo = [...this.worksInfo]
-      scrollToElementHref.call(this, ref, true)
+      if (this.expandedWork == _idx) {
+        this.expandedWork = null
+      } else {
+        this.expandedWork = _idx
+        scrollToElementHref.call(this, this.getWorkItemRef(_idx), true)
+      }
+    },
+    getWorkItemRef(_idx) {
+      return 'workItem' + _idx
+    },
+    isExpanded(_workId) {
+      return this.expandedWork == _workId
     },
   },
 }

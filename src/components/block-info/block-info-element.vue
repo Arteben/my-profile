@@ -1,61 +1,65 @@
 <template>
-  <v-card
-    class="ma-2"
-    :class="$style[`card${isExpanded && 'Expanded' || ''}`]"
-    text
-    :color="isExpanded && 'titleBackground' || 'transparent'"
-    @click="$emit('expandCard')"
-  >
-    <v-card-title
-      :class="$style.cardTitle"
+  <v-hover v-slot="{ hover }">
+    <v-card
+      class="ma-2"
+      :class="[$style[`card${isExpanded && 'Expanded' || ''}`], isHover(hover) ? $style.contentCardHover : '']"
+      text
+      :color="isExpanded && 'titleBackground' || 'transparent'"
+      @click="$emit('expandCard')"
     >
-      <v-icon
-        left
-        medium
-        color="primaryText"
-      >mdi-{{ p_blockInfo.icon }}</v-icon>
-      <span
-        class="title"
-      >{{ $langs.translate(p_blockInfo.title) }}:</span>
-    </v-card-title>
-    <v-tabs-items>
-      <v-tab-item>
-        <v-layout
+      <v-card-title
+        class="align-start"
+        :class="[$style.cardTitle, isHover(hover) ? $style.titleCardHover : '']"
+      >
+        <v-icon
+          left
+          medium
+          class="mt-1"
+          color="primaryText"
+        >mdi-{{ p_blockInfo.icon }}</v-icon>
+        <span
+          class="title"
+        >{{ $langs.translate(p_blockInfo.title) }}:</span>
+      </v-card-title>
+      <v-list
+        class="transparent"
+      >
+        <v-list-item
           v-for="(item, idx) of p_blockInfo.items"
           :key="idx"
-          class="ml-4 body-2"
-          pa-2
+          no-action
+          class="ml-4 pa-1"
           align-start
         >
-          <v-icon
-            :class="$style.itemIcon"
-            color="primaryText"
-            :size="item.isBig && '24' || '18'"
-          >
-            mdi-{{ item.icon }}
-          </v-icon>
-          <v-flex
-            mx-2
-            :class="$style.infoTextCommon"
-          >
-            <v-flex
-              class="bold"
-              :class="item.isBig && 'subheading' || ''"
+          <v-list-item-content>
+            <v-list-item-title
+              class="d-flex flex-row"
             >
-              {{ getTitle(item) }}
-            </v-flex>
-            <v-flex
+              <v-icon
+                class="mr-2"
+                color="primaryText"
+                :size="item.isBig && '24' || '18'"
+              >
+                mdi-{{ item.icon }}
+              </v-icon>
+              <v-flex
+                class="bold text-subtitle-1"
+              >
+                {{ getTitle(item) }}
+              </v-flex>
+            </v-list-item-title>
+            <v-list-item-subtitle
               v-if="isExpanded && item.description"
-              class="my-2 subheading font-weight-light"
-              :class="$style.infoTextSpecialTitle"
+              class="ma-3 ml-8 text-body-1"
+              :class="$style.infoTextDesc"
             >
               {{ $langs.translate(item.description) }}
-            </v-flex>
-          </v-flex>
-        </v-layout>
-      </v-tab-item>
-    </v-tabs-items>
-  </v-card>
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-card>
+  </v-hover>
 </template>
 
 <script>
@@ -93,6 +97,9 @@ export default {
         (_item.question || _item.title) :_item.title
       return this.$langs.translate(text)
     },
+    isHover(_h) {
+      return !this.isExpanded && _h
+    },
   },
 }
 </script>
@@ -108,24 +115,22 @@ export default {
     max-width: 100%;
     cursor: default;
   }
-
-  .card:hover {
-    background: linear-gradient(to bottom, var(--v-primaryBackground-darken3), var(--v-primaryBackground-base));
-  }
-
   .cardTitle {
     flex-wrap: nowrap;
     background: linear-gradient(to bottom, var(--v-primaryBackground-darken3), var(--v-primaryBackground-base));
     color: var(--v-primaryText-base);
   }
-  .infoTextCommon {
-    color: var(--v-primaryText-base);
+  .infoTextDesc {
+    line-height: 30px !important;
+    text-wrap: inherit;
+    color: var(--v-primaryText-base) !important;
   }
-  .infoTextSpecialTitle {
-    line-height: 30px;
-  }
-  .itemIcon {
 
-    width: 25px;
+  .titleCardHover {
+     background: var(--v-primaryBackground-darken3);
+  }
+
+  .contentCardHover {
+    background: linear-gradient(to bottom, var(--v-primaryBackground-darken3), var(--v-primaryBackground-base));
   }
 </style>

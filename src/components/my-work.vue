@@ -9,10 +9,10 @@
       :class="[paddingsForCardImg]"
     >
       <v-img
-        :aspect-ratio="isExpanded && 2 || 6"
+        :aspect-ratio="p_isExpandWork && 2 || 6"
         :src="getImageSrc()"
         :lazy-src="getImageSrc('lazy')"
-        :key="'img' + isExpanded"
+        :key="'img' + p_isExpandWork"
         max-height="500"
       />
       <v-flex
@@ -43,7 +43,7 @@
           <v-flex>
             <p
               class="subheading font-weight-regular"
-              :class="{ 'text-truncate': !isExpanded }"
+              :class="{ 'text-truncate': !p_isExpandWork }"
               column
               full
             > {{ $langs.translate(p_workData.text) }} </p>
@@ -96,24 +96,19 @@ const linkToWork = 'http://coderjs.space/projects/'
 
 export default {
   name: 'MyWork',
-  data () {
-    return {
-      isExpanded: false,
-    }
-  },
-  props: { p_workData: Object },
+  props: { p_workData: Object, p_isExpandWork: Boolean },
   components: { workAddButtons },
   computed: {
     breakpointMdUp () {
       return this.$vuetify.breakpoint.mdAndUp
     },
     workItemWIdthClasses () {
-      return this.isExpanded
+      return this.p_isExpandWork
         ? 'lg4 md6 sm6 xs12'
         : 'lg3 md3 sm4'
     },
     paddingsForCardImg () {
-      const paddings = `pa-${this.isExpanded && 4 || 1}`
+      const paddings = `pa-${this.p_isExpandWork && 4 || 1}`
       const isMobile = this.$vuetify.breakpoint.xs
       return isMobile && 'pa-1' || paddings
     },
@@ -135,14 +130,10 @@ export default {
   },
   methods: {
     getImageSrc (_isLazy) {
-      return getInfoImgSrc(this.p_workData.img, !_isLazy && this.isExpanded)
+      return getInfoImgSrc(this.p_workData.img, !_isLazy && this.p_isExpandWork)
     },
     onClickCard() {
-      this.isExpanded = !this.isExpanded
-      this.$emit('toggleWork', {
-        ref: this.p_workData.name,
-        isExpanded:  this.isExpanded,
-      })
+      this.$emit('toggleWork', this.p_workData.img)
     },
     onClickIconOpenGame() {
       window.open(this.linkToWork)
