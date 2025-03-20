@@ -74,14 +74,15 @@ export const eventsBus = {
     events: {
       'scrollApp': 'eventsBus_scrollApp',
       'switchColors': 'eventsBus_switchColors',
+      'showAlert': 'eventsBus_showAlert',
     },
   },
   mixins: [{
     methods: {
-      callEvent(_name) {
+      callEvent(_name, _data) {
         const event = this.events[_name]
         if (event) {
-          this.$emit(event)
+          this.$emit(event, _data)
         }
       },
       setListener(_name, _callback, _component) {

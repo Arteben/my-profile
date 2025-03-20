@@ -13,7 +13,7 @@
     </v-layout>
     <v-layout
       class="pt-4 px-3 pb-0"
-      :class="[isWideScreen ? 'pt-8 pb-2' : '', $style.contactsLayout]"
+      :class="$style.contactsLayout"
       wrap
       align-center
       justify-center

@@ -47,6 +47,14 @@
     "ru": "телеграм",
     "eng": "telegram"
   },
+  "contacts_title_for_copy": {
+    "ru": "Кликните, что бы скопировать.",
+    "eng": "Click to copy the contact"
+  },
+  "contacts_copy_success": {
+    "ru": "Скопировано!",
+    "eng": "Copied!"
+  },
   "print_backButton": {
     "ru": "На главную страницу",
     "eng": "Back"

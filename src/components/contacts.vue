@@ -4,13 +4,13 @@
     class="px-2"
     :class="[$style.mainContainer, isMobile && 'column']"
   >
-    <template v-for="contactsData in contactsInfo">
-      <v-component
-        :is="getElementForContactInfo(contactsData)"
+    <template v-for="(contactsData, idx) in contactsInfo">
+      <span
         class="flex my-2"
-        :href="contactsData.href"
-        :key="contactsData.type"
-        :title="$langs.title(`contacts_title_${contactsData.type}`)"
+        :class="$style.contact"
+        :key="idx"
+        :title="$langs.title('contacts_title_for_copy')"
+        @click="copyContact(contactsData.text)"
       >
         <div
           class="px-2 py-1 align-center"
@@ -20,12 +20,12 @@
             medium
             left
             color="primaryText"
-          >{{
-            contactsData.icon
-          }}</v-icon>
+          >
+            {{ contactsData.icon }}
+          </v-icon>
           <span class="title">{{ contactsData.text }}</span>
         </div>
-      </v-component>
+      </span>
     </template>
   </v-layout>
 </template>
@@ -33,15 +33,11 @@
 <script>
 const contactsInfo = [
   {
-    type: 'mail',
     text: 'artjombebenin@gmail.com',
-    href: 'mailto:artjombebenin@gmail.com',
     icon: 'mdi-email',
   },
   {
-    type: 'telegram',
     text: '@artjomben',
-    href: 'https://t.me/artjomben',
     icon: 'mdi-telegram',
   },
 ];
@@ -59,8 +55,20 @@ export default {
     },
   },
   methods: {
-    getElementForContactInfo(_info) {
-      return (_info && _info.href && 'a') || 'span';
+    copyContact(_text) {
+      var textArea = document.createElement('textarea')
+      textArea.value = _text
+      document.body.appendChild(textArea)
+
+      textArea.select()
+
+      var copText = document.execCommand('copy')
+      document.body.removeChild(textArea)
+
+      if (copText) {
+        var message = this.$langs.title('contacts_copy_success')
+        this.$eventsBus.callEvent('showAlert', {type: 'alert', text: message})
+      }
     },
   },
 };
@@ -71,6 +79,10 @@ export default {
   min-width: 350px;
   & > a {
     text-decoration: none;
+  }
+
+  .contact {
+    cursor: pointer;
   }
 
   @media print {

@@ -19,6 +19,11 @@
     >
       <nav-drawer-app-content />
     </v-navigation-drawer>
+    <app-alerts
+      v-show="alertText"
+      @closeAlert="showAlert()"
+      :p_text="alertText"
+    />
     <v-content>
       <v-container
         pa-0
@@ -40,6 +45,7 @@
 import {
   toolbarApp,
   navDrawerAppContent,
+  appAlerts,
 } from '@/components'
 
 import * as parts from '@/view-app-parts'
@@ -55,16 +61,19 @@ export default {
       isShowDrawer: false,
       viewport: {},
       partsKeys: Object.keys(parts),
+      alertText: null,
     }
   },
   mounted () {
     this.$eventsBus.setListener('switchColors', getColorSwitcher.call(this), this)
+    this.$eventsBus.setListener('showAlert', this.showAlert.bind(this), this)
   },
   components: {
     toolbarApp,
     navDrawerAppContent,
     resume: parts.resume,
     works: parts.works,
+    appAlerts,
   },
   watch: {
     '$vuetify.breakpoint.smAndDown' (_newVal) {
@@ -101,6 +110,13 @@ export default {
     },
     showDrawer () {
       this.isShowDrawer = true
+    },
+    showAlert(_data = null) {
+      if (_data && _data.text) {
+        this.alertText = _data.text
+      } else {
+        this.alertText = null
+      }
     },
   },
 }
