@@ -1,7 +1,6 @@
 <template>
   <v-carousel
     class="elevation-0"
-    :class="$style.banners"
     hide-delimiters
     cycle
     interval="12000"
@@ -44,10 +43,3 @@ export default {
   },
 }
 </script>
-
-<style module>
-.banners {
-  padding: 0 5%;
-  max-width: 1200px;
-}
-</style>

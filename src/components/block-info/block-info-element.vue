@@ -119,6 +119,7 @@ export default {
     flex-wrap: nowrap;
     background: linear-gradient(to bottom, var(--v-primaryBackground-darken3), var(--v-primaryBackground-base));
     color: var(--v-primaryText-base);
+    word-break: normal;
   }
   .infoTextDesc {
     line-height: 30px !important;
