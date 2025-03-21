@@ -1,7 +1,7 @@
 <template>
   <v-container
     id="works"
-    class="worksBackground pa-8"
+    class="primaryBackground pa-8"
     v-bind="{ [`grid-list-${size}`]: true }"
     fluid
   >

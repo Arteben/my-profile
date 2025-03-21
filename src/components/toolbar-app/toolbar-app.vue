@@ -128,7 +128,7 @@ export default {
     flex-grow: 0
   }
   .siteNameFontDesktop {
-    font-size: 40px;
+    font-size: 35px;
   }
   .siteNameFontMobile {
     min-width: 160px;

@@ -50,8 +50,8 @@ export default {
         this.expandedBlock = null
       } else {
         this.expandedBlock = _idx
-        scrollToElementHref.call(this, this.getHref(_idx))
       }
+      scrollToElementHref.call(this, this.getHref(_idx))
     },
   },
   components: {
