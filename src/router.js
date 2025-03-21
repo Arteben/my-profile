@@ -36,7 +36,7 @@ export default new Router({
       component: app,
     },
     {
-      path: '/print/:lang/',
+      path: '/:lang//print/',
       name: 'print',
       component: printView,
     },
