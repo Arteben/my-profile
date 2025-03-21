@@ -4,37 +4,30 @@
   >
     <v-layout
       :class="$style.printedTitle"
-      align-end
     >
       <my-photo
-        class="xs2"
         :p_isPrintMode="true"
         @photoLoad="loadImagesCounter++"
+        :class="$style.myPhoto"
       />
-      <v-flex
-        ma-3
-        class="display-2"
-      >
-        {{ $langs.title('print_fullName') }}
-      </v-flex>
       <v-flex>
-        <canvas ref="qrCodeEl" />
+        <span :class="$style.titleCaption">{{ $langs.title('print_fullName') }} </span>
+      </v-flex>
+      <v-flex :class="$style.qrCodeDiv">
+        <canvas
+          :class="$style.qrCode"
+          ref="qrCodeEl"
+        />
       </v-flex>
     </v-layout>
     <hr>
-    <div
-      :class="$style.printedMyInfo"
-    >
-      <contacts class="my-3" />
-      <info-blocks
-        ma-3
-        :p_isExpanded="true"
-      />
-    </div>
+    <contacts :class="$style.printedMyContacts" />
     <hr>
-    <div :class="$style.spacer" />
+    <info-blocks
+      :class="$style.printedMyInfo"
+      :p_isExpanded="true"
+    />
     <v-layout
-      mx-3
       column
       :class="$style.printedWorks"
     >
@@ -104,17 +97,51 @@ export default {
 <style module lang="sass">
   .mainContainer {
     background: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-items: start;
+    align-items: stretch;
 
     .printedMyInfo *,
     .printedTitle *,
+    .printedMyContacts *,
     .printedWorks * {
       color: black !important;
       background: white !important;
     }
   }
 
+  .printedTitle {
+    align-items: center;
+  }
+
   .spacer {
     display: none;
+  }
+
+  .titleCaption {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: serif;
+  }
+
+  .qrCodeDiv {
+    align-self: start;
+  }
+
+  .qrCode {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .myPhoto {
+    margin: 10px;
+  }
+
+  .printedMyContacts {
+    margin: 40px 0;
+    font-size: 20px !important;
   }
 
   @media print {

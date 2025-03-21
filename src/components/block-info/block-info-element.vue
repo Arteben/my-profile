@@ -33,6 +33,7 @@
         >
           <v-list-item-content>
             <v-list-item-title
+              :class="$style.listItemTitle"
               class="d-flex flex-row"
             >
               <v-icon
@@ -104,7 +105,7 @@ export default {
 }
 </script>
 
-<style module>
+<style module lang="sass">
   .card, .cardExpanded {
     width: 300px;
     cursor: pointer;
@@ -114,6 +115,10 @@ export default {
     max-width: 700px;
     width: 80%;
     cursor: default;
+
+    @media print {
+      min-width: 100%;
+    }
   }
   .cardTitle {
     flex-wrap: nowrap;
@@ -133,5 +138,16 @@ export default {
 
   .contentCardHover {
     background: linear-gradient(to bottom, var(--v-primaryBackground-darken3), var(--v-primaryBackground-base));
+  }
+
+  @media print {
+    .listItemTitle {
+      flex-direction: row;
+      display: flex;
+
+      I {
+        margin: 0 4px 5px 0;
+      }
+    }
   }
 </style>

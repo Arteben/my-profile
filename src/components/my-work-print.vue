@@ -1,8 +1,6 @@
 <template>
   <v-layout
-    row
-    justify-start
-    ma-1
+    :class="$style.workContainer"
   >
     <img
       :class="['mx-3', $style.workImage]"
@@ -42,11 +40,20 @@ export default {
 }
 </script>
 
-<style module>
+<style module lang="sass">
+  .workContainer {
+    margin: 15px;
+
+    & > div {
+      max-width: 70%;
+    }
+  }
+
   .workImage {
     width: 100px;
     height: 100px;
     border-radius: 10px;
     object-fit: cover;
+    margin-right: 10px;
   }
 </style>
