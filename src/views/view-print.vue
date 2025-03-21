@@ -53,9 +53,9 @@
 import QRCode from 'qrcode'
 
 import worksInfo from '@/assets/myWorks.json'
-// import query from '@/mixins/query'
 import { infoBlocks, contacts, myPhoto, myPrintedWork } from '@/components'
-import { pushAppRouter, rootLink } from '@/utils'
+import { pushAppRouter } from '@/utils'
+import { rootLink } from '@/rc-links'
 
 export default {
   name: 'ViewPrint',

@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import { rootLink } from './rc-links'
 
 export const pushAppRouter = function ({ _name, _pagePart, _lang }, _isReplace) {
   const route = this.$route
@@ -101,8 +102,6 @@ export const eventsBus = {
     },
   }],
 }
-
-export const rootLink = 'http://coderjs.space'
 
 export const getInfoImgSrc = (_projectName = '', _isBig = false) => {
   const path = `${rootLink}/projects/${_projectName}/info/`

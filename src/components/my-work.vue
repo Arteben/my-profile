@@ -74,9 +74,9 @@
 <script>
 
 import { getInfoImgSrc } from '@/utils'
+import { linkToWork } from '@/rc-links'
 import workAddButtons from './work-add-buttons'
 
-const linkToWork = 'http://coderjs.space/projects/'
 
 // {
 //   "name": "Calculator",
