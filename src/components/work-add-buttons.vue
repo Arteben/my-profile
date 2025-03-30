@@ -26,7 +26,7 @@
 const icons = {
   git: {
     title: 'work_titleGithub',
-    icon: 'github-circle',
+    icon: 'github',
   },
   habr: {
     title: 'work_titleHabra',

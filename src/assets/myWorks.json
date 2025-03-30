@@ -10,43 +10,9 @@
     },
     "date": "2022-05",
     "img": "chess3d",
-    "img_big": "chess3d",
     "link": "chess3d/index.html",
     "addLinks": {
       "git": "https://github.com/Arteben/chess3d"
-    }
-  },
-  {
-    "name": {
-      "ru": "Калькулятор",
-      "eng": "Calculator"
-    },
-    "text": {
-      "ru": "Это мой первый проект на typescript и я его сделал в учебных целях.",
-      "eng": "This is my first typescript project and I created it for training."
-    },
-    "date": "2022-03",
-    "img": "calculatorts",
-    "img_big": "calculatorts",
-    "link": "calculatorts/index.html",
-    "addLinks": {
-      "git": "https://github.com/Arteben/calculatorts"
-    }
-  },
-  {
-    "name": {
-      "ru": "Портфолио",
-      "eng": "Profile"
-    },
-    "text": {
-      "ru": "Этот проект разрабатывался для презентации моих профессиональных навыков и моих работ.  Он написан на vue2, с использованием библиотеки vuetify. Этот проект был создан два года назад и время от времени немного доделывается.",
-      "eng": "This project was created to present my professional skills and my works. It has written with the vue2 library and the vuetify. This project was created two years ago and has been developed a bit since then."
-    },
-    "date": "2022-03",
-    "img": "myprofile",
-    "img_big": "myprofile",
-    "addLinks": {
-      "git": "https://github.com/Arteben/my-profile"
     }
   },
   {
@@ -60,8 +26,7 @@
     },
     "date": "2017-06",
     "img": "races",
-    "img_big": "races",
-    "link": "races\/index.html",
+    "link": "races/index.html",
     "addLinks": {
       "git": "https://github.com/Arteben/races",
       "habr": "https://habr.com/en/post/331430/"
@@ -78,22 +43,7 @@
     },
     "date": "2017-01",
     "img": "lines",
-    "img_big": "lines",
-    "link": "lines\/index.html"
-  },
-  {
-    "name": {
-      "ru": "Чичиве",
-      "eng": "Chichive"
-    },
-    "text": {
-      "ru": "Настольная игра, в которой игроки по очереди бросают кубик(здесь крутят рулетку). Если выпала шестерка (стрелка указала на шесть точек), то игрок может поставить новую фишку. Побеждает тот, кто первым проведет по всему полю четыре фишки. Игрок играет за «Reds», остальными игроками управляет AI.",
-      "eng": "A board game when players throw dice (roulette is spinning here). If a six has fallen (the arrow points to six dots), then the player can put a new chip. The first player to swipe four chips across the board wins. The player plays for the Reds, other players are controlled by AI."
-    },
-    "date": "2015-06",
-    "img": "chichive",
-    "img_big": "chichive",
-    "link": "chichive\/index.html"
+    "link": "lines/index.html"
   },
   {
     "name": {
@@ -106,8 +56,7 @@
     },
     "date": "2014-01",
     "img": "nac",
-    "img_big": "nac",
-    "link": "nac\/index.html",
+    "link": "nac/index.html",
     "addLinks": {
       "git": "https://github.com/Arteben/noughtscrossesjs",
       "habr": "https://habr.com/en/post/209544/"
@@ -124,8 +73,7 @@
     },
     "date": "2011-08",
     "img": "corners",
-    "img_big": "corners",
-    "link": "corners\/index.html",
+    "link": "corners/index.html",
     "addLinks": {
       "git": "https://github.com/Arteben/CornersJS",
       "habr": "https://habr.com/en/post/184726/"
@@ -142,7 +90,6 @@
     },
     "date": "2015-04",
     "img": "tag",
-    "img_big": "tag",
-    "link": "tag\/index.html"
+    "link": "tag/index.html"
   }
 ]

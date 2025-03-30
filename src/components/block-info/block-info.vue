@@ -8,7 +8,8 @@
       :key="idx"
       :p_blockInfo="blockInfo"
       :p_isExpanded="hasExpanded(idx)"
-      @expandCard="expand(idx)"
+      @expandCard="expandCard(idx)"
+      @collapseCard="collapseCard(idx)"
       :ref="getHref(idx)"
     />
   </v-layout>
@@ -45,13 +46,17 @@ export default {
     hasExpanded(_idx) {
       return this.p_isExpanded || (this.expandedBlock === _idx)
     },
-    expand (_idx) {
+    expandCard (_idx) {
+      if (this.expandedBlock == null || this.expandedBlock != _idx) {
+        this.expandedBlock = _idx
+        scrollToElementHref.call(this, this.getHref(_idx))
+      }
+    },
+    collapseCard(_idx) {
       if (this.expandedBlock == _idx) {
         this.expandedBlock = null
-      } else {
-        this.expandedBlock = _idx
+        scrollToElementHref.call(this, this.getHref(_idx))
       }
-      scrollToElementHref.call(this, this.getHref(_idx))
     },
   },
   components: {

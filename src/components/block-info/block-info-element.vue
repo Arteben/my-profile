@@ -6,10 +6,16 @@
       text
       :color="isExpanded && 'titleBackground' || 'transparent'"
       @click="$emit('expandCard')"
+      :ripple="false"
     >
       <v-card-title
+        @click="onClickTitle"
         class="align-start"
-        :class="[$style.cardTitle, isHover(hover) ? $style.titleCardHover : '']"
+        :class="[
+          $style.cardTitle,
+          isHover(hover) ? $style.titleCardHover : '',
+          isExpanded ? $style.titleExpandedHover : ''
+        ]"
       >
         <v-icon
           left
@@ -101,6 +107,15 @@ export default {
     isHover(_h) {
       return !this.isExpanded && _h
     },
+    isTitleExpandHover(_h) {
+      return this.isExpanded && _h
+    },
+    onClickTitle(event) {
+      if (this.isExpanded) {
+        event.stopPropagation()
+        this.$emit('collapseCard')
+      }
+    },
   },
 }
 </script>
@@ -134,6 +149,10 @@ export default {
 
   .titleCardHover {
      background: var(--v-primaryBackground-darken3);
+  }
+
+  .titleExpandedHover:hover {
+    cursor: pointer;
   }
 
   .contentCardHover {

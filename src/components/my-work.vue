@@ -74,7 +74,7 @@
 <script>
 
 import { getInfoImgSrc } from '@/utils'
-import { linkToWork } from '@/rc-links'
+import { linkToWorks } from '@/rc-links'
 import workAddButtons from './work-add-buttons'
 
 
@@ -86,7 +86,6 @@ import workAddButtons from './work-add-buttons'
 //     "This is my first typescript project and I created it for training"
 //   ],
 //   "img": "calculatorts",
-//   "img_big": "calculatorts",
 //   "link": "calculatorts/index.html",
 //   "addLinks": {
 //     "habr": "",
@@ -115,7 +114,7 @@ export default {
     linkToWork () {
       const isSpecial = this.p_workData.isSpecial
       const link = this.p_workData.link
-      return isSpecial && link || `${linkToWork}${link}`
+      return isSpecial && link || `${linkToWorks}${link}`
     },
     date () {
       const localLangOptions = {

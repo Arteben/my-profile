@@ -104,7 +104,7 @@ export const eventsBus = {
 }
 
 export const getInfoImgSrc = (_projectName = '', _isBig = false) => {
-  const path = `${rootLink}/projects/${_projectName}/info/`
+  const path = `${rootLink}${_projectName}/_pictures/`
   const img = _isBig ? 'img_big.jpg' : 'img.jpg'
   return path + img
 }
