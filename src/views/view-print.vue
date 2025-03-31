@@ -55,7 +55,7 @@ import QRCode from 'qrcode'
 import worksInfo from '@/assets/myWorks.json'
 import { infoBlocks, contacts, myPhoto, myPrintedWork } from '@/components'
 import { pushAppRouter } from '@/utils'
-import { rootLink } from '@/rc-links'
+import { resumeLink } from '@/rc-links'
 
 export default {
   name: 'ViewPrint',
@@ -70,7 +70,7 @@ export default {
     var images = document.getElementsByTagName('img')
     this.allImagesCounter = images.length
 
-    QRCode.toDataURL(this.$refs.qrCodeEl, rootLink)
+    QRCode.toDataURL(this.$refs.qrCodeEl, resumeLink)
 
   },
   components: {

@@ -1,5 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
-import { rootLink } from './rc-links'
+import { picturesLink } from './rc-links'
 
 export const pushAppRouter = function ({ _name, _pagePart, _lang }, _isReplace) {
   const route = this.$route
@@ -104,7 +104,7 @@ export const eventsBus = {
 }
 
 export const getInfoImgSrc = (_projectName = '', _isBig = false) => {
-  const path = `${rootLink}${_projectName}/_pictures/`
+  const path = `${picturesLink}${_projectName}/`
   const img = _isBig ? 'img_big.jpg' : 'img.jpg'
   return path + img
 }
