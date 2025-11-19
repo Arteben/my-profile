@@ -56,7 +56,7 @@ export const scrollToElementHref = (function () {
       window.clearTimeout(this.scrollTimeout)
     }
     const breakpoint = this.$vuetify && this.$vuetify.breakpoint || {}
-    const timeLoop = breakpoint.xs && 100 || 400
+    const timeLoop = breakpoint.xs && 100 || 150
     const refs = this.$refs
     timeout = window.setTimeout(() => {
       const element = refs && refs[_ref][0].$el || {}

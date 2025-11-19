@@ -47,7 +47,7 @@ export default {
       return !(breakpoint && breakpoint.xs)
     },
     photoPadding () {
-      return this.isNormalPhoto && 'my-5' || 'my-6'
+      return this.isNormalPhoto && 'my-15' || 'my-10'
     },
   },
 }

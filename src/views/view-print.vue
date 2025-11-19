@@ -25,7 +25,7 @@
     <hr>
     <info-blocks
       :class="$style.printedMyInfo"
-      :p_isExpanded="true"
+      :p_isAllExpanded="true"
     />
     <v-layout
       column

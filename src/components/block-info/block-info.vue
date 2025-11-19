@@ -8,8 +8,8 @@
       :key="idx"
       :p_blockInfo="blockInfo"
       :p_isExpanded="hasExpanded(idx)"
-      @expandCard="expandCard(idx)"
-      @collapseCard="collapseCard(idx)"
+      @expandCard="expandCard(idx, true)"
+      @collapseCard="expandCard(idx, false)"
       :ref="getHref(idx)"
     />
   </v-layout>
@@ -23,7 +23,7 @@ import { scrollToElementHref } from '@/utils'
 export default {
   name: 'BlockInfo',
   props: {
-    p_isExpanded: {
+    p_isAllExpanded: {
       type: Boolean,
       default: false,
     },
@@ -32,7 +32,18 @@ export default {
     return {
       infoBlocks: (infoBlocks || []),
       expandedBlock: null,
+      expandedBlocks: [],
     }
+  },
+  created() {
+    this.infoBlocks.forEach((element, idx) => {
+      if (this.p_isAllExpanded) {
+        this.expandedBlocks[idx] = true
+        return
+      }
+
+      this.expandedBlocks[idx] = Boolean(idx == 0)
+    })
   },
   computed: {
     isMobileScreen () {
@@ -44,19 +55,22 @@ export default {
       return 'blockElement_' + _idx
     },
     hasExpanded(_idx) {
-      return this.p_isExpanded || (this.expandedBlock === _idx)
+      return this.expandedBlocks[_idx] == true
     },
-    expandCard (_idx) {
-      if (this.expandedBlock == null || this.expandedBlock != _idx) {
-        this.expandedBlock = _idx
-        scrollToElementHref.call(this, this.getHref(_idx))
+    expandCard (_idx, isExpand) {
+      if (this.expandedBlocks[_idx] == undefined) {
+        return
       }
-    },
-    collapseCard(_idx) {
-      if (this.expandedBlock == _idx) {
-        this.expandedBlock = null
-        scrollToElementHref.call(this, this.getHref(_idx))
+
+      if (isExpand) {
+        this.expandedBlocks.fill(false)
+        this.expandedBlocks[_idx] = true
+      } else {
+        this.expandedBlocks[_idx] = isExpand
       }
+
+      this.expandedBlocks = [...this.expandedBlocks]
+      scrollToElementHref.call(this, this.getHref(_idx))
     },
   },
   components: {

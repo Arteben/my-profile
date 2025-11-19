@@ -5,11 +5,10 @@
       :class="[$style[`card${isExpanded && 'Expanded' || ''}`], isHover(hover) ? $style.contentCardHover : '']"
       text
       :color="isExpanded && 'titleBackground' || 'transparent'"
-      @click="$emit('expandCard')"
+      @click="onClickElement"
       :ripple="false"
     >
       <v-card-title
-        @click="onClickTitle"
         class="align-start"
         :class="[
           $style.cardTitle,
@@ -110,10 +109,12 @@ export default {
     isTitleExpandHover(_h) {
       return this.isExpanded && _h
     },
-    onClickTitle(event) {
+    onClickElement(event) {
+      event.stopPropagation()
       if (this.isExpanded) {
-        event.stopPropagation()
         this.$emit('collapseCard')
+      } else {
+        this.$emit('expandCard')
       }
     },
   },
@@ -129,12 +130,12 @@ export default {
   .cardExpanded {
     max-width: 700px;
     width: 80%;
-    cursor: default;
 
     @media print {
       min-width: 100%;
     }
   }
+
   .cardTitle {
     flex-wrap: nowrap;
     background: linear-gradient(to bottom, var(--v-primaryBackground-darken3), var(--v-primaryBackground-base));
