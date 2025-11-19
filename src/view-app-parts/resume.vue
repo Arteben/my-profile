@@ -59,13 +59,16 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-items: flex-start;
 }
 .contactsLayout {
   max-width: 900px;
   width: 80%;
+  max-height: 500px;
 }
 .bannersLayout {
   max-width: 1000px;
   width: 70%;
+  max-height: 250px;
 }
 </style>

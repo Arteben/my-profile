@@ -65,12 +65,12 @@ export default {
       if (isExpand) {
         this.expandedBlocks.fill(false)
         this.expandedBlocks[_idx] = true
+        scrollToElementHref.call(this, this.getHref(_idx))
       } else {
         this.expandedBlocks[_idx] = isExpand
       }
 
       this.expandedBlocks = [...this.expandedBlocks]
-      scrollToElementHref.call(this, this.getHref(_idx))
     },
   },
   components: {

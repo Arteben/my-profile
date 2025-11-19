@@ -13,7 +13,7 @@
         @click="copyContact(contactsData.text)"
       >
         <div
-          class="px-2 py-1 align-center"
+          class="px-2 py-1 align-center text-no-wrap"
           :class="[$style.contactInfo]"
         >
           <v-icon
@@ -33,12 +33,16 @@
 <script>
 const contactsInfo = [
   {
+    text: 't.me/artjomben',
+    icon: 'mdi-send-variant',
+  },
+  {
     text: 'artjombebenin@gmail.com',
     icon: 'mdi-email',
   },
   {
-    text: '@artjomben',
-    icon: 'mdi-telegram',
+    text: 'github.com/Arteben',
+    icon: 'mdi-github',
   },
 ];
 
@@ -77,6 +81,7 @@ export default {
 <style module lang="sass">
 .mainContainer {
   min-width: 350px;
+  max-width: 700px;
   & > a {
     text-decoration: none;
   }

@@ -1,6 +1,6 @@
 <template>
   <v-layout
-    class="ma-0 my-1 justify-center"
+    class="ma-0 justify-center wrap"
   >
     <v-btn
       v-for="(link, idx) of Object.keys(links)"
@@ -8,19 +8,21 @@
       @click.stop="btnClick(link)"
       icon
       :title="getTitle(link)"
-      class="mx-2"
+      class="mx-1 my-1"
     >
       <v-icon
         large
       >{{ getFullIconName(link) }}</v-icon>
     </v-btn>
 
+    <v-spacer />
+
     <v-btn
       v-if="p_workData.link"
       @click.stop="onClickIconOpenGame()"
       :title="$langs.title('work_linkGoTitle')"
       :icon="!p_expanded"
-      class="mx-2"
+      class="mx-1"
     >
       <v-icon
         :large="!p_expanded"
