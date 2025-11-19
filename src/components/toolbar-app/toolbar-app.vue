@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
     app
-    height="80"
+    height="110"
     class="titleBackground"
   >
     <v-btn
@@ -21,7 +21,7 @@
         align-center
       >
         <v-layout
-          :class="[$style.wholeName, isExtraSmall ? 'mr-4' : 'mr-16']"
+          :class="[$style.wholeName, isExtraSmall ? 'mr-6' : 'mr-16']"
           column
           align-end
           mr-10
@@ -101,6 +101,7 @@ export default {
     overflow: hidden;
     flex-grow: 1;
     color: var(--v-titleText-base);
+    height: 100%;
   }
   /* name person */
   .wholeName {
@@ -111,13 +112,13 @@ export default {
   .firstName {
     font-size: 35px;
     &.firstName_mobile {
-      font-size: 18px;
+      font-size: 22px;
     }
   }
   .lastName {
     font-size: 15px;
     &.lastName_mobile {
-      font-size: 10px;
+      font-size: 13px;
     }
   }
   /* name site */
