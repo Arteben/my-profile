@@ -13,7 +13,7 @@
     >
       <img-photo
         v-if="isNormalPhoto"
-        :p_width="100"
+        :p_width="150"
       />
       <img-photo
         v-else
@@ -47,7 +47,7 @@ export default {
       return !(breakpoint && breakpoint.xs)
     },
     photoPadding () {
-      return this.isNormalPhoto && 'my-2' || 'my-4'
+      return this.isNormalPhoto && 'my-5' || 'my-6'
     },
   },
 }

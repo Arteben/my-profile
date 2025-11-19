@@ -3,7 +3,7 @@
     class="elevation-0"
     hide-delimiters
     cycle
-    interval="12000"
+    interval="25000"
     height="auto"
     light
     @change="onCarouselSelected"
