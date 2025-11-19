@@ -13,7 +13,7 @@
         :src="getImageSrc()"
         :lazy-src="getImageSrc('lazy')"
         :key="'img' + p_isExpandWork"
-        max-height="500"
+        max-height="800"
       />
       <v-flex
         px-1
@@ -52,20 +52,10 @@
       </v-flex>
       <v-card-actions>
         <work-add-buttons
-          v-if="p_workData.addLinks"
-          :p_links="p_workData.addLinks"
+          :p_expanded="p_isExpandWork"
+          :p_workData="p_workData"
+          class="my-2"
         />
-        <v-spacer />
-        <v-btn
-          v-if="p_workData.link"
-          @click.stop="onClickIconOpenGame()"
-          icon
-          :title="$langs.title('work_linkGoTitle')"
-        >
-          <v-icon
-            large
-          >mdi-arrow-right</v-icon>
-        </v-btn>
       </v-card-actions>
     </v-card>
   </v-flex>
@@ -74,7 +64,6 @@
 <script>
 
 import { getInfoImgSrc } from '@/utils'
-import { linkToWorks } from '@/rc-links'
 import workAddButtons from './work-add-buttons'
 
 
@@ -107,14 +96,9 @@ export default {
         : 'lg3 md3 sm4'
     },
     paddingsForCardImg () {
-      const paddings = `pa-${this.p_isExpandWork && 4 || 1}`
+      const paddings = `pa-${this.p_isExpandWork && 5 || 3}`
       const isMobile = this.$vuetify.breakpoint.xs
       return isMobile && 'pa-1' || paddings
-    },
-    linkToWork () {
-      const isSpecial = this.p_workData.isSpecial
-      const link = this.p_workData.link
-      return isSpecial && link || `${linkToWorks}${link}`
     },
     date () {
       const localLangOptions = {
@@ -133,9 +117,6 @@ export default {
     },
     onClickCard() {
       this.$emit('toggleWork', this.p_workData.img)
-    },
-    onClickIconOpenGame() {
-      window.open(this.linkToWork)
     },
   },
 }

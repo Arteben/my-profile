@@ -21,7 +21,7 @@
     </div>
     <v-scale-transition
       v-else
-      class="ma-1"
+      class="mx-16 my-2"
       :class="wrapWorkClass"
       origin="center center"
       tag="div"
